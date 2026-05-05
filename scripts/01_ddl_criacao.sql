@@ -63,7 +63,7 @@ CREATE TABLE funcionario (
 
 	    CONSTRAINT check_salario CHECK (salario >= 1621),						                -- Uso de CONSTRAINT: checa e garante que o salario registrado seja maior que o salario minimo brasileiro
 
-	    CONSTRAINT fk_supervisor FOREIGN KEY (cpf_supervisor) REFERENCES Funcionario(cpf)		-- Uso de CONSTRAINT: regra que define cpf_supervisor como FK referenciando Funcionario(cpf)
+	    CONSTRAINT fk_supervisor FOREIGN KEY (cpf_supervisor) REFERENCES funcionario(cpf)		-- Uso de CONSTRAINT: regra que define cpf_supervisor como FK referenciando funcionario(cpf)
 
 );
 
@@ -79,7 +79,7 @@ CREATE TABLE endereco_funcionario (
 
 	    CONSTRAINT pk_endereco PRIMARY KEY (cpf_funcionario_residente),				                        -- Uso de CONSTRAINT: regra que define cpf_funcionario como PK
 
-	    CONSTRAINT fk_cpf_residente FOREIGN KEY (cpf_funcionario_residente) REFERENCES Funcionario(cpf)		-- Uso de CONSTRAINT: regra que define cpf_funcionario como FK referenciando Funcionario(cpf)
+	    CONSTRAINT fk_cpf_residente FOREIGN KEY (cpf_funcionario_residente) REFERENCES funcionario(cpf)		-- Uso de CONSTRAINT: regra que define cpf_funcionario como FK referenciando funcionario(cpf)
 
 );
 
@@ -91,7 +91,7 @@ CREATE TABLE telefone_funcionario (
 
 	    CONSTRAINT pk_telefone_funcionario PRIMARY KEY (cpf_funcionario_contato, numero_telefone),		-- Uso de CONSTRAINT: regra que define cpf_funcionario_contato e numero_telefone como PK
 	
-	    CONSTRAINT fk_cpf_contato FOREIGN KEY (cpf_funcionario_contato) REFERENCES Funcionario(cpf)		-- Uso de CONSTRAINT: regra que define cpf_funcionario_contato como FK referenciando Funcionario(cpf)
+	    CONSTRAINT fk_cpf_contato FOREIGN KEY (cpf_funcionario_contato) REFERENCES funcionario(cpf)		-- Uso de CONSTRAINT: regra que define cpf_funcionario_contato como FK referenciando funcionario(cpf)
 
 );
 
@@ -108,7 +108,7 @@ CREATE TABLE dependente (
 
 	    CONSTRAINT pk_dependente PRIMARY KEY (nome_dependente, cpf_funcionario_responsavel),			    -- Uso de CONSTRAINT: regra que define cpf_funcionario_responsavel e nome_dependente como PK
 
-	    CONSTRAINT fk_responsavel FOREIGN KEY (cpf_funcionario_responsavel) REFERENCES Funcionario(cpf)		-- Uso de CONSTRAINT: regra que define cpf_funcionario_responsavel como FK referenciando Funcionario(cpf)
+	    CONSTRAINT fk_responsavel FOREIGN KEY (cpf_funcionario_responsavel) REFERENCES funcionario(cpf)		-- Uso de CONSTRAINT: regra que define cpf_funcionario_responsavel como FK referenciando funcionario(cpf)
 
 );
 
@@ -123,7 +123,7 @@ CREATE TABLE diretor (
 	
 	    CONSTRAINT pk_diretor PRIMARY KEY (cpf_funcionario),							                    -- Uso de CONSTRAINT: regra que define cpf_funcionario como PK
 
-	    CONSTRAINT fk_cpf_diretor FOREIGN KEY (cpf_funcionario) REFERENCES Funcionario(cpf)			        -- Uso de CONSTRAINT: regra que define cpf_funcionario como FK referenciando Funcionario(cpf)
+	    CONSTRAINT fk_cpf_diretor FOREIGN KEY (cpf_funcionario) REFERENCES funcionario(cpf)			        -- Uso de CONSTRAINT: regra que define cpf_funcionario como FK referenciando funcionario(cpf)
 
 
 
@@ -138,7 +138,7 @@ CREATE TABLE figurinista (
 	
 	    CONSTRAINT pk_figurinista PRIMARY KEY (cpf_funcionario),						                    -- Uso de CONSTRAINT: regra que define cpf_funcionario como PK
 
-	    CONSTRAINT fk_cpf_figurinista FOREIGN KEY (cpf_funcionario) REFERENCES Funcionario(cpf)			    -- Uso de CONSTRAINT: regra que define cpf_funcionario como FK referenciando Funcionario(cpf)
+	    CONSTRAINT fk_cpf_figurinista FOREIGN KEY (cpf_funcionario) REFERENCES funcionario(cpf)			    -- Uso de CONSTRAINT: regra que define cpf_funcionario como FK referenciando funcionario(cpf)
 
 );
 
@@ -151,7 +151,7 @@ CREATE TABLE ator (
 
 	    CONSTRAINT pk_ator PRIMARY KEY (cpf_funcionario),							                        -- Uso de CONSTRAINT: regra que define cpf_funcionario como PK
 
-	    CONSTRAINT fk_cpf_ator FOREIGN KEY (cpf_funcionario) REFERENCES Funcionario(cpf)			        -- Uso de CONSTRAINT: regra que define cpf_funcionario como FK referenciando Funcionario(cpf)
+	    CONSTRAINT fk_cpf_ator FOREIGN KEY (cpf_funcionario) REFERENCES funcionario(cpf)			        -- Uso de CONSTRAINT: regra que define cpf_funcionario como FK referenciando funcionario(cpf)
 
 
 
@@ -171,7 +171,7 @@ CREATE TABLE filme (
 
 	    CONSTRAINT pk_filme PRIMARY KEY (id_filme),								                                    -- Uso de CONSTRAINT: regra que define id_filme como PK
 
-	    CONSTRAINT fk_diretor FOREIGN KEY (cpf_diretor) REFERENCES Diretor(cpf_funcionario),			            -- Uso de CONSTRAINT: regra que define cpf_diretor como FK referenciando Diretor(cpf_funcionario)
+	    CONSTRAINT fk_diretor FOREIGN KEY (cpf_diretor) REFERENCES diretor(cpf_funcionario),			            -- Uso de CONSTRAINT: regra que define cpf_diretor como FK referenciando diretor(cpf_funcionario)
 
 	    CONSTRAINT check_class_indic CHECK (classificacao_indicativa IN ('L', '10', '12', '14', '16', '18')),	    -- Uso de CONSTRAINT: checa e garante que classificacao indicativa e valida dentre as usadas no ambito cinematografico
 
@@ -183,7 +183,7 @@ CREATE TABLE filme (
 
 
 -- ================= Entidade Associativa - Ator_Filme =================
-CREATE TABLE ator_Filme (
+CREATE TABLE ator_filme (
 
 	    cpf_ator VARCHAR2(14),											                                            -- Estrangeira referenciando ator compondo a chave com o id_filme
 	    id_filme NUMBER,											                                                -- Estrangeira referenciando filme compondo a chave com o cpf_ator
@@ -192,9 +192,9 @@ CREATE TABLE ator_Filme (
 
 	    CONSTRAINT pk_ator_filme PRIMARY KEY (cpf_ator, id_filme),						                            -- Uso de CONSTRAINT: regra que define cpf_ator e id_filme funcionario como PK
 	
-	    CONSTRAINT fk_1_ator_filme FOREIGN KEY (cpf_ator) REFERENCES Ator(cpf_funcionario),			                -- Uso de CONSTRAINT: regra que define cpf_ator como FK referenciando Ator(cpf_funcionario)
+	    CONSTRAINT fk_1_ator_filme FOREIGN KEY (cpf_ator) REFERENCES ator(cpf_funcionario),			                -- Uso de CONSTRAINT: regra que define cpf_ator como FK referenciando ator(cpf_funcionario)
 
-	    CONSTRAINT fk_2_ator_filme FOREIGN KEY (id_filme) REFERENCES Filme(id_filme),				                -- Uso de CONSTRAINT: regra que define id_filme como FK referenciando Filme(id_filme)
+	    CONSTRAINT fk_2_ator_filme FOREIGN KEY (id_filme) REFERENCES filme(id_filme),				                -- Uso de CONSTRAINT: regra que define id_filme como FK referenciando filme(id_filme)
 
 	    CONSTRAINT check_cache CHECK (cache > 0)								                                    -- Uso de CONSTRAINT: checa e garante que o cache e maior que 0
 
@@ -214,9 +214,9 @@ CREATE TABLE figurino (
 
 	    CONSTRAINT pk_figurino PRIMARY KEY (id_figurino),							                                -- Uso de CONSTRAINT: regra que define id_figurino funcionario como PK
 	
-	    CONSTRAINT fk_1_figurino FOREIGN KEY (cpf_ator_vestido) REFERENCES Ator(cpf_funcionario),		            -- Uso de CONSTRAINT: regra que define cpf_ator como FK referenciando Ator(cpf_funcionario)
+	    CONSTRAINT fk_1_figurino FOREIGN KEY (cpf_ator_vestido) REFERENCES ator(cpf_funcionario),		            -- Uso de CONSTRAINT: regra que define cpf_ator como FK referenciando ator(cpf_funcionario)
 
-	    CONSTRAINT fk_2_figurino FOREIGN KEY (id_filme_vestido) REFERENCES Filme(id_filme),			                -- Uso de CONSTRAINT: regra que define id_filme como FK referenciando Filme(id_filme)
+	    CONSTRAINT fk_2_figurino FOREIGN KEY (id_filme_vestido) REFERENCES filme(id_filme),			                -- Uso de CONSTRAINT: regra que define id_filme como FK referenciando filme(id_filme)
 
 	    CONSTRAINT check_tamanho CHECK (tamanho IN ('PP', 'P', 'M', 'G', 'GG', 'XGG'))				                -- Uso de CONSTRAINT: checa e garante que o cache e maior que 0
 
@@ -227,14 +227,14 @@ CREATE TABLE figurino (
 
 
 -- ================= Atributo Multivalorado - Genero =================
-CREATE TABLE genero_Filme (
+CREATE TABLE genero_filme (
 	
 	    id_filme NUMBER,											                                        -- Estrangeira referenciando filme
 	    genero VARCHAR2(100),											                                    -- Genero do filme
 
 	    CONSTRAINT pk_genero_filme PRIMARY KEY (id_filme, genero),						                    -- Uso de CONSTRAINT: regra que define id_filme e genero funcionario como PK
 
-	    CONSTRAINT fk_genero_filme FOREIGN KEY (id_filme) REFERENCES Filme(id_filme)				        -- Uso de CONSTRAINT: regra que define id_filme como FK referenciando Filme(id_filme)
+	    CONSTRAINT fk_genero_filme FOREIGN KEY (id_filme) REFERENCES filme(id_filme)				        -- Uso de CONSTRAINT: regra que define id_filme como FK referenciando filme(id_filme)
 
 );
 
@@ -249,9 +249,9 @@ CREATE TABLE confecciona (
 
 	    CONSTRAINT pk_confecciona PRIMARY KEY (cpf_figurinista, id_figurino),					            -- Uso de CONSTRAINT: regra que define id_filme e genero funcionario como PK
 
-	    CONSTRAINT fk_figurinista FOREIGN KEY (cpf_figurinista) REFERENCES Figurinista(cpf_funcionario),	-- Uso de CONSTRAINT: regra que define cpf_figurinista como FK referenciando Figurinista(cpf_funcionario)
+	    CONSTRAINT fk_figurinista FOREIGN KEY (cpf_figurinista) REFERENCES figurinista(cpf_funcionario),	-- Uso de CONSTRAINT: regra que define cpf_figurinista como FK referenciando figurinista(cpf_funcionario)
 
-	    CONSTRAINT fk_figurino FOREIGN KEY (id_figurino) REFERENCES Figurino(id_figurino)			        -- Uso de CONSTRAINT: regra que define id_figurino como FK referenciando Figurino(id_figurino)
+	    CONSTRAINT fk_figurino FOREIGN KEY (id_figurino) REFERENCES figurino(id_figurino)			        -- Uso de CONSTRAINT: regra que define id_figurino como FK referenciando figurino(id_figurino)
 
 );
 
@@ -264,9 +264,9 @@ CREATE TABLE ocupa (
 
 	    CONSTRAINT pk_ocupa PRIMARY KEY (id_filme, num_id_estudio),						                    -- Uso de CONSTRAINT: regra que define id_filme e num_id_estudio funcionario como PK
 
-	    CONSTRAINT fk_filme_ocupa FOREIGN KEY (id_filme) REFERENCES Filme(id_filme),				        -- Uso de CONSTRAINT: regra que define id_filme como FK referenciando Filme(id_filme)
+	    CONSTRAINT fk_filme_ocupa FOREIGN KEY (id_filme) REFERENCES filme(id_filme),				        -- Uso de CONSTRAINT: regra que define id_filme como FK referenciando Filme(id_filme)
 
-	    CONSTRAINT fk_estudio_ocupa FOREIGN KEY (num_id_estudio) REFERENCES Estudio(num_id_estudio)		    -- Uso de CONSTRAINT: regra que define num_id_estudio como FK referenciando Estudio(num_id_estudio)
+	    CONSTRAINT fk_estudio_ocupa FOREIGN KEY (num_id_estudio) REFERENCES estudio(num_id_estudio)		    -- Uso de CONSTRAINT: regra que define num_id_estudio como FK referenciando estudio(num_id_estudio)
 
 );
 
@@ -283,11 +283,11 @@ CREATE TABLE aloca (
 
 	    CONSTRAINT pk_aloca PRIMARY KEY (id_filme, cnpj_fornecedor, id_equipamento),				            -- Uso de CONSTRAINT: regra que define id_filme, cnpj_fornecedor e id_equipamento como PK
 
-	    CONSTRAINT fk_filme_aloca FOREIGN KEY (id_filme) REFERENCES Filme(id_filme),				            -- Uso de CONSTRAINT: regra que define id_filme como FK referenciando Filme(id_filme)
+	    CONSTRAINT fk_filme_aloca FOREIGN KEY (id_filme) REFERENCES filme(id_filme),				            -- Uso de CONSTRAINT: regra que define id_filme como FK referenciando filme(id_filme)
 
-	    CONSTRAINT fk_fornecedor_aloca FOREIGN KEY (cnpj_fornecedor) REFERENCES Fornecedor(cnpj_fornecedor),	-- Uso de CONSTRAINT: regra que define cnpj_fornecedor como FK referenciando Fornecedor(cnpj_fornecedor)
+	    CONSTRAINT fk_fornecedor_aloca FOREIGN KEY (cnpj_fornecedor) REFERENCES fornecedor(cnpj_fornecedor),	-- Uso de CONSTRAINT: regra que define cnpj_fornecedor como FK referenciando fornecedor(cnpj_fornecedor)
 
-	    CONSTRAINT fk_equipamento_aloca FOREIGN KEY (id_equipamento) REFERENCES Equipamento(id_equipamento)	    -- Uso de CONSTRAINT: regra que define id_equipamento como FK referenciando Equipamento(id_equipamento)
+	    CONSTRAINT fk_equipamento_aloca FOREIGN KEY (id_equipamento) REFERENCES equipamento(id_equipamento)	    -- Uso de CONSTRAINT: regra que define id_equipamento como FK referenciando equipamento(id_equipamento)
 	
 );
 
