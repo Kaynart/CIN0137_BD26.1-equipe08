@@ -1,11 +1,11 @@
 -- uso de SEQUENCE: criacao de sequencias para as chaves ID's
-create SEQUENCE seq_equipamento START WITH 1 INCREMENT BY 1;
-create SEQUENCE seq_estudio START WITH 1 INCREMENT BY 1;
-create SEQUENCE seq_filme START WITH 1 INCREMENT BY 1;
-create SEQUENCE seq_figurino START WITH 1 INCREMENT BY 1;
+CREATE SEQUENCE seq_equipamento START WITH 1 INCREMENT BY 1;
+CREATE SEQUENCE seq_estudio START WITH 1 INCREMENT BY 1;
+CREATE SEQUENCE seq_filme START WITH 1 INCREMENT BY 1;
+CREATE SEQUENCE seq_figurino START WITH 1 INCREMENT BY 1;
 
 -- ================= Entidade - Equipamento =================
-create table Equipamento (
+CREATE TABLE equipamento (
 
         id_equipamento NUMBER DEFAULT seq_equipamento.NEXTVAL,						-- Chave Identificador unico de equipamento // LEMBRAR DE VER SE O NEXTVAL VAI AQUI OU SO NO INSERT
         tipo     VARCHAR2(50) NOT NULL,									            -- Tipo do equipamento | ex: Camera, Microfone 
@@ -20,7 +20,7 @@ create table Equipamento (
 
 
 -- ================= Entidade - Fornecedor =================
-create table Fornecedor (
+CREATE TABLE fornecedor (
 
         cnpj_fornecedor VARCHAR2(18),									            -- Chave CNPJ do Fornecedor com 18 espaços contando os pontos, barra e hifen de um CNPJ
         razao_social VARCHAR2(100),									                -- Razao social associada ao fornecedor, varchar2 'ilimitado'
@@ -31,7 +31,7 @@ create table Fornecedor (
 
 
 -- ================= Entidade - Estudio =================
-create table Estudio (
+CREATE TABLE estudio (
 	    num_id_estudio NUMBER DEFAULT seq_estudio.NEXTVAL,						    -- Chave Identificador unico de estudio
 	    metragem NUMBER(5, 2),										                -- Comprimento em metragem quadrada do estudio, com duas casas decimais
 	    tem_chroma_key CHAR(1),										                -- Flag indicando S ou N pra existencia de chroma key
@@ -48,7 +48,7 @@ create table Estudio (
 
 
 -- ================= Entidade - Funcionario =================
-create table Funcionario (
+CREATE TABLE funcionario (
 
         cpf VARCHAR2(14),										                                -- Chave CPF do Fornecedor com 14 espaços contando os pontos e hifen de um CPF
        	nome_funcionario VARCHAR2(100),									                        -- Nome do funcionario
@@ -71,7 +71,7 @@ create table Funcionario (
 
 
 -- ================= Atributo Composto - Endereco =================
-create table Endereco_Funcionario (
+CREATE TABLE endereco_funcionario (
 
 	    cpf_funcionario_residente VARCHAR2(14),									                            -- Chave estrangeira/primaria cpf do funcionario residente
 	    cep VARCHAR2(9),											                                        -- CEP referente a localizacao do endereco
@@ -85,7 +85,7 @@ create table Endereco_Funcionario (
 
 
 -- ================= Atributo Multivalorado - Telefone =================
-create table Telefone_Funcionario (								
+CREATE TABLE telefone_funcionario (								
 	    cpf_funcionario_contato VARCHAR2(14),									                        -- Estrangeira referenciando funcionario compondo a chave com o numero de telefone
 	    numero_telefone VARCHAR2(11),										                            -- Chave composta numero de telefone do funcionario
 
@@ -99,7 +99,7 @@ create table Telefone_Funcionario (
 
 
 -- ================= Entidade Fraca - Dependente =================
-create table Dependente (
+CREATE TABLE dependente (
 
 	    cpf_funcionario_responsavel VARCHAR2(14),								                            -- Estrangeira referenciando funcionario compondo a chave com o nome
 	    nome_dependente VARCHAR2(100),										                                -- Chave composta nome do dependente
@@ -116,7 +116,7 @@ create table Dependente (
 
 
 -- ================= Entidade Especializada - Diretor =================
-create table Diretor (
+CREATE TABLE diretor (
 	
 	    cpf_funcionario VARCHAR2(14),										                                -- Estrangeira referenciando funcionario - chave
 	    estilo_cinematografico VARCHAR2(100),									                            -- Estilo cinematografico do diretor
@@ -131,7 +131,7 @@ create table Diretor (
 
 
 -- ================= Entidade Especializada - Figurinista =================
-create table Figurinista (
+CREATE TABLE figurinista (
 	
 	    cpf_funcionario VARCHAR2(14),										                                -- Estrangeira referenciando funcionario - chave
 	    estilo_moda VARCHAR2(100),										                                    -- Estilo de moda do figurinista
@@ -144,7 +144,7 @@ create table Figurinista (
 
 
 -- ================= Entidade Especializada - Ator =================
-create table Ator (
+CREATE TABLE ator (
 
 	    cpf_funcionario VARCHAR2(14),										                                -- Estrangeira referenciando funcionario - chave
 	    numero_drt VARCHAR2(20),										                                    -- Numero DRT do ator
@@ -161,7 +161,7 @@ create table Ator (
 
 
 -- ================= Entidade - Filme =================
-create table Filme (
+CREATE TABLE filme (
 
 	    id_filme NUMBER DEFAULT seq_filme.NEXTVAL,								                                    -- Chave Identificador unico de filme
 	    classificacao_indicativa VARCHAR2(2) NOT NULL, 									                            -- Classificacao indicativa do filme. Ex: L, 12, 16, 18...
@@ -183,7 +183,7 @@ create table Filme (
 
 
 -- ================= Entidade Associativa - Ator_Filme =================
-create table Ator_Filme (
+CREATE TABLE ator_Filme (
 
 	    cpf_ator VARCHAR2(14),											                                            -- Estrangeira referenciando ator compondo a chave com o id_filme
 	    id_filme NUMBER,											                                                -- Estrangeira referenciando filme compondo a chave com o cpf_ator
@@ -204,7 +204,7 @@ create table Ator_Filme (
 
 
 -- ================= Entidade - Figurino =================
-create table Figurino (
+CREATE TABLE figurino (
 
 	    id_figurino NUMBER DEFAULT seq_figurino.NEXTVAL,							                                -- Chave Identificador unico de figurino
 	    tamanho VARCHAR2(3) NOT NULL,										                                        -- Tamanho descrito no padrao. Ex: PP, P, G, XGG...
@@ -227,7 +227,7 @@ create table Figurino (
 
 
 -- ================= Atributo Multivalorado - Genero =================
-create table Genero_Filme (
+CREATE TABLE genero_Filme (
 	
 	    id_filme NUMBER,											                                        -- Estrangeira referenciando filme
 	    genero VARCHAR2(100),											                                    -- Genero do filme
@@ -242,7 +242,7 @@ create table Genero_Filme (
 
 
 -- ================= Relacionamento - Confecciona =================
-create table Confecciona (
+CREATE TABLE confecciona (
 	
 	    cpf_figurinista VARCHAR2(14),										                                -- Estrangeira referenciando figurinista compondo a chave com id_figurino
 	    id_figurino NUMBER,											                                        -- Estrangeira referenciando figurino compondo a chave com cpf_figurinista
@@ -257,7 +257,7 @@ create table Confecciona (
 
 
 -- ================= Relacionamento - Ocupa =================
-create table Ocupa (
+CREATE TABLE ocupa (
 	
 	    id_filme NUMBER,                                                                                    -- Estrangeira referenciando filme
 	    num_id_estudio NUMBER,											                                    -- Chave Identificador unico de estudio
@@ -272,7 +272,7 @@ create table Ocupa (
 
 
 -- ================= Relacionamento - Aloca =================
-create table Aloca (
+CREATE TABLE aloca (
 
 	    id_filme NUMBER,											                                        -- Estrangeira referenciando filme
 	    cnpj_fornecedor VARCHAR2(18),										                                -- Estrangeira referenciando fornecedor
