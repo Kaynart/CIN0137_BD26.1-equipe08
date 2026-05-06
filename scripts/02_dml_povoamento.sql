@@ -38,10 +38,23 @@ INSERT INTO FUNCIONARIO (cpf, nome_funcionario, data_nascimento_funcionario, sex
 ('098.445.121-66', 'Érica Ishioca', TO_DATE('1938-07-12', 'YYYY-MM-DD'), 'F'),
 ('714.283.001-44', 'Antônio Poço', TO_DATE('1935-06-02', 'YYYY-MM-DD'), 'M');
 
- 
+-- NOVOS
+-- atores novos
+('112.345.678-90', 'Morgano Homem-Livre', TO_DATE('1937-06-01', 'YYYY-MM-DD'), 'M'), 
+('223.456.789-01', 'Tomás Agradece', TO_DATE('1956-07-09', 'YYYY-MM-DD'), 'M'), 
+('334.567.890-12', 'Quiano Rios', TO_DATE('1964-09-02', 'YYYY-MM-DD'), 'M'),
+('445.678.901-23', 'Angelina Bonita', TO_DATE('1975-06-04', 'YYYY-MM-DD'), 'F'),
+('556.789.012-34', 'Ema Pedra', TO_DATE('1968-09-25', 'YYYY-MM-DD'), 'F')
+
+-- diretores novos
+('667.890.123-45', 'Alfredo Bate-Copo', TO_DATE('1899-08-13', 'YYYY-MM-DD'), 'M'),
+('778.901.234-56', 'Estênio Cubrico', TO_DATE('1928-07-26', 'YYYY-MM-DD'), 'M'),
+('889.012.345-67', 'Chico Ford Cúpula', TO_DATE('1939-04-07', 'YYYY-MM-DD'), 'M'),
+('990.123.456-78', 'Pedro João-Filho', TO_DATE('1961-10-31', 'YYYY-MM-DD'), 'M'),
+('001.234.567-89', 'Tico Uai-Titi', TO_DATE('1975-08-16', 'YYYY-MM-DD'), 'M');
 
 
-    
+
 -- INSERINDO ATORES NA TABELA ATOR 
 INSERT INTO ATOR (cpf_funcionario, numero_drt) VALUES 
 ('384.592.108-71', 'DRT-1131'),
