@@ -14,7 +14,7 @@ INSERT INTO FUNCIONARIO (cpf, nome_funcionario, data_nascimento_funcionario, sex
 ('223.456.789-01', 'Tomás Agradece', TO_DATE('1956-07-09', 'YYYY-MM-DD'), 'M'), 
 ('334.567.890-12', 'Quiano Rios', TO_DATE('1964-09-02', 'YYYY-MM-DD'), 'M'),
 ('445.678.901-23', 'Angelina Bonita', TO_DATE('1975-06-04', 'YYYY-MM-DD'), 'F'),
-('556.789.012-34', 'Ema Pedra', TO_DATE('1968-09-25', 'YYYY-MM-DD'), 'F')
+('556.789.012-34', 'Ema Pedra', TO_DATE('1968-09-25', 'YYYY-MM-DD'), 'F'),
     
 ('384.592.108-71', 'Leonardo DeCapra', TO_DATE('1974-11-11', 'YYYY-MM-DD'), 'M'),
 ('712.943.550-24', 'Margarida Robô', TO_DATE('1990-07-02', 'YYYY-MM-DD'), 'F'),
