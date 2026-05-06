@@ -472,6 +472,30 @@ INSERT INTO ESTUDIO (nome_estudio, metragem, tem_chroma_key) VALUES
 ('Sonyca Pictures', 2100.25, 'N'),
 ('Leãozinho Gate', 1700.00, 'S');
 
+
+-- INSERINDO FORNECEDORES
+INSERT INTO fornecedor (cnpj_fornecedor, razao_social) VALUES
+('33.592.510/0001-54', 'Visão Filmes Equipamentos Ltda'),
+('18.765.432/0001-99', 'Som e Arte Captação S/A'),
+('45.123.890/0001-21', 'Luz Brilhante Iluminação EIRELI'),
+('08.345.112/0001-76', 'Câmera Pró Locações'),
+('67.890.234/0001-88', 'FX Efeitos Especiais Ltda'),
+('12.456.789/0001-33', 'Impacto Pirotecnia S/A'),
+('54.321.098/0001-65', 'Pós-Produção Digital S/A'),
+('89.012.345/0001-11', 'Clima Cenográfico Ltda'),
+('21.987.654/0001-44', 'Estilo e Época Figurinos'),
+('76.543.210/0001-87', 'Visage Maquiagem Profissional'),
+('11.223.344/0001-55', 'Alfaiataria do Set EIRELI'),
+('99.887.766/0001-22', 'TransLog Transporte de Equipamentos'),
+('44.556.677/0001-33', 'Clássicos Locação de Veículos'),
+('55.667.788/0001-44', 'AeroCena Filmagens Aéreas'),
+('22.334.455/0001-66', 'Sabor de Set Refeições'),
+('88.990.011/0001-77', 'Catering Estrela S/A'),
+('33.445.566/0001-88', 'Café das Artes Ltda'),
+('77.889.900/0001-99', 'Lanches Express Produções'),
+('66.778.899/0001-00', 'Escudo Segurança Privada'),
+('19.283.746/0001-15', 'Ação e Risco Dublês S/A');
+
 --INSERINDO NA TABELA EQUIPAMENTOS
 INSERT INTO EQUIPAMENTO (id_equipamento, tipo, valor) VALUES 
 (1, 'Câmera IMAX PRO 70mm', 250000.00),
