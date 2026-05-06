@@ -35,7 +35,7 @@ CREATE TABLE estudio (
 	    num_id_estudio NUMBER DEFAULT seq_estudio.NEXTVAL,						    -- Chave Identificador unico de estudio
 		nome_estudio VARCHAR2(100) NOT NULL,										-- Nome do estudio
 	    metragem NUMBER(5, 2),										                -- Comprimento em metragem quadrada do estudio, com duas casas decimais
-	    tem_chroma_key CHAR(1) NOT NULL DEFAULT 'N',							    -- Flag indicando S ou N pra existencia de chroma key
+	    tem_chroma_key CHAR(1) DEFAULT 'N' NOT NULL,							    -- Flag indicando S ou N pra existencia de chroma key
 
 	    CONSTRAINT pk_estudio PRIMARY KEY (num_id_estudio),						    -- Uso de CONSTRAINT: regra que define num_id_estudio como PK
 
@@ -251,7 +251,7 @@ CREATE TABLE confecciona (
 
 	    CONSTRAINT fk_figurinista FOREIGN KEY (cpf_figurinista) REFERENCES figurinista(cpf_funcionario),	-- Uso de CONSTRAINT: regra que define cpf_figurinista como FK referenciando figurinista(cpf_funcionario)
 
-	    CONSTRAINT fk_figurino FOREIGN KEY (id_figurino) REFERENCES figurino(id_figurino)			        -- Uso de CONSTRAINT: regra que define id_figurino como FK referenciando figurino(id_figurino)
+	    CONSTRAINT fk_figurino FOREIGN KEY (id_figurino) REFERENCES figurino(id_figurino),			        -- Uso de CONSTRAINT: regra que define id_figurino como FK referenciando figurino(id_figurino)
 
 		CONSTRAINT check_cache_figurinista CHECK (cache_figurinista > 0)									-- Uso de CONSTRAINT: checa e garante que o cache do figurinista e valido (maior que 0)
 );
