@@ -10,6 +10,12 @@ INSERT INTO FUNCIONARIO (cpf, nome_funcionario, data_nascimento_funcionario, sex
 ('036.404.546-99', 'Sofia Cúpula', TO_DATE('1971-05-14', 'YYYY-MM-DD'), 'F'),
 ('434.444.544-13', 'Pedro Almodólar', TO_DATE('1949-09-25', 'YYYY-MM-DD'), 'M'),
 ('203.404.492-23', 'Jorge Lucas', TO_DATE('1944-05-14', 'YYYY-MM-DD'), 'M'),
+('112.345.678-90', 'Morgano Homem-Livre', TO_DATE('1937-06-01', 'YYYY-MM-DD'), 'M'), 
+('223.456.789-01', 'Tomás Agradece', TO_DATE('1956-07-09', 'YYYY-MM-DD'), 'M'), 
+('334.567.890-12', 'Quiano Rios', TO_DATE('1964-09-02', 'YYYY-MM-DD'), 'M'),
+('445.678.901-23', 'Angelina Bonita', TO_DATE('1975-06-04', 'YYYY-MM-DD'), 'F'),
+('556.789.012-34', 'Ema Pedra', TO_DATE('1968-09-25', 'YYYY-MM-DD'), 'F')
+    
 ('384.592.108-71', 'Leonardo DeCapra', TO_DATE('1974-11-11', 'YYYY-MM-DD'), 'M'),
 ('712.943.550-24', 'Margarida Robô', TO_DATE('1990-07-02', 'YYYY-MM-DD'), 'F'),
 ('105.827.493-66', 'Breno Pinto', TO_DATE('1963-12-18', 'YYYY-MM-DD'), 'M'),     
@@ -20,6 +26,12 @@ INSERT INTO FUNCIONARIO (cpf, nome_funcionario, data_nascimento_funcionario, sex
 ('259.630.817-48', 'Rian Ganso', TO_DATE('1980-11-12', 'YYYY-MM-DD'), 'M'),
 ('634.805.729-50', 'Escarlete João-Hans', TO_DATE('1984-11-22', 'YYYY-MM-DD'), 'F'),
 ('091.376.582-09', 'Samuel L. Jaquetão', TO_DATE('1948-12-21', 'YYYY-MM-DD'), 'M'),
+('667.890.123-45', 'Alfredo Bate-Copo', TO_DATE('1899-08-13', 'YYYY-MM-DD'), 'M'),
+('778.901.234-56', 'Estênio Cubrico', TO_DATE('1928-07-26', 'YYYY-MM-DD'), 'M'),
+('889.012.345-67', 'Chico Ford Cúpula', TO_DATE('1939-04-07', 'YYYY-MM-DD'), 'M'),
+('990.123.456-78', 'Pedro João-Filho', TO_DATE('1961-10-31', 'YYYY-MM-DD'), 'M'),
+('001.234.567-89', 'Tico Uai-Titi', TO_DATE('1975-08-16', 'YYYY-MM-DD'), 'M'),
+    
 ('492.301.558-12', 'Edith Cabeça', TO_DATE('1997-10-28', 'YYYY-MM-DD'), 'F'),
 ('823.109.445-67', 'Coleth Atmadeira', TO_DATE('1948-12-30', 'YYYY-MM-DD'), 'F'),
 ('156.778.234-09', 'Areia Powell', TO_DATE('1960-04-07', 'YYYY-MM-DD'), 'F'),
@@ -38,22 +50,6 @@ INSERT INTO FUNCIONARIO (cpf, nome_funcionario, data_nascimento_funcionario, sex
 ('098.445.121-66', 'Érica Ishioca', TO_DATE('1938-07-12', 'YYYY-MM-DD'), 'F'),
 ('714.283.001-44', 'Antônio Poço', TO_DATE('1935-06-02', 'YYYY-MM-DD'), 'M');
 
--- NOVOS
--- atores novos
-('112.345.678-90', 'Morgano Homem-Livre', TO_DATE('1937-06-01', 'YYYY-MM-DD'), 'M'), 
-('223.456.789-01', 'Tomás Agradece', TO_DATE('1956-07-09', 'YYYY-MM-DD'), 'M'), 
-('334.567.890-12', 'Quiano Rios', TO_DATE('1964-09-02', 'YYYY-MM-DD'), 'M'),
-('445.678.901-23', 'Angelina Bonita', TO_DATE('1975-06-04', 'YYYY-MM-DD'), 'F'),
-('556.789.012-34', 'Ema Pedra', TO_DATE('1968-09-25', 'YYYY-MM-DD'), 'F')
-
--- diretores novos
-('667.890.123-45', 'Alfredo Bate-Copo', TO_DATE('1899-08-13', 'YYYY-MM-DD'), 'M'),
-('778.901.234-56', 'Estênio Cubrico', TO_DATE('1928-07-26', 'YYYY-MM-DD'), 'M'),
-('889.012.345-67', 'Chico Ford Cúpula', TO_DATE('1939-04-07', 'YYYY-MM-DD'), 'M'),
-('990.123.456-78', 'Pedro João-Filho', TO_DATE('1961-10-31', 'YYYY-MM-DD'), 'M'),
-('001.234.567-89', 'Tico Uai-Titi', TO_DATE('1975-08-16', 'YYYY-MM-DD'), 'M');
-
-
 
 -- INSERINDO ATORES NA TABELA ATOR 
 INSERT INTO ATOR (cpf_funcionario, numero_drt) VALUES 
@@ -67,6 +63,11 @@ INSERT INTO ATOR (cpf_funcionario, numero_drt) VALUES
 ('259.630.817-48', 'DRT-6235'),
 ('634.805.729-50', 'DRT-7392'),
 ('091.376.582-09', 'DRT-5512');
+('112.345.678-90', 'DRT-5555'),
+('223.456.789-01', 'DRT-6666'), 
+('334.567.890-12', 'DRT-7777'), 
+('445.678.901-23', 'DRT-8888'), 
+('556.789.012-34', 'DRT-9999'); 
 
 -- INSERINDOS DIRETORES NA TABELA DIRETOR
 INSERT INTO DIRETOR (cpf_funcionario, estilo_cinematografico) VALUES
@@ -80,6 +81,11 @@ INSERT INTO DIRETOR (cpf_funcionario, estilo_cinematografico) VALUES
 ('036.404.546-99', 'Drama Melancólico'),
 ('434.444.544-13', 'Drama Passional Espanhol'),
 ('203.404.492-23', 'Space Opera Clássica');
+('667.890.123-45', 'Suspense Psicológico'), 
+('778.901.234-56', 'Perfeccionismo Visual'),
+('889.012.345-67', 'Épicos de Máfia e Guerra'),
+('990.123.456-78', 'Aventura Fantástica Épica'), 
+('001.234.567-89', 'Comédia Excêntrica'); 
 
 -- INSERINDO NA TABELA FIGURINISTA
 INSERT INTO FIGURINISTA (cpf_funcionario, estilo_moda) VALUES 
@@ -158,6 +164,11 @@ INSERT INTO TELEFONE_FUNCIONARIO (cpf_funcionario_contato, numero_telefone) VALU
 ('434.444.544-13', '71911111999'),
 ('203.404.492-23', '12900001977'),
 ('203.404.492-23', '1232101977'),  
+('667.890.123-45', '11922221111'),
+('778.901.234-56', '41911112222'),
+('889.012.345-67', '11900003333'),
+('990.123.456-78', '51999994444'),
+('001.234.567-89', '61988885555'),
 
 -- Atores
 ('384.592.108-71', '21998762015'), 
@@ -174,6 +185,11 @@ INSERT INTO TELEFONE_FUNCIONARIO (cpf_funcionario_contato, numero_telefone) VALU
 ('259.630.817-48', '81990986688'),
 ('634.805.729-50', '27910982021'),
 ('091.376.582-09', '11909871994'),
+('112.345.678-90', '71933332222'),
+('223.456.789-01', '11988883333'),
+('334.567.890-12', '11977774444'),
+('445.678.901-23', '21966665555'),
+('556.789.012-34', '31955556666'),
 
 -- Figurinistas
 ('492.301.558-12', '21999110001'),
@@ -498,26 +514,26 @@ INSERT INTO fornecedor (cnpj_fornecedor, razao_social) VALUES
 
 --INSERINDO NA TABELA EQUIPAMENTOS
 INSERT INTO EQUIPAMENTO (id_equipamento, tipo, valor) VALUES 
-(1, 'Câmera IMAX PRO 70mm', 250000.00),
-(2, 'Kit Lentes SonyVision', 85000.50),
-(3, 'Guindaste Pequeno', 120000.00),
-(4, 'Stream Deck', 15000.00),
-(5, 'Kit Iluminação Arri Skypanel', 45000.00),
-(6, 'Drone Cinematográfico Avançado', 25000.00),
-(7, 'Estabilizador Steadicam Pro', 35000.00),
-(8, 'Microfone Fifine AM8', 5000.00),
-(9, 'Câmera GoPRO 4.0', 1200.00),
-(10, 'Monitor de Diretor 16k', 8500.00),
-(11, 'Câmera Canon EOS R10', 180000.00),
-(12, 'Lente Profissional', 65000.00),
-(13, 'Refletor 18K', 22000.00),
-(14, 'Gerador Silencioso 100kVA', 30000.00),
-(15, 'Kit Microfones Lapela ', 8000.00),
-(16, 'Trilho movedor de Câmeras', 45000.00),
-(17, 'Máquina de Fumaça', 3500.00),
-(18, 'Chroma Key Portatil (Verde)', 1500.00),
-(19, 'Lampadas Flexiveis', 2500.00),
-(20, 'Cadeira Ergonomica', 500.00);
+('Câmera IMAX PRO 70mm', 250000.00),
+('Kit Lentes SonyVision', 85000.50),
+('Guindaste Pequeno', 120000.00),
+('Stream Deck', 15000.00),
+('Kit Iluminação Arri Skypanel', 45000.00),
+('Drone Cinematográfico Avançado', 25000.00),
+('Estabilizador Steadicam Pro', 35000.00),
+('Microfone Fifine AM8', 5000.00),
+('Câmera GoPRO 4.0', 1200.00),
+('Monitor de Diretor 16k', 8500.00),
+('Câmera Canon EOS R10', 180000.00),
+('Lente Profissional', 65000.00),
+('Refletor 18K', 22000.00),
+('Gerador Silencioso 100kVA', 30000.00),
+('Kit Microfones Lapela ', 8000.00),
+('Trilho movedor de Câmeras', 45000.00),
+('Máquina de Fumaça', 3500.00),
+('Chroma Key Portatil (Verde)', 1500.00),
+('Lampadas Flexiveis', 2500.00),
+('Cadeira Ergonomica', 500.00);
 
 -- INSERINDO NA TABELA DEPENDENTES
 INSERT INTO DEPENDENTE (cpf_funcionario_responsavel, nome_dependente, data_nascimento_dependente, grau_parentesco) VALUES 
