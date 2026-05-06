@@ -34,7 +34,7 @@ CREATE TABLE fornecedor (
 CREATE TABLE estudio (
 	    num_id_estudio NUMBER DEFAULT seq_estudio.NEXTVAL,						    -- Chave Identificador unico de estudio
 		nome_estudio VARCHAR2(100) NOT NULL,										-- Nome do estudio
-	    metragem NUMBER(5, 2),										                -- Comprimento em metragem quadrada do estudio, com duas casas decimais
+	    metragem NUMBER(10, 2),										                -- Comprimento em metragem quadrada do estudio, com duas casas decimais
 	    tem_chroma_key CHAR(1) DEFAULT 'N' NOT NULL,							    -- Flag indicando S ou N pra existencia de chroma key
 
 	    CONSTRAINT pk_estudio PRIMARY KEY (num_id_estudio),						    -- Uso de CONSTRAINT: regra que define num_id_estudio como PK
@@ -291,4 +291,3 @@ CREATE TABLE aloca (
 	    CONSTRAINT fk_equipamento_aloca FOREIGN KEY (id_equipamento) REFERENCES equipamento(id_equipamento)	    -- Uso de CONSTRAINT: regra que define id_equipamento como FK referenciando equipamento(id_equipamento)
 	
 );
-
