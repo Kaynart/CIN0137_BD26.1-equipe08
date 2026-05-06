@@ -529,3 +529,268 @@ INSERT INTO DEPENDENTE (cpf_funcionario_responsavel, nome_dependente, data_nasci
 ('036.404.546-99', 'Alice Maravilha', TO_DATE('2018-07-14', 'YYYY-MM-DD'), 'Filha'),
 ('384.592.108-71', 'Emerick Silva', TO_DATE('2020-01-10', 'YYYY-MM-DD'), 'Sobrinho'),
 ('478.251.904-37', 'Joãozinho Noroxius', TO_DATE('2016-09-07', 'YYYY-MM-DD'), 'Filho');
+
+
+-- INSERINDO NA TABELA FIGURINO
+
+-- 1. Uma Luta Antes da Outra
+INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
+    'G', 'Kimono de judô desgastado com faixa preta',
+    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Breno Pinto'),
+    (SELECT id_filme FROM filme WHERE titulo = 'Uma Luta Antes da Outra')
+);
+INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
+    'M', 'Farda militar camuflada com manchas de terra',
+    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Leonardo DeCapra'),
+    (SELECT id_filme FROM filme WHERE titulo = 'Uma Luta Antes da Outra')
+);
+INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
+    'PP', 'Roupa tática preta de infiltração de alta mobilidade',
+    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Zendóia'),
+    (SELECT id_filme FROM filme WHERE titulo = 'Uma Luta Antes da Outra')
+);
+
+-- 2. Pregadores
+INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
+    'GG', 'Terno risca de giz com suspensórios vintage',
+    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Samuel L. Jaquetão'),
+    (SELECT id_filme FROM filme WHERE titulo = 'Pregadores')
+);
+INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
+    'M', 'Jaqueta de couro marrom surrada',
+    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Tomás Cruzeiro'),
+    (SELECT id_filme FROM filme WHERE titulo = 'Pregadores')
+);
+
+-- 3. Anatomia de uma Subida
+INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
+    'P', 'Toga preta clássica com detalhes em veludo',
+    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Margarida Robô'),
+    (SELECT id_filme FROM filme WHERE titulo = 'Anatomia de uma Subida')
+);
+INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
+    'P', 'Terno feminino de alfaiataria cinza elegante',
+    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Escarlete João-Hans'),
+    (SELECT id_filme FROM filme WHERE titulo = 'Anatomia de uma Subida')
+);
+
+-- 4. Ricas Criaturas
+INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
+    'M', 'Vestido de gala vermelho cravejado de cristais',
+    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Maria Estripe'),
+    (SELECT id_filme FROM filme WHERE titulo = 'Ricas Criaturas')
+);
+INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
+    'P', 'Casaco de pele sintética branco extravagante',
+    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Margarida Robô'),
+    (SELECT id_filme FROM filme WHERE titulo = 'Ricas Criaturas')
+);
+
+-- 5. O Agente Exposto
+INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
+    'M', 'Terno slim fit preto feito de material resistente a balas',
+    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Tomás Cruzeiro'),
+    (SELECT id_filme FROM filme WHERE titulo = 'O Agente Exposto')
+);
+INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
+    'XGG', 'Sobretudo russo de lã pesada com gola de pele',
+    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Duane "A Pedra" João'),
+    (SELECT id_filme FROM filme WHERE titulo = 'O Agente Exposto')
+);
+
+-- 6. Nada em Nenhum Lugar Nunca
+INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
+    'PP', 'Macacão multiversal com LEDs bordados',
+    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Zendóia'),
+    (SELECT id_filme FROM filme WHERE titulo = 'Nada em Nenhum Lugar Nunca')
+);
+INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
+    'M', 'Jaleco de laboratório com bolsos cheios de cacarecos',
+    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Leonardo DeCapra'),
+    (SELECT id_filme FROM filme WHERE titulo = 'Nada em Nenhum Lugar Nunca')
+);
+
+-- 7. Guardiões do Globo
+INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
+    'XGG', 'Traje de elastano azul marinho super reforçado',
+    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Duane "A Pedra" João'),
+    (SELECT id_filme FROM filme WHERE titulo = 'Guardiões do Globo')
+);
+INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
+    'M', 'Calça jeans comum e camisa xadrez rasgada',
+    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Rian Ganso'),
+    (SELECT id_filme FROM filme WHERE titulo = 'Guardiões do Globo')
+);
+
+-- 10. Hamlet
+INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
+    'M', 'Traje real de época dinamarquês com coroa de ouro',
+    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Leonardo DeCapra'),
+    (SELECT id_filme FROM filme WHERE titulo = 'Hamlet')
+);
+INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
+    'M', 'Capa de veludo real com forro escuro e espada presa',
+    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Tomás Cruzeiro'),
+    (SELECT id_filme FROM filme WHERE titulo = 'Hamlet')
+);
+
+-- 15. Projeto Ave Maria
+INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
+    'M', 'Traje espacial EVA danificado',
+    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Rian Ganso'),
+    (SELECT id_filme FROM filme WHERE titulo = 'Projeto Ave Maria')
+);
+
+-- 19. História de Brinquedos
+INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
+    'M', 'Colete de vaqueiro, estrela de xerife e chapéu',
+    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Tomás Cruzeiro'),
+    (SELECT id_filme FROM filme WHERE titulo = 'História de Brinquedos')
+);
+INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
+    'GG', 'Armadura espacial branca e verde de plástico rígido',
+    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Samuel L. Jaquetão'),
+    (SELECT id_filme FROM filme WHERE titulo = 'História de Brinquedos')
+);
+
+-- 20. O Celular Branco
+INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
+    'GG', 'Capa de chuva preta de vinil e luvas escuras',
+    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Samuel L. Jaquetão'),
+    (SELECT id_filme FROM filme WHERE titulo = 'O Celular Branco')
+);
+INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
+    'M', 'Sobretudo clássico de detetive bege',
+    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Rian Ganso'),
+    (SELECT id_filme FROM filme WHERE titulo = 'O Celular Branco')
+);
+
+
+
+
+
+-- INSERINDO AS RELAÇÕES DE QUEM CONFECCIONOU QUAL FIGURINO (TABELA CONFECCIONA)
+
+-- 1. Vestido de gala vermelho (Ricas Criaturas) -> FEITO POR DUAS FIGURINISTAS!
+-- Edith Cabeça (Alta Costura) e Coleth Atmadeira (Época e Fantasia)
+INSERT INTO confecciona (cpf_figurinista, id_figurino, cache_figurinista) VALUES (
+    '492.301.558-12', 
+    (SELECT id_figurino FROM figurino WHERE descricao = 'Vestido de gala vermelho cravejado de cristais'),
+    45000.00
+);
+INSERT INTO confecciona (cpf_figurinista, id_figurino, cache_figurinista) VALUES (
+    '823.109.445-67', 
+    (SELECT id_figurino FROM figurino WHERE descricao = 'Vestido de gala vermelho cravejado de cristais'),
+    35000.00
+);
+
+-- 2. Traje espacial EVA danificado (Projeto Ave Maria) -> FEITO POR DOIS FIGURINISTAS!
+-- João Mole (Ficção Científica Militar) e Marilia Bode (Vanguarda)
+INSERT INTO confecciona (cpf_figurinista, id_figurino, cache_figurinista) VALUES (
+    '159.332.887-12', 
+    (SELECT id_figurino FROM figurino WHERE descricao = 'Traje espacial EVA danificado'),
+    60000.00
+);
+INSERT INTO confecciona (cpf_figurinista, id_figurino, cache_figurinista) VALUES (
+    '227.843.102-45', 
+    (SELECT id_figurino FROM figurino WHERE descricao = 'Traje espacial EVA danificado'),
+    55000.00
+);
+
+-- 3. Terno risca de giz (Pregadores) -> Feito por Jorge Armário (Alfaiataria)
+INSERT INTO confecciona (cpf_figurinista, id_figurino, cache_figurinista) VALUES (
+    '218.445.660-33', 
+    (SELECT id_figurino FROM figurino WHERE descricao = 'Terno risca de giz com suspensórios vintage'),
+    28000.00
+);
+
+-- 4. Macacão multiversal com LEDs (Nada em Nenhum Lugar Nunca) -> Paco Rabane (Moda Futurista)
+INSERT INTO confecciona (cpf_figurinista, id_figurino, cache_figurinista) VALUES (
+    '642.001.993-85', 
+    (SELECT id_figurino FROM figurino WHERE descricao = 'Macacão multiversal com LEDs bordados'),
+    85000.00
+);
+
+-- 5. Armadura espacial branca e verde (História de Brinquedos) -> Paco Rabane (Moda Futurista)
+INSERT INTO confecciona (cpf_figurinista, id_figurino, cache_figurinista) VALUES (
+    '642.001.993-85', 
+    (SELECT id_figurino FROM figurino WHERE descricao = 'Armadura espacial branca e verde de plástico rígido'),
+    75000.00
+);
+
+-- 6. Toga preta clássica (Anatomia de uma Subida) -> Naum Alves de Sousa (Teatro)
+INSERT INTO confecciona (cpf_figurinista, id_figurino, cache_figurinista) VALUES (
+    '121.667.490-57', 
+    (SELECT id_figurino FROM figurino WHERE descricao = 'Toga preta clássica com detalhes em veludo'),
+    15000.00
+);
+
+-- 7. Kimono de judô desgastado (Uma Luta Antes da Outra) -> Walter Planted (Corte e Costura)
+INSERT INTO confecciona (cpf_figurinista, id_figurino, cache_figurinista) VALUES (
+    '221.445.009-88', 
+    (SELECT id_figurino FROM figurino WHERE descricao = 'Kimono de judô desgastado com faixa preta'),
+    12000.00
+);
+
+-- 8. Terno feminino de alfaiataria (Anatomia de uma Subida) -> Jorge Armário (Alfaiataria)
+INSERT INTO confecciona (cpf_figurinista, id_figurino, cache_figurinista) VALUES (
+    '218.445.660-33', 
+    (SELECT id_figurino FROM figurino WHERE descricao = 'Terno feminino de alfaiataria cinza elegante'),
+    32000.00
+);
+
+-- 9. Traje real de época dinamarquês com coroa (Hamlet) -> FEITO POR DOIS FIGURINISTAS!
+-- Especialista em Épicos Históricos e Especialista em Época e Fantasia
+INSERT INTO confecciona (cpf_figurinista, id_figurino, cache_figurinista) VALUES (
+    '156.778.234-09', 
+    (SELECT id_figurino FROM figurino WHERE descricao = 'Traje real de época dinamarquês com coroa de ouro'),
+    50000.00
+);
+INSERT INTO confecciona (cpf_figurinista, id_figurino, cache_figurinista) VALUES (
+    '823.109.445-67', 
+    (SELECT id_figurino FROM figurino WHERE descricao = 'Traje real de época dinamarquês com coroa de ouro'),
+    48000.00
+);
+
+-- 10. Farda militar camuflada (Uma Luta Antes da Outra) -> Especialista em Ficção Científica Militar
+INSERT INTO confecciona (cpf_figurinista, id_figurino, cache_figurinista) VALUES (
+    '159.332.887-12', 
+    (SELECT id_figurino FROM figurino WHERE descricao = 'Farda militar camuflada com manchas de terra'),
+    25000.00
+);
+
+-- 11. Casaco de pele sintética branco extravagante (Ricas Criaturas) -> Especialista em Musicais e Glamour
+INSERT INTO confecciona (cpf_figurinista, id_figurino, cache_figurinista) VALUES (
+    '741.009.662-34', 
+    (SELECT id_figurino FROM figurino WHERE descricao = 'Casaco de pele sintética branco extravagante'),
+    38000.00
+);
+
+-- 12. Traje de elastano azul marinho super reforçado (Guardiões do Globo) -> Especialista em Vanguarda e Novos Materiais
+INSERT INTO confecciona (cpf_figurinista, id_figurino, cache_figurinista) VALUES (
+    '227.843.102-45', 
+    (SELECT id_figurino FROM figurino WHERE descricao = 'Traje de elastano azul marinho super reforçado'),
+    65000.00
+);
+
+-- 13. Sobretudo clássico de detetive bege (O Celular Branco) -> Especialista em Realismo Britânico
+INSERT INTO confecciona (cpf_figurinista, id_figurino, cache_figurinista) VALUES (
+    '512.667.334-55', 
+    (SELECT id_figurino FROM figurino WHERE descricao = 'Sobretudo clássico de detetive bege'),
+    22000.00
+);
+
+-- 14. Capa de chuva preta de vinil (O Celular Branco) -> Especialista em Terror Gótico e Texturas
+INSERT INTO confecciona (cpf_figurinista, id_figurino, cache_figurinista) VALUES (
+    '054.112.776-49', 
+    (SELECT id_figurino FROM figurino WHERE descricao = 'Capa de chuva preta de vinil e luvas escuras'),
+    20000.00
+);
+
+-- 15. Terno slim fit a prova de balas (O Agente Exposto) -> Especialista em Alfaiataria de Luxo
+INSERT INTO confecciona (cpf_figurinista, id_figurino, cache_figurinista) VALUES (
+    '218.445.660-33', 
+    (SELECT id_figurino FROM figurino WHERE descricao = 'Terno slim fit preto feito de material resistente a balas'),
+    42000.00
+);
+
