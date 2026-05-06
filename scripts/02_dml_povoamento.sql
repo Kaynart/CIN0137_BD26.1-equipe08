@@ -1,26 +1,48 @@
--- INSERINDO NA TABELA FUNCIONARIO (10 Diretores e 10 Atores)
+-- INSERINDO NA TABELA FUNCIONARIO (10 Diretores e 10 Atores e 15 Figurinistas)
 INSERT INTO FUNCIONARIO (cpf, nome_funcionario, data_nascimento_funcionario, sexo) VALUES 
-('293.404.544-63', 'Estevão Espilbergo', TO_DATE('1946-12-18', 'YYYY-MM-DD'), 'M'), 
+('293.404.544-63', 'Estevão Espilbergo', TO_DATE('1946-12-18', 'YYYY-MM-DD'), 'M'),
 ('563.823.158-73', 'Quinto Tarantela', TO_DATE('1963-03-27', 'YYYY-MM-DD'), 'M'),
-('248.494.604-53', 'Gretchen Gerving', TO_DATE('1983-08-04', 'YYYY-MM-DD'), 'F'), 
+('248.494.604-53', 'Gretchen Gerving', TO_DATE('1983-08-04', 'YYYY-MM-DD'), 'F'),
 ('293.653.544-06', 'Martinho Escocês', TO_DATE('1942-11-17', 'YYYY-MM-DD'), 'M'),
 ('653.404.344-63', 'Cristovão Nulo', TO_DATE('1970-07-30', 'YYYY-MM-DD'), 'M'),
-('293.534.566-73', 'Wesley Andarilho', TO_DATE('1969-05-01', 'YYYY-MM-DD'), 'M'), 
+('293.534.566-73', 'Wesley Andarilho', TO_DATE('1969-05-01', 'YYYY-MM-DD'), 'M'),
 ('242.404.944-69', 'Dênis Vila-Nova', TO_DATE('1967-10-03', 'YYYY-MM-DD'), 'M'),
 ('036.404.546-99', 'Sofia Cúpula', TO_DATE('1971-05-14', 'YYYY-MM-DD'), 'F'),
-('434.444.544-13', 'Pedro Almodólar', TO_DATE('1949-09-25', 'YYYY-MM-DD'), 'M'), 
+('434.444.544-13', 'Pedro Almodólar', TO_DATE('1949-09-25', 'YYYY-MM-DD'), 'M'),
 ('203.404.492-23', 'Jorge Lucas', TO_DATE('1944-05-14', 'YYYY-MM-DD'), 'M'),
-('384.592.108-71', 'Leonardo DeCapra', TO_DATE('1974-11-11', 'YYYY-MM-DD'), 'M'),   
-('712.943.550-24', 'Margarida Robô', TO_DATE('1990-07-02', 'YYYY-MM-DD'), 'F'),  
-('105.827.493-66', 'Breno Pinto', TO_DATE('1963-12-18', 'YYYY-MM-DD'), 'M'),        
-('840.192.375-92', 'Maria Estripe', TO_DATE('1949-06-22', 'YYYY-MM-DD'), 'F'),    
-('561.408.291-15', 'Tomás Cruzeiro', TO_DATE('1962-07-03', 'YYYY-MM-DD'), 'M'),   
-('923.714.650-83', 'Zendóia', TO_DATE('1996-09-01', 'YYYY-MM-DD'), 'F'),            
+('384.592.108-71', 'Leonardo DeCapra', TO_DATE('1974-11-11', 'YYYY-MM-DD'), 'M'),
+('712.943.550-24', 'Margarida Robô', TO_DATE('1990-07-02', 'YYYY-MM-DD'), 'F'),
+('105.827.493-66', 'Breno Pinto', TO_DATE('1963-12-18', 'YYYY-MM-DD'), 'M'),     
+('840.192.375-92', 'Maria Estripe', TO_DATE('1949-06-22', 'YYYY-MM-DD'), 'F'),
+('561.408.291-15', 'Tomás Cruzeiro', TO_DATE('1962-07-03', 'YYYY-MM-DD'), 'M'),
+('923.714.650-83', 'Zendóia', TO_DATE('1996-09-01', 'YYYY-MM-DD'), 'F'),
 ('478.251.904-37', 'Duane "A Pedra" João', TO_DATE('1972-05-02', 'YYYY-MM-DD'), 'M'),
-('259.630.817-48', 'Rian Ganso', TO_DATE('1980-11-12', 'YYYY-MM-DD'), 'M'),            
-('634.805.729-50', 'Escarlete João-Hans', TO_DATE('1984-11-22', 'YYYY-MM-DD'), 'F'), 
-('091.376.582-09', 'Samuel L. Jaquetão', TO_DATE('1948-12-21', 'YYYY-MM-DD'), 'M');
+('259.630.817-48', 'Rian Ganso', TO_DATE('1980-11-12', 'YYYY-MM-DD'), 'M'),
+('634.805.729-50', 'Escarlete João-Hans', TO_DATE('1984-11-22', 'YYYY-MM-DD'), 'F'),
+('091.376.582-09', 'Samuel L. Jaquetão', TO_DATE('1948-12-21', 'YYYY-MM-DD'), 'M'),
+    
+('492.301.558-12', 'Edith Cabeça', TO_DATE('1997-10-28', 'YYYY-MM-DD'), 'F'),
+('823.109.445-67', 'Coleth Atmadeira', TO_DATE('1948-12-30', 'YYYY-MM-DD'), 'F'),
+('156.778.234-09', 'Areia Powell', TO_DATE('1960-04-07', 'YYYY-MM-DD'), 'F'),
+('121.667.490-57', 'Naum Alves de Sousa', TO_DATE('1999-10-05', 'YYYY-MM-DD'), 'M'),
+('934.120.556-88', 'Milena Canhoneira', TO_DATE('1946-01-01', 'YYYY-MM-DD'), 'F'),
+('642.001.993-85', 'Paco Rabane', TO_DATE('1934-02-18', 'YYYY-MM-DD'), 'M'),
+('227.843.102-45', 'Marilia Bode', TO_DATE('2004-02-12', 'YYYY-MM-DD'), 'F'),
+('159.332.887-12', 'João Mole', TO_DATE('1931-09-19', 'YYYY-MM-DD'), 'M'),
+('601.334.789-21', 'Rute Carroça', TO_DATE('1960-04-10', 'YYYY-MM-DD'), 'F'),
+('221.445.009-88', 'Walter Planted', TO_DATE('1946-11-03', 'YYYY-MM-DD'), 'M'),
+('218.445.660-33', 'Jorge Armário', TO_DATE('1934-07-11', 'YYYY-MM-DD'), 'M'),
+('388.502.113-90', 'Kalma Vivinho', TO_DATE('1950-05-19', 'YYYY-MM-DD'), 'F'),
+('741.009.662-34', 'Ana Roda', TO_DATE('1931-10-30', 'YYYY-MM-DD'), 'F'),
+('054.112.776-49', 'Domenico Doce', TO_DATE('1958-08-13', 'YYYY-MM-DD'), 'M'),
+('512.667.334-55', 'Jaqueline Durona', TO_DATE('1966-12-24', 'YYYY-MM-DD'), 'F'),
+('098.445.121-66', 'Érica Ishioca', TO_DATE('1938-07-12', 'YYYY-MM-DD'), 'F'),
+('714.283.001-44', 'Antônio Poço', TO_DATE('1935-06-02', 'YYYY-MM-DD'), 'M');
 
+ 
+
+
+    
 -- INSERINDO ATORES NA TABELA ATOR 
 INSERT INTO ATOR (cpf_funcionario, numero_drt) VALUES 
 ('384.592.108-71', 'DRT-1131'),
@@ -31,7 +53,7 @@ INSERT INTO ATOR (cpf_funcionario, numero_drt) VALUES
 ('923.714.650-83', 'DRT-3976'),
 ('478.251.904-37', 'DRT-1853'),
 ('259.630.817-48', 'DRT-6235'),
-('634.805.729-50', 'DRT-7392'), 
+('634.805.729-50', 'DRT-7392'),
 ('091.376.582-09', 'DRT-5512');
 
 -- INSERINDOS DIRETORES NA TABELA DIRETOR
@@ -46,6 +68,26 @@ INSERT INTO DIRETOR (cpf_funcionario, estilo_cinematografico) VALUES
 ('036.404.546-99', 'Drama Melancólico'),
 ('434.444.544-13', 'Drama Passional Espanhol'),
 ('203.404.492-23', 'Space Opera Clássica');
+
+-- INSERINDO NA TABELA FIGURINISTA
+INSERT INTO FIGURINISTA (cpf_funcionario, estilo_moda) VALUES 
+('492.301.558-12', 'Alta Costura e Cinema Clássico'),
+('823.109.445-67', 'Figurinos de Época e Fantasia'),
+('156.778.234-09', 'Épicos Históricos'),
+('121.667.490-57', 'Teatro e Expressivismo'),
+('934.120.556-88', 'Drama Italiano Contemporâneo'),
+('227.843.102-45', 'Vanguarda e Novos Materiais'),
+('601.334.789-21', 'Afrofuturismo e Épicos'),
+('221.445.009-88', 'Corte e Costura Tradicional'),
+('388.502.113-90', 'Minimalismo e Cores Vivas'),
+('741.009.662-34', 'Musicais e Glamour'),
+('512.667.334-55', 'Realismo Britânico'),
+('098.445.121-66', 'Figurinos Conceituais Japoneses'),
+('714.283.001-44', 'Aventura e Exploração'),
+('159.332.887-12', 'Ficção Científica Militar'),
+('642.001.993-85', 'Moda Futurista Espacial'),
+('218.445.660-33', 'Ternos e Alfaiataria de Luxo'),
+('054.112.776-49', 'Terror Gótico e Envelhecimento Textural');
 
 -- INSERINDO FILMES NA TABELA FILME
 INSERT INTO FILME (classificacao_indicativa, ano_lancamento, titulo, cpf_diretor) VALUES 
@@ -69,6 +111,7 @@ INSERT INTO FILME (classificacao_indicativa, ano_lancamento, titulo, cpf_diretor
 ('10', 2011, 'Mulheres de Branco', '036.404.546-99'),
 ('L', 2000, 'História de Brinquedos', '434.444.544-13'),
 ('18', 2022, 'O Celular Branco', '203.404.492-23');
+
 
 -- ATOR - FILME
 
