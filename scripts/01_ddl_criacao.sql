@@ -288,6 +288,7 @@ CREATE TABLE aloca (
 
 	    CONSTRAINT fk_fornecedor_aloca FOREIGN KEY (cnpj_fornecedor) REFERENCES fornecedor(cnpj_fornecedor),	-- Uso de CONSTRAINT: regra que define cnpj_fornecedor como FK referenciando fornecedor(cnpj_fornecedor)
 
-	    CONSTRAINT fk_equipamento_aloca FOREIGN KEY (id_equipamento) REFERENCES equipamento(id_equipamento)	    -- Uso de CONSTRAINT: regra que define id_equipamento como FK referenciando equipamento(id_equipamento)
-	
+	    CONSTRAINT fk_equipamento_aloca FOREIGN KEY (id_equipamento) REFERENCES equipamento(id_equipamento),    -- Uso de CONSTRAINT: regra que define id_equipamento como FK referenciando equipamento(id_equipamento)
+
+		CONSTRAINT check_datas_aloca CHECK (data_devolucao >= data_aporte)										-- Uso de CONSTRAINT: regra que checa e garante que a data de devolucao seja sempre apos a data de aporte
 );
