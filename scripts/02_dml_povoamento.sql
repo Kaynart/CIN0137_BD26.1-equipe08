@@ -239,243 +239,104 @@ INSERT INTO FILME (classificacao_indicativa, ano_lancamento, titulo, cpf_diretor
 ('18', 2022, 'O Celular Branco', '203.404.492-23');
 
 
--- ATOR - FILME
+INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES 
 
 -- 1. Uma Luta Antes da Outra
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Breno Pinto'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Uma Luta Antes da Outra'), 'Roberto', 600000.00
-);
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Leonardo DeCapra'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Uma Luta Antes da Outra'), 'Militar', 450000.00
-);
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Zendóia'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Uma Luta Antes da Outra'), 'Marina', 300000.00
-);
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Breno Pinto'), (SELECT id_filme FROM filme WHERE titulo = 'Uma Luta Antes da Outra'), 'Roberto', 600000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Leonardo DeCapra'), (SELECT id_filme FROM filme WHERE titulo = 'Uma Luta Antes da Outra'), 'Militar', 450000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Zendóia'), (SELECT id_filme FROM filme WHERE titulo = 'Uma Luta Antes da Outra'), 'Marina', 300000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Ema Pedra'), (SELECT id_filme FROM filme WHERE titulo = 'Uma Luta Antes da Outra'), 'Atleta', 600000.00),
 
 -- 2. Pregadores
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Samuel L. Jaquetão'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Pregadores'), 'Elias', 550000.00
-);
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Tomás Cruzeiro'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Pregadores'), 'Fiel Escudeiro', 400000.00
-);
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Samuel L. Jaquetão'), (SELECT id_filme FROM filme WHERE titulo = 'Pregadores'), 'Elias', 550000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Tomás Cruzeiro'), (SELECT id_filme FROM filme WHERE titulo = 'Pregadores'), 'Fiel Escudeiro', 400000.00),
 
 -- 3. Anatomia de uma Subida
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Margarida Robô'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Anatomia de uma Subida'), 'Juíza', 350000.00
-);
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Rian Ganso'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Anatomia de uma Subida'), 'Felipe', 280000.00
-);
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Escarlete João-Hans'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Anatomia de uma Subida'), 'Advogada de Defesa', 420000.00
-);
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Margarida Robô'), (SELECT id_filme FROM filme WHERE titulo = 'Anatomia de uma Subida'), 'Juíza', 350000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Rian Ganso'), (SELECT id_filme FROM filme WHERE titulo = 'Anatomia de uma Subida'), 'Felipe', 280000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Escarlete João-Hans'), (SELECT id_filme FROM filme WHERE titulo = 'Anatomia de uma Subida'), 'Advogada de Defesa', 420000.00),
 
 -- 4. Ricas Criaturas
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Maria Estripe'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Ricas Criaturas'), 'Helena', 850000.00
-);
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Margarida Robô'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Ricas Criaturas'), 'Herdeira Misteriosa', 500000.00
-);
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Maria Estripe'), (SELECT id_filme FROM filme WHERE titulo = 'Ricas Criaturas'), 'Helena', 850000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Margarida Robô'), (SELECT id_filme FROM filme WHERE titulo = 'Ricas Criaturas'), 'Herdeira Misteriosa', 500000.00),
 
 -- 5. O Agente Exposto
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Tomás Cruzeiro'),
-    (SELECT id_filme FROM filme WHERE titulo = 'O Agente Exposto'), 'Ricardo', 900000.00
-);
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Duane "A Pedra" João'),
-    (SELECT id_filme FROM filme WHERE titulo = 'O Agente Exposto'), 'Informante da KGB', 700000.00
-);
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Tomás Cruzeiro'), (SELECT id_filme FROM filme WHERE titulo = 'O Agente Exposto'), 'Ricardo', 900000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Duane "A Pedra" João'), (SELECT id_filme FROM filme WHERE titulo = 'O Agente Exposto'), 'Informante da KGB', 700000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Quiano Rios'), (SELECT id_filme FROM filme WHERE titulo = 'O Agente Exposto'), 'Assassino', 900000.00),
 
 -- 6. Nada em Nenhum Lugar Nunca
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Zendóia'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Nada em Nenhum Lugar Nunca'), 'Alice', 400000.00
-);
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Leonardo DeCapra'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Nada em Nenhum Lugar Nunca'), 'Cientista-Chefe', 650000.00
-);
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Breno Pinto'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Nada em Nenhum Lugar Nunca'), 'Eduardo', 500000.00
-);
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Zendóia'), (SELECT id_filme FROM filme WHERE titulo = 'Nada em Nenhum Lugar Nunca'), 'Alice', 400000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Leonardo DeCapra'), (SELECT id_filme FROM filme WHERE titulo = 'Nada em Nenhum Lugar Nunca'), 'Cientista-Chefe', 650000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Breno Pinto'), (SELECT id_filme FROM filme WHERE titulo = 'Nada em Nenhum Lugar Nunca'), 'Eduardo', 500000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Quiano Rios'), (SELECT id_filme FROM filme WHERE titulo = 'Nada em Nenhum Lugar Nunca'), 'O Escolhido', 950000.00),
 
 -- 7. Guardiões do Globo
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Duane "A Pedra" João'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Guardiões do Globo'), 'Super-Herói Aposentado', 800000.00
-);
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Rian Ganso'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Guardiões do Globo'), 'Daniel', 450000.00
-);
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Duane "A Pedra" João'), (SELECT id_filme FROM filme WHERE titulo = 'Guardiões do Globo'), 'Super-Herói Aposentado', 800000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Rian Ganso'), (SELECT id_filme FROM filme WHERE titulo = 'Guardiões do Globo'), 'Daniel', 450000.00),
 
 -- 8. Entre Garfos e Revelações
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Breno Pinto'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Entre Garfos e Revelações'), 'Rodrigo', 300000.00
-);
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Maria Estripe'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Entre Garfos e Revelações'), 'Carmem', 700000.00
-);
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Samuel L. Jaquetão'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Entre Garfos e Revelações'), 'Mordomo Suspeito', 350000.00
-);
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Breno Pinto'), (SELECT id_filme FROM filme WHERE titulo = 'Entre Garfos e Revelações'), 'Rodrigo', 300000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Maria Estripe'), (SELECT id_filme FROM filme WHERE titulo = 'Entre Garfos e Revelações'), 'Carmem', 700000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Samuel L. Jaquetão'), (SELECT id_filme FROM filme WHERE titulo = 'Entre Garfos e Revelações'), 'Mordomo Suspeito', 350000.00),
 
 -- 9. Valor Emocional
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Rian Ganso'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Valor Emocional'), 'Thiago', 500000.00
-);
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Margarida Robô'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Valor Emocional'), 'Psicóloga', 450000.00
-);
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Rian Ganso'), (SELECT id_filme FROM filme WHERE titulo = 'Valor Emocional'), 'Thiago', 500000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Margarida Robô'), (SELECT id_filme FROM filme WHERE titulo = 'Valor Emocional'), 'Psicóloga', 450000.00),
 
 -- 10. Hamlet
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Leonardo DeCapra'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Hamlet'), 'Príncipe Dinamarquês', 750000.00
-);
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Escarlete João-Hans'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Hamlet'), 'Sofia', 600000.00
-);
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Tomás Cruzeiro'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Hamlet'), 'Rei Usurpador', 650000.00
-);
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Leonardo DeCapra'), (SELECT id_filme FROM filme WHERE titulo = 'Hamlet'), 'Príncipe Dinamarquês', 750000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Escarlete João-Hans'), (SELECT id_filme FROM filme WHERE titulo = 'Hamlet'), 'Sofia', 600000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Tomás Cruzeiro'), (SELECT id_filme FROM filme WHERE titulo = 'Hamlet'), 'Rei Usurpador', 650000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Morgano Homem-Livre'), (SELECT id_filme FROM filme WHERE titulo = 'Hamlet'), 'Narrador', 750000.00),
 
 -- 11. O Pequeno Hotel Bucarest
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Leonardo DeCapra'),
-    (SELECT id_filme FROM filme WHERE titulo = 'O Pequeno Hotel Bucarest'), 'Concierge', 500000.00
-);
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Zendóia'),
-    (SELECT id_filme FROM filme WHERE titulo = 'O Pequeno Hotel Bucarest'), 'Isabela', 320000.00
-);
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Leonardo DeCapra'), (SELECT id_filme FROM filme WHERE titulo = 'O Pequeno Hotel Bucarest'), 'Concierge', 500000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Zendóia'), (SELECT id_filme FROM filme WHERE titulo = 'O Pequeno Hotel Bucarest'), 'Isabela', 320000.00),
 
 -- 12. Arthur Sean Contra o Mundo
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Tomás Cruzeiro'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Arthur Sean Contra o Mundo'), 'Lucas', 550000.00
-);
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Rian Ganso'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Arthur Sean Contra o Mundo'), 'Guitarrista Rival', 400000.00
-);
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Tomás Cruzeiro'), (SELECT id_filme FROM filme WHERE titulo = 'Arthur Sean Contra o Mundo'), 'Lucas', 550000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Rian Ganso'), (SELECT id_filme FROM filme WHERE titulo = 'Arthur Sean Contra o Mundo'), 'Guitarrista Rival', 400000.00),
 
 -- 13. O Anjo Veste Gucci
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Maria Estripe'),
-    (SELECT id_filme FROM filme WHERE titulo = 'O Anjo Veste Gucci'), 'Editora-Chefe', 950000.00
-);
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Escarlete João-Hans'),
-    (SELECT id_filme FROM filme WHERE titulo = 'O Anjo Veste Gucci'), 'Luiza', 550000.00
-);
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Margarida Robô'),
-    (SELECT id_filme FROM filme WHERE titulo = 'O Anjo Veste Gucci'), 'Estagiária', 480000.00
-);
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Maria Estripe'), (SELECT id_filme FROM filme WHERE titulo = 'O Anjo Veste Gucci'), 'Editora-Chefe', 950000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Escarlete João-Hans'), (SELECT id_filme FROM filme WHERE titulo = 'O Anjo Veste Gucci'), 'Luiza', 550000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Margarida Robô'), (SELECT id_filme FROM filme WHERE titulo = 'O Anjo Veste Gucci'), 'Estagiária', 480000.00),
 
 -- 14. Diabo e o Deus na água da Lua
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Samuel L. Jaquetão'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Diabo e o Deus na água da Lua'), 'Capitão do Barco', 400000.00
-);
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Breno Pinto'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Diabo e o Deus na água da Lua'), 'Marcelo', 380000.00
-);
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Samuel L. Jaquetão'), (SELECT id_filme FROM filme WHERE titulo = 'Diabo e o Deus na água da Lua'), 'Capitão do Barco', 400000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Breno Pinto'), (SELECT id_filme FROM filme WHERE titulo = 'Diabo e o Deus na água da Lua'), 'Marcelo', 380000.00),
 
 -- 15. Projeto Ave Maria
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Rian Ganso'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Projeto Ave Maria'), 'Astronauta Sobrevivente', 600000.00
-);
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Duane "A Pedra" João'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Projeto Ave Maria'), 'Fernando', 650000.00
-);
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Rian Ganso'), (SELECT id_filme FROM filme WHERE titulo = 'Projeto Ave Maria'), 'Astronauta Sobrevivente', 600000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Duane "A Pedra" João'), (SELECT id_filme FROM filme WHERE titulo = 'Projeto Ave Maria'), 'Fernando', 650000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Tomás Agradece'), (SELECT id_filme FROM filme WHERE titulo = 'Projeto Ave Maria'), 'Capitão', 800000.00),
 
 -- 16. Meninos Bonzinhos
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Leonardo DeCapra'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Meninos Bonzinhos'), 'Detetive Particular', 500000.00
-);
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Tomás Cruzeiro'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Meninos Bonzinhos'), 'Paulo', 480000.00
-);
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Breno Pinto'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Meninos Bonzinhos'), 'Henrique', 420000.00
-);
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Leonardo DeCapra'), (SELECT id_filme FROM filme WHERE titulo = 'Meninos Bonzinhos'), 'Detetive Particular', 500000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Tomás Cruzeiro'), (SELECT id_filme FROM filme WHERE titulo = 'Meninos Bonzinhos'), 'Paulo', 480000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Breno Pinto'), (SELECT id_filme FROM filme WHERE titulo = 'Meninos Bonzinhos'), 'Henrique', 420000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Tomás Agradece'), (SELECT id_filme FROM filme WHERE titulo = 'Meninos Bonzinhos'), 'Professor', 450000.00),
 
 -- 17. Ande!
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Duane "A Pedra" João'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Ande!'), 'João', 500000.00
-);
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Zendóia'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Ande!'), 'Hipnotizadora', 350000.00
-);
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Duane "A Pedra" João'), (SELECT id_filme FROM filme WHERE titulo = 'Ande!'), 'João', 500000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Zendóia'), (SELECT id_filme FROM filme WHERE titulo = 'Ande!'), 'Hipnotizadora', 350000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Angelina Bonita'), (SELECT id_filme FROM filme WHERE titulo = 'Ande!'), 'Agente Especial', 850000.00),
 
 -- 18. Mulheres de Branco
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Escarlete João-Hans'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Mulheres de Branco'), 'Médica Cirurgiã', 600000.00
-);
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Maria Estripe'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Mulheres de Branco'), 'Lúcia', 800000.00
-);
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Margarida Robô'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Mulheres de Branco'), 'Enfermeira-Chefe', 450000.00
-);
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Escarlete João-Hans'), (SELECT id_filme FROM filme WHERE titulo = 'Mulheres de Branco'), 'Médica Cirurgiã', 600000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Maria Estripe'), (SELECT id_filme FROM filme WHERE titulo = 'Mulheres de Branco'), 'Lúcia', 800000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Margarida Robô'), (SELECT id_filme FROM filme WHERE titulo = 'Mulheres de Branco'), 'Enfermeira-Chefe', 450000.00),
 
 -- 19. História de Brinquedos
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Tomás Cruzeiro'),
-    (SELECT id_filme FROM filme WHERE titulo = 'História de Brinquedos'), 'Tiago', 700000.00
-);
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Samuel L. Jaquetão'),
-    (SELECT id_filme FROM filme WHERE titulo = 'História de Brinquedos'), 'Patrulheiro Espacial', 500000.00
-);
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Tomás Cruzeiro'), (SELECT id_filme FROM filme WHERE titulo = 'História de Brinquedos'), 'Tiago', 700000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Samuel L. Jaquetão'), (SELECT id_filme FROM filme WHERE titulo = 'História de Brinquedos'), 'Patrulheiro Espacial', 500000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Morgano Homem-Livre'), (SELECT id_filme FROM filme WHERE titulo = 'História de Brinquedos'), 'Delegado', 500000.00),
 
 -- 20. O Celular Branco
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Samuel L. Jaquetão'),
-    (SELECT id_filme FROM filme WHERE titulo = 'O Celular Branco'), 'Assassino', 400000.00
-);
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Leonardo DeCapra'),
-    (SELECT id_filme FROM filme WHERE titulo = 'O Celular Branco'), 'Otávio', 550000.00
-);
-INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES (
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Rian Ganso'),
-    (SELECT id_filme FROM filme WHERE titulo = 'O Celular Branco'), 'Investigador', 350000.00
-);
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Samuel L. Jaquetão'), (SELECT id_filme FROM filme WHERE titulo = 'O Celular Branco'), 'Assassino', 400000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Leonardo DeCapra'), (SELECT id_filme FROM filme WHERE titulo = 'O Celular Branco'), 'Otávio', 550000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Rian Ganso'), (SELECT id_filme FROM filme WHERE titulo = 'O Celular Branco'), 'Investigador', 350000.00);
 
 -- INSERINDO ESTUDIOS
 INSERT INTO ESTUDIO (nome_estudio, metragem, tem_chroma_key) VALUES
@@ -540,273 +401,163 @@ INSERT INTO DEPENDENTE (cpf_funcionario_responsavel, nome_dependente, data_nasci
 ('293.404.544-63', 'QuendolosPadresZiguiriguidun Souza', TO_DATE('2010-05-12', 'YYYY-MM-DD'), 'Irmão'),
 ('293.404.544-63', 'Neuvillette Carvalho', TO_DATE('2013-08-20', 'YYYY-MM-DD'), 'Filho'),
 ('105.827.493-66', 'Simon Pinto', TO_DATE('2011-04-25', 'YYYY-MM-DD'), 'Irmão'),
-('840.192.375-92', 'Dexter Morgan', TO_DATE('2015-11-03', 'YYYY-MM-DD'), 'Pai'),
+('840.192.375-92', 'Dexter Morgan', TO_DATE('2015-11-03', 'YYYY-MM-DD'), 'Filho'),
 ('561.408.291-15', 'Jurandira Salvino', TO_DATE('2008-02-28', 'YYYY-MM-DD'), 'Tia'),
 ('036.404.546-99', 'Alice Maravilha', TO_DATE('2018-07-14', 'YYYY-MM-DD'), 'Filha'),
 ('384.592.108-71', 'Emerick Silva', TO_DATE('2020-01-10', 'YYYY-MM-DD'), 'Sobrinho'),
 ('478.251.904-37', 'Joãozinho Noroxius', TO_DATE('2016-09-07', 'YYYY-MM-DD'), 'Filho');
 
 
--- INSERINDO NA TABELA FIGURINO
+INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES 
 
 -- 1. Uma Luta Antes da Outra
-INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
-    'G', 'Kimono de judô desgastado com faixa preta',
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Breno Pinto'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Uma Luta Antes da Outra')
-);
-INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
-    'M', 'Farda militar camuflada com manchas de terra',
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Leonardo DeCapra'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Uma Luta Antes da Outra')
-);
-INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
-    'PP', 'Roupa tática preta de infiltração de alta mobilidade',
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Zendóia'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Uma Luta Antes da Outra')
-);
+('G', 'Kimono de judô de "Roberto" com faixa preta', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Breno Pinto'), (SELECT id_filme FROM filme WHERE titulo = 'Uma Luta Antes da Outra')),
+('M', 'Farda militar de "Militar" com manchas de terra', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Leonardo DeCapra'), (SELECT id_filme FROM filme WHERE titulo = 'Uma Luta Antes da Outra')),
+('PP', 'Roupa tática de infiltração de "Marina"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Zendóia'), (SELECT id_filme FROM filme WHERE titulo = 'Uma Luta Antes da Outra')),
+('M', 'Agasalho esportivo de alta performance de "Atleta"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Ema Pedra'), (SELECT id_filme FROM filme WHERE titulo = 'Uma Luta Antes da Outra')),
 
 -- 2. Pregadores
-INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
-    'GG', 'Terno risca de giz com suspensórios vintage',
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Samuel L. Jaquetão'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Pregadores')
-);
-INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
-    'M', 'Jaqueta de couro marrom surrada',
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Tomás Cruzeiro'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Pregadores')
-);
+('GG', 'Terno risca de giz de "Elias" com suspensórios', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Samuel L. Jaquetão'), (SELECT id_filme FROM filme WHERE titulo = 'Pregadores')),
+('M', 'Jaqueta de couro de "Fiel Escudeiro"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Tomás Cruzeiro'), (SELECT id_filme FROM filme WHERE titulo = 'Pregadores')),
 
 -- 3. Anatomia de uma Subida
-INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
-    'P', 'Toga preta clássica com detalhes em veludo',
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Margarida Robô'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Anatomia de uma Subida')
-);
-INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
-    'P', 'Terno feminino de alfaiataria cinza elegante',
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Escarlete João-Hans'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Anatomia de uma Subida')
-);
+('P', 'Toga clássica de "Juíza" em veludo', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Margarida Robô'), (SELECT id_filme FROM filme WHERE titulo = 'Anatomia de uma Subida')),
+('M', 'Terno casual de "Felipe"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Rian Ganso'), (SELECT id_filme FROM filme WHERE titulo = 'Anatomia de uma Subida')),
+('P', 'Terno de alfaiataria de "Advogada de Defesa"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Escarlete João-Hans'), (SELECT id_filme FROM filme WHERE titulo = 'Anatomia de uma Subida')),
 
 -- 4. Ricas Criaturas
-INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
-    'M', 'Vestido de gala vermelho cravejado de cristais',
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Maria Estripe'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Ricas Criaturas')
-);
-INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
-    'P', 'Casaco de pele sintética branco extravagante',
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Margarida Robô'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Ricas Criaturas')
-);
+('M', 'Vestido de gala vermelho de "Helena"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Maria Estripe'), (SELECT id_filme FROM filme WHERE titulo = 'Ricas Criaturas')),
+('P', 'Casaco de pele sintética de "Herdeira Misteriosa"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Margarida Robô'), (SELECT id_filme FROM filme WHERE titulo = 'Ricas Criaturas')),
 
 -- 5. O Agente Exposto
-INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
-    'M', 'Terno slim fit preto feito de material resistente a balas',
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Tomás Cruzeiro'),
-    (SELECT id_filme FROM filme WHERE titulo = 'O Agente Exposto')
-);
-INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
-    'XGG', 'Sobretudo russo de lã pesada com gola de pele',
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Duane "A Pedra" João'),
-    (SELECT id_filme FROM filme WHERE titulo = 'O Agente Exposto')
-);
+('M', 'Terno slim de "Ricardo" resistente a balas', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Tomás Cruzeiro'), (SELECT id_filme FROM filme WHERE titulo = 'O Agente Exposto')),
+('XGG', 'Sobretudo de "Informante da KGB" com gola de pele', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Duane "A Pedra" João'), (SELECT id_filme FROM filme WHERE titulo = 'O Agente Exposto')),
+('G', 'Traje tático com capuz de "Assassino"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Quiano Rios'), (SELECT id_filme FROM filme WHERE titulo = 'O Agente Exposto')),
 
 -- 6. Nada em Nenhum Lugar Nunca
-INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
-    'PP', 'Macacão multiversal com LEDs bordados',
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Zendóia'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Nada em Nenhum Lugar Nunca')
-);
-INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
-    'M', 'Jaleco de laboratório com bolsos cheios de cacarecos',
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Leonardo DeCapra'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Nada em Nenhum Lugar Nunca')
-);
+('PP', 'Macacão multiversal de "Alice" com LEDs', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Zendóia'), (SELECT id_filme FROM filme WHERE titulo = 'Nada em Nenhum Lugar Nunca')),
+('M', 'Jaleco de laboratório de "Cientista-Chefe"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Leonardo DeCapra'), (SELECT id_filme FROM filme WHERE titulo = 'Nada em Nenhum Lugar Nunca')),
+('M', 'Camisa polo e calça social de "Eduardo"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Breno Pinto'), (SELECT id_filme FROM filme WHERE titulo = 'Nada em Nenhum Lugar Nunca')),
+('G', 'Sobretudo preto longo e óculos escuros de "O Escolhido"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Quiano Rios'), (SELECT id_filme FROM filme WHERE titulo = 'Nada em Nenhum Lugar Nunca')),
 
 -- 7. Guardiões do Globo
-INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
-    'XGG', 'Traje de elastano azul marinho super reforçado',
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Duane "A Pedra" João'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Guardiões do Globo')
-);
-INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
-    'M', 'Calça jeans comum e camisa xadrez rasgada',
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Rian Ganso'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Guardiões do Globo')
-);
+('XGG', 'Traje de elastano de "Super-Herói Aposentado"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Duane "A Pedra" João'), (SELECT id_filme FROM filme WHERE titulo = 'Guardiões do Globo')),
+('M', 'Calça jeans e camisa xadrez rasgada de "Daniel"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Rian Ganso'), (SELECT id_filme FROM filme WHERE titulo = 'Guardiões do Globo')),
+
+-- 8. Entre Garfos e Revelações
+('M', 'Suéter de lã tricotado de "Rodrigo"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Breno Pinto'), (SELECT id_filme FROM filme WHERE titulo = 'Entre Garfos e Revelações')),
+('M', 'Vestido preto elegante de "Carmem"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Maria Estripe'), (SELECT id_filme FROM filme WHERE titulo = 'Entre Garfos e Revelações')),
+('GG', 'Uniforme de "Mordomo Suspeito"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Samuel L. Jaquetão'), (SELECT id_filme FROM filme WHERE titulo = 'Entre Garfos e Revelações')),
+
+-- 9. Valor Emocional
+('M', 'Jaqueta jeans com emblema nas costas de "Thiago"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Rian Ganso'), (SELECT id_filme FROM filme WHERE titulo = 'Valor Emocional')),
+('P', 'Conjunto social de linho claro de "Psicóloga"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Margarida Robô'), (SELECT id_filme FROM filme WHERE titulo = 'Valor Emocional')),
 
 -- 10. Hamlet
-INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
-    'M', 'Traje real de época dinamarquês com coroa de ouro',
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Leonardo DeCapra'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Hamlet')
-);
-INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
-    'M', 'Capa de veludo real com forro escuro e espada presa',
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Tomás Cruzeiro'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Hamlet')
-);
+('M', 'Traje real de "Príncipe Dinamarquês" com coroa', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Leonardo DeCapra'), (SELECT id_filme FROM filme WHERE titulo = 'Hamlet')),
+('P', 'Vestido medieval de seda de "Sofia"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Escarlete João-Hans'), (SELECT id_filme FROM filme WHERE titulo = 'Hamlet')),
+('M', 'Capa de veludo de "Rei Usurpador" com espada', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Tomás Cruzeiro'), (SELECT id_filme FROM filme WHERE titulo = 'Hamlet')),
+('G', 'Smoking clássico de "Narrador" e gravata borboleta', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Morgano Homem-Livre'), (SELECT id_filme FROM filme WHERE titulo = 'Hamlet')),
+
+-- 11. O Pequeno Hotel Bucarest
+('M', 'Uniforme de "Concierge" roxo com botões dourados', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Leonardo DeCapra'), (SELECT id_filme FROM filme WHERE titulo = 'O Pequeno Hotel Bucarest')),
+('P', 'Vestido de confeiteira de "Isabela"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Zendóia'), (SELECT id_filme FROM filme WHERE titulo = 'O Pequeno Hotel Bucarest')),
+
+-- 12. Arthur Sean Contra o Mundo
+('M', 'Camiseta de banda e munhequeiras de "Lucas"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Tomás Cruzeiro'), (SELECT id_filme FROM filme WHERE titulo = 'Arthur Sean Contra o Mundo')),
+('M', 'Calça de couro e colete com tachas de "Guitarrista"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Rian Ganso'), (SELECT id_filme FROM filme WHERE titulo = 'Arthur Sean Contra o Mundo')),
+
+-- 13. O Anjo Veste Gucci
+('M', 'Casaco de grife e óculos escuros de "Editora-Chefe"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Maria Estripe'), (SELECT id_filme FROM filme WHERE titulo = 'O Anjo Veste Gucci')),
+('P', 'Conjunto de alta costura vanguardista de "Luiza"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Escarlete João-Hans'), (SELECT id_filme FROM filme WHERE titulo = 'O Anjo Veste Gucci')),
+('P', 'Roupas fora de moda de "Estagiária"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Margarida Robô'), (SELECT id_filme FROM filme WHERE titulo = 'O Anjo Veste Gucci')),
+
+-- 14. Diabo e o Deus na água da Lua
+('GG', 'Capa de chuva amarela de "Capitão do Barco"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Samuel L. Jaquetão'), (SELECT id_filme FROM filme WHERE titulo = 'Diabo e o Deus na água da Lua')),
+('M', 'Roupas rasgadas e molhadas de "Marcelo"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Breno Pinto'), (SELECT id_filme FROM filme WHERE titulo = 'Diabo e o Deus na água da Lua')),
 
 -- 15. Projeto Ave Maria
-INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
-    'M', 'Traje espacial EVA danificado',
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Rian Ganso'),
-    (SELECT id_filme FROM filme WHERE titulo = 'Projeto Ave Maria')
-);
+('M', 'Traje espacial EVA danificado de "Astronauta"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Rian Ganso'), (SELECT id_filme FROM filme WHERE titulo = 'Projeto Ave Maria')),
+('G', 'Macacão de engenharia de "Fernando"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Duane "A Pedra" João'), (SELECT id_filme FROM filme WHERE titulo = 'Projeto Ave Maria')),
+('G', 'Uniforme de comandante de "Capitão"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Tomás Agradece'), (SELECT id_filme FROM filme WHERE titulo = 'Projeto Ave Maria')),
+
+-- 16. Meninos Bonzinhos
+('M', 'Terno mal ajustado de "Detetive Particular"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Leonardo DeCapra'), (SELECT id_filme FROM filme WHERE titulo = 'Meninos Bonzinhos')),
+('M', 'Camisa havaiana extravagante de "Paulo"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Tomás Cruzeiro'), (SELECT id_filme FROM filme WHERE titulo = 'Meninos Bonzinhos')),
+('M', 'Colete à prova de balas de "Henrique"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Breno Pinto'), (SELECT id_filme FROM filme WHERE titulo = 'Meninos Bonzinhos')),
+('G', 'Paletó de tweed com cotoveleiras de "Professor"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Tomás Agradece'), (SELECT id_filme FROM filme WHERE titulo = 'Meninos Bonzinhos')),
+
+-- 17. Ande!
+('XGG', 'Roupas casuais de viagem de "João"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Duane "A Pedra" João'), (SELECT id_filme FROM filme WHERE titulo = 'Ande!')),
+('P', 'Vestido de chá floral elegante de "Hipnotizadora"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Zendóia'), (SELECT id_filme FROM filme WHERE titulo = 'Ande!')),
+('M', 'Traje formal escuro de "Agente Especial"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Angelina Bonita'), (SELECT id_filme FROM filme WHERE titulo = 'Ande!')),
+
+-- 18. Mulheres de Branco
+('P', 'Jaleco branco e estetoscópio de "Médica Cirurgiã"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Escarlete João-Hans'), (SELECT id_filme FROM filme WHERE titulo = 'Mulheres de Branco')),
+('M', 'Uniforme de plantão branco de "Lúcia"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Maria Estripe'), (SELECT id_filme FROM filme WHERE titulo = 'Mulheres de Branco')),
+('P', 'Traje clínico de "Enfermeira-Chefe"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Margarida Robô'), (SELECT id_filme FROM filme WHERE titulo = 'Mulheres de Branco')),
 
 -- 19. História de Brinquedos
-INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
-    'M', 'Colete de vaqueiro, estrela de xerife e chapéu',
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Tomás Cruzeiro'),
-    (SELECT id_filme FROM filme WHERE titulo = 'História de Brinquedos')
-);
-INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
-    'GG', 'Armadura espacial branca e verde de plástico rígido',
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Samuel L. Jaquetão'),
-    (SELECT id_filme FROM filme WHERE titulo = 'História de Brinquedos')
-);
+('M', 'Colete de vaqueiro de "Tiago" e chapéu de xerife', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Tomás Cruzeiro'), (SELECT id_filme FROM filme WHERE titulo = 'História de Brinquedos')),
+('GG', 'Armadura espacial de plástico de "Patrulheiro"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Samuel L. Jaquetão'), (SELECT id_filme FROM filme WHERE titulo = 'História de Brinquedos')),
+('G', 'Uniforme policial azul com distintivo de "Delegado"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Morgano Homem-Livre'), (SELECT id_filme FROM filme WHERE titulo = 'História de Brinquedos')),
 
 -- 20. O Celular Branco
-INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
-    'GG', 'Capa de chuva preta de vinil e luvas escuras',
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Samuel L. Jaquetão'),
-    (SELECT id_filme FROM filme WHERE titulo = 'O Celular Branco')
-);
-INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VALUES (
-    'M', 'Sobretudo clássico de detetive bege',
-    (SELECT a.cpf_funcionario FROM ator a JOIN funcionario f ON a.cpf_funcionario = f.cpf WHERE f.nome_funcionario = 'Rian Ganso'),
-    (SELECT id_filme FROM filme WHERE titulo = 'O Celular Branco')
-);
-
-
+('GG', 'Capa de chuva de vinil de "Assassino" e luvas', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Samuel L. Jaquetão'), (SELECT id_filme FROM filme WHERE titulo = 'O Celular Branco')),
+('M', 'Terno cinza despojado de "Otávio"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Leonardo DeCapra'), (SELECT id_filme FROM filme WHERE titulo = 'O Celular Branco')),
+('M', 'Sobretudo bege clássico de "Investigador"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Rian Ganso'), (SELECT id_filme FROM filme WHERE titulo = 'O Celular Branco'));
 
 
 
 -- INSERINDO AS RELAÇÕES DE QUEM CONFECCIONOU QUAL FIGURINO (TABELA CONFECCIONA)
 
--- 1. Vestido de gala vermelho (Ricas Criaturas) -> FEITO POR DUAS FIGURINISTAS!
--- Edith Cabeça (Alta Costura) e Coleth Atmadeira (Época e Fantasia)
-INSERT INTO confecciona (cpf_figurinista, id_figurino, cache_figurinista) VALUES (
-    '492.301.558-12', 
-    (SELECT id_figurino FROM figurino WHERE descricao = 'Vestido de gala vermelho cravejado de cristais'),
-    45000.00
-);
-INSERT INTO confecciona (cpf_figurinista, id_figurino, cache_figurinista) VALUES (
-    '823.109.445-67', 
-    (SELECT id_figurino FROM figurino WHERE descricao = 'Vestido de gala vermelho cravejado de cristais'),
-    35000.00
-);
+INSERT INTO confecciona (cpf_figurinista, id_figurino, cache_figurinista) VALUES 
 
--- 2. Traje espacial EVA danificado (Projeto Ave Maria) -> FEITO POR DOIS FIGURINISTAS!
--- João Mole (Ficção Científica Militar) e Marilia Bode (Vanguarda)
-INSERT INTO confecciona (cpf_figurinista, id_figurino, cache_figurinista) VALUES (
-    '159.332.887-12', 
-    (SELECT id_figurino FROM figurino WHERE descricao = 'Traje espacial EVA danificado'),
-    60000.00
-);
-INSERT INTO confecciona (cpf_figurinista, id_figurino, cache_figurinista) VALUES (
-    '227.843.102-45', 
-    (SELECT id_figurino FROM figurino WHERE descricao = 'Traje espacial EVA danificado'),
-    55000.00
-);
+-- 1. Vestido de gala vermelho (Ricas Criaturas) -> Feito por Edith e Coleth
+('492.301.558-12', (SELECT id_figurino FROM figurino WHERE descricao = 'Vestido de gala vermelho de "Helena"'), 45000.00),
+('823.109.445-67', (SELECT id_figurino FROM figurino WHERE descricao = 'Vestido de gala vermelho de "Helena"'), 35000.00),
 
--- 3. Terno risca de giz (Pregadores) -> Feito por Jorge Armário (Alfaiataria)
-INSERT INTO confecciona (cpf_figurinista, id_figurino, cache_figurinista) VALUES (
-    '218.445.660-33', 
-    (SELECT id_figurino FROM figurino WHERE descricao = 'Terno risca de giz com suspensórios vintage'),
-    28000.00
-);
+-- 2. Traje espacial EVA danificado (Projeto Ave Maria) -> Feito por João e Marilia
+('159.332.887-12', (SELECT id_figurino FROM figurino WHERE descricao = 'Traje espacial EVA danificado de "Astronauta"'), 60000.00),
+('227.843.102-45', (SELECT id_figurino FROM figurino WHERE descricao = 'Traje espacial EVA danificado de "Astronauta"'), 55000.00),
 
--- 4. Macacão multiversal com LEDs (Nada em Nenhum Lugar Nunca) -> Paco Rabane (Moda Futurista)
-INSERT INTO confecciona (cpf_figurinista, id_figurino, cache_figurinista) VALUES (
-    '642.001.993-85', 
-    (SELECT id_figurino FROM figurino WHERE descricao = 'Macacão multiversal com LEDs bordados'),
-    85000.00
-);
+-- 3. Terno risca de giz (Pregadores) -> Feito por Jorge
+('218.445.660-33', (SELECT id_figurino FROM figurino WHERE descricao = 'Terno risca de giz de "Elias" com suspensórios'), 28000.00),
 
--- 5. Armadura espacial branca e verde (História de Brinquedos) -> Paco Rabane (Moda Futurista)
-INSERT INTO confecciona (cpf_figurinista, id_figurino, cache_figurinista) VALUES (
-    '642.001.993-85', 
-    (SELECT id_figurino FROM figurino WHERE descricao = 'Armadura espacial branca e verde de plástico rígido'),
-    75000.00
-);
+-- 4. Macacão multiversal com LEDs (Nada em Nenhum Lugar Nunca) -> Feito por Paco
+('642.001.993-85', (SELECT id_figurino FROM figurino WHERE descricao = 'Macacão multiversal de "Alice" com LEDs'), 85000.00),
 
--- 6. Toga preta clássica (Anatomia de uma Subida) -> Naum Alves de Sousa (Teatro)
-INSERT INTO confecciona (cpf_figurinista, id_figurino, cache_figurinista) VALUES (
-    '121.667.490-57', 
-    (SELECT id_figurino FROM figurino WHERE descricao = 'Toga preta clássica com detalhes em veludo'),
-    15000.00
-);
+-- 5. Armadura espacial branca e verde (História de Brinquedos) -> Feito por Paco
+('642.001.993-85', (SELECT id_figurino FROM figurino WHERE descricao = 'Armadura espacial de plástico de "Patrulheiro"'), 75000.00),
 
--- 7. Kimono de judô desgastado (Uma Luta Antes da Outra) -> Walter Planted (Corte e Costura)
-INSERT INTO confecciona (cpf_figurinista, id_figurino, cache_figurinista) VALUES (
-    '221.445.009-88', 
-    (SELECT id_figurino FROM figurino WHERE descricao = 'Kimono de judô desgastado com faixa preta'),
-    12000.00
-);
+-- 6. Toga preta clássica (Anatomia de uma Subida) -> Feito por Naum
+('121.667.490-57', (SELECT id_figurino FROM figurino WHERE descricao = 'Toga clássica de "Juíza" em veludo'), 15000.00),
 
--- 8. Terno feminino de alfaiataria (Anatomia de uma Subida) -> Jorge Armário (Alfaiataria)
-INSERT INTO confecciona (cpf_figurinista, id_figurino, cache_figurinista) VALUES (
-    '218.445.660-33', 
-    (SELECT id_figurino FROM figurino WHERE descricao = 'Terno feminino de alfaiataria cinza elegante'),
-    32000.00
-);
+-- 7. Kimono de judô desgastado (Uma Luta Antes da Outra) -> Feito por Walter
+('221.445.009-88', (SELECT id_figurino FROM figurino WHERE descricao = 'Kimono de judô de "Roberto" com faixa preta'), 12000.00),
 
--- 9. Traje real de época dinamarquês com coroa (Hamlet) -> FEITO POR DOIS FIGURINISTAS!
--- Especialista em Épicos Históricos e Especialista em Época e Fantasia
-INSERT INTO confecciona (cpf_figurinista, id_figurino, cache_figurinista) VALUES (
-    '156.778.234-09', 
-    (SELECT id_figurino FROM figurino WHERE descricao = 'Traje real de época dinamarquês com coroa de ouro'),
-    50000.00
-);
-INSERT INTO confecciona (cpf_figurinista, id_figurino, cache_figurinista) VALUES (
-    '823.109.445-67', 
-    (SELECT id_figurino FROM figurino WHERE descricao = 'Traje real de época dinamarquês com coroa de ouro'),
-    48000.00
-);
+-- 8. Terno feminino de alfaiataria (Anatomia de uma Subida) -> Feito por Jorge
+('218.445.660-33', (SELECT id_figurino FROM figurino WHERE descricao = 'Terno de alfaiataria de "Advogada de Defesa"'), 32000.00),
 
--- 10. Farda militar camuflada (Uma Luta Antes da Outra) -> Especialista em Ficção Científica Militar
-INSERT INTO confecciona (cpf_figurinista, id_figurino, cache_figurinista) VALUES (
-    '159.332.887-12', 
-    (SELECT id_figurino FROM figurino WHERE descricao = 'Farda militar camuflada com manchas de terra'),
-    25000.00
-);
+-- 9. Traje real de época dinamarquês com coroa (Hamlet) -> Feito por dois figurinistas
+('156.778.234-09', (SELECT id_figurino FROM figurino WHERE descricao = 'Traje real de "Príncipe Dinamarquês" com coroa'), 50000.00),
+('823.109.445-67', (SELECT id_figurino FROM figurino WHERE descricao = 'Traje real de "Príncipe Dinamarquês" com coroa'), 48000.00),
 
--- 11. Casaco de pele sintética branco extravagante (Ricas Criaturas) -> Especialista em Musicais e Glamour
-INSERT INTO confecciona (cpf_figurinista, id_figurino, cache_figurinista) VALUES (
-    '741.009.662-34', 
-    (SELECT id_figurino FROM figurino WHERE descricao = 'Casaco de pele sintética branco extravagante'),
-    38000.00
-);
+-- 10. Farda militar camuflada (Uma Luta Antes da Outra) -> Feito por Especialista em Ficção Militar
+('159.332.887-12', (SELECT id_figurino FROM figurino WHERE descricao = 'Farda militar de "Militar" com manchas de terra'), 25000.00),
 
--- 12. Traje de elastano azul marinho super reforçado (Guardiões do Globo) -> Especialista em Vanguarda e Novos Materiais
-INSERT INTO confecciona (cpf_figurinista, id_figurino, cache_figurinista) VALUES (
-    '227.843.102-45', 
-    (SELECT id_figurino FROM figurino WHERE descricao = 'Traje de elastano azul marinho super reforçado'),
-    65000.00
-);
+-- 11. Casaco de pele sintética branco extravagante (Ricas Criaturas) -> Feito por Especialista em Musicais
+('741.009.662-34', (SELECT id_figurino FROM figurino WHERE descricao = 'Casaco de pele sintética de "Herdeira Misteriosa"'), 38000.00),
 
--- 13. Sobretudo clássico de detetive bege (O Celular Branco) -> Especialista em Realismo Britânico
-INSERT INTO confecciona (cpf_figurinista, id_figurino, cache_figurinista) VALUES (
-    '512.667.334-55', 
-    (SELECT id_figurino FROM figurino WHERE descricao = 'Sobretudo clássico de detetive bege'),
-    22000.00
-);
+-- 12. Traje de elastano azul marinho super reforçado (Guardiões do Globo) -> Feito por Especialista em Vanguarda
+('227.843.102-45', (SELECT id_figurino FROM figurino WHERE descricao = 'Traje de elastano de "Super-Herói Aposentado"'), 65000.00),
 
--- 14. Capa de chuva preta de vinil (O Celular Branco) -> Especialista em Terror Gótico e Texturas
-INSERT INTO confecciona (cpf_figurinista, id_figurino, cache_figurinista) VALUES (
-    '054.112.776-49', 
-    (SELECT id_figurino FROM figurino WHERE descricao = 'Capa de chuva preta de vinil e luvas escuras'),
-    20000.00
-);
+-- 13. Sobretudo clássico de detetive bege (O Celular Branco) -> Feito por Especialista em Realismo Britânico
+('512.667.334-55', (SELECT id_figurino FROM figurino WHERE descricao = 'Sobretudo bege clássico de "Investigador"'), 22000.00),
 
--- 15. Terno slim fit a prova de balas (O Agente Exposto) -> Especialista em Alfaiataria de Luxo
-INSERT INTO confecciona (cpf_figurinista, id_figurino, cache_figurinista) VALUES (
-    '218.445.660-33', 
-    (SELECT id_figurino FROM figurino WHERE descricao = 'Terno slim fit preto feito de material resistente a balas'),
-    42000.00
-);
+-- 14. Capa de chuva preta de vinil (O Celular Branco) -> Feito por Especialista em Terror Gótico
+('054.112.776-49', (SELECT id_figurino FROM figurino WHERE descricao = 'Capa de chuva de vinil de "Assassino" e luvas'), 20000.00),
+
+-- 15. Terno slim fit a prova de balas (O Agente Exposto) -> Feito por Especialista em Alfaiataria
+('218.445.660-33', (SELECT id_figurino FROM figurino WHERE descricao = 'Terno slim de "Ricardo" resistente a balas'), 42000.00);
 
