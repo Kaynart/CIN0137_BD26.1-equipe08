@@ -374,7 +374,7 @@ INSERT INTO fornecedor (cnpj_fornecedor, razao_social) VALUES
 ('19.283.746/0001-15', 'Ação e Risco Dublês S/A');
 
 --INSERINDO NA TABELA EQUIPAMENTOS
-INSERT INTO EQUIPAMENTO (id_equipamento, tipo, valor) VALUES 
+INSERT INTO EQUIPAMENTO (tipo, valor) VALUES 
 ('Câmera IMAX PRO 70mm', 250000.00),
 ('Kit Lentes SonyVision', 85000.50),
 ('Guindaste Pequeno', 120000.00),
@@ -561,3 +561,186 @@ INSERT INTO confecciona (cpf_figurinista, id_figurino, cache_figurinista) VALUES
 -- 15. Terno slim fit a prova de balas (O Agente Exposto) -> Feito por Especialista em Alfaiataria
 ('218.445.660-33', (SELECT id_figurino FROM figurino WHERE descricao = 'Terno slim de "Ricardo" resistente a balas'), 42000.00);
 
+--RELACIONAMENTO ALOCA
+
+-- Filme 1 Uma Luta Antes da Outra
+INSERT INTO aloca (id_filme, cnpj_fornecedor, id_equipamento, data_aporte, data_devolucao, estado_conservacao) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Uma Luta Antes da Outra'), '33.592.510/0001-54', 1, TO_DATE('2025-01-10', 'YYYY-MM-DD'), TO_DATE('2025-03-15', 'YYYY-MM-DD'), 'Excelente');
+INSERT INTO aloca (id_filme, cnpj_fornecedor, id_equipamento, data_aporte, data_devolucao, estado_conservacao) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Uma Luta Antes da Outra'), '18.765.432/0001-99', 10, TO_DATE('2025-01-15', 'YYYY-MM-DD'), TO_DATE('2025-03-20', 'YYYY-MM-DD'), 'Ótimo');
+INSERT INTO aloca (id_filme, cnpj_fornecedor, id_equipamento, data_aporte, data_devolucao, estado_conservacao) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Uma Luta Antes da Outra'), '45.123.890/0001-21', 5, TO_DATE('2025-01-12', 'YYYY-MM-DD'), TO_DATE('2025-03-18', 'YYYY-MM-DD'), 'Ruim');
+
+-- Filme 2 Pregadores
+INSERT INTO aloca (id_filme, cnpj_fornecedor, id_equipamento, data_aporte, data_devolucao, estado_conservacao) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Pregadores'), '18.765.432/0001-99', 8, TO_DATE('2025-02-01', 'YYYY-MM-DD'), TO_DATE('2025-04-10', 'YYYY-MM-DD'), 'Bom');
+
+-- Filme 3 Anatomia de uma Subida
+INSERT INTO aloca (id_filme, cnpj_fornecedor, id_equipamento, data_aporte, data_devolucao, estado_conservacao) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Anatomia de uma Subida'), '45.123.890/0001-21', 5, TO_DATE('2024-05-20', 'YYYY-MM-DD'), TO_DATE('2024-08-15', 'YYYY-MM-DD'), 'Ótimo');
+INSERT INTO aloca (id_filme, cnpj_fornecedor, id_equipamento, data_aporte, data_devolucao, estado_conservacao) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Anatomia de uma Subida'), '33.592.510/0001-54', 16, TO_DATE('2024-05-25', 'YYYY-MM-DD'), TO_DATE('2024-08-20', 'YYYY-MM-DD'), 'Péssimo');
+
+-- Filme 4 Ricas Criaturas
+INSERT INTO aloca (id_filme, cnpj_fornecedor, id_equipamento, data_aporte, data_devolucao, estado_conservacao) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Ricas Criaturas'), '08.345.112/0001-76', 2, TO_DATE('2024-03-10', 'YYYY-MM-DD'), TO_DATE('2024-06-01', 'YYYY-MM-DD'), 'Péssimo');
+
+-- Filme 5 O Agente Exposto
+INSERT INTO aloca (id_filme, cnpj_fornecedor, id_equipamento, data_aporte, data_devolucao, estado_conservacao) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'O Agente Exposto'), '67.890.234/0001-88', 11, TO_DATE('2025-01-15', 'YYYY-MM-DD'), TO_DATE('2025-05-20', 'YYYY-MM-DD'), 'Perfeito');
+INSERT INTO aloca (id_filme, cnpj_fornecedor, id_equipamento, data_aporte, data_devolucao, estado_conservacao) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'O Agente Exposto'), '08.345.112/0001-76', 7, TO_DATE('2025-01-20', 'YYYY-MM-DD'), TO_DATE('2025-05-25', 'YYYY-MM-DD'), 'Regular');
+
+-- Filme 6 Nada em Nenhum Lugar Nunca
+INSERT INTO aloca (id_filme, cnpj_fornecedor, id_equipamento, data_aporte, data_devolucao, estado_conservacao) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Nada em Nenhum Lugar Nunca'), '12.456.789/0001-33', 17, TO_DATE('2023-06-01', 'YYYY-MM-DD'), TO_DATE('2023-09-10', 'YYYY-MM-DD'), 'Péssimo');
+
+-- Filme 7 Guardiões do Globo
+INSERT INTO aloca (id_filme, cnpj_fornecedor, id_equipamento, data_aporte, data_devolucao, estado_conservacao) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Guardiões do Globo'), '54.321.098/0001-65', 7, TO_DATE('2021-08-15', 'YYYY-MM-DD'), TO_DATE('2021-12-20', 'YYYY-MM-DD'), 'Ótimo');
+
+-- Filme 8 Entre Garfos e Revelações
+INSERT INTO aloca (id_filme, cnpj_fornecedor, id_equipamento, data_aporte, data_devolucao, estado_conservacao) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Entre Garfos e Revelações'), '89.012.345/0001-11', 19, TO_DATE('2019-10-01', 'YYYY-MM-DD'), TO_DATE('2019-12-15', 'YYYY-MM-DD'), 'Ruim');
+
+-- Filme 9 Valor Emocional
+INSERT INTO aloca (id_filme, cnpj_fornecedor, id_equipamento, data_aporte, data_devolucao, estado_conservacao) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Valor Emocional'), '21.987.654/0001-44', 18, TO_DATE('2025-02-10', 'YYYY-MM-DD'), TO_DATE('2025-04-30', 'YYYY-MM-DD'), 'Excelente');
+
+-- Filme 10 Hamlet
+INSERT INTO aloca (id_filme, cnpj_fornecedor, id_equipamento, data_aporte, data_devolucao, estado_conservacao) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Hamlet'), '76.543.210/0001-87', 10, TO_DATE('2025-03-01', 'YYYY-MM-DD'), TO_DATE('2025-06-15', 'YYYY-MM-DD'), 'Ótimo');
+
+-- Filme 11 O Pequeno Hotel Bucarest
+INSERT INTO aloca (id_filme, cnpj_fornecedor, id_equipamento, data_aporte, data_devolucao, estado_conservacao) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'O Pequeno Hotel Bucarest'), '11.223.344/0001-55', 9, TO_DATE('2018-04-12', 'YYYY-MM-DD'), TO_DATE('2018-07-20', 'YYYY-MM-DD'), 'Bom');
+
+-- Filme 12 Arthur Sean Contra o Mundo
+INSERT INTO aloca (id_filme, cnpj_fornecedor, id_equipamento, data_aporte, data_devolucao, estado_conservacao) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Arthur Sean Contra o Mundo'), '99.887.766/0001-22', 16, TO_DATE('2013-05-15', 'YYYY-MM-DD'), TO_DATE('2013-09-30', 'YYYY-MM-DD'), 'Regular');
+
+-- Filme 13 O Anjo Veste Gucci
+INSERT INTO aloca (id_filme, cnpj_fornecedor, id_equipamento, data_aporte, data_devolucao, estado_conservacao) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'O Anjo Veste Gucci'), '44.556.677/0001-33', 3, TO_DATE('2007-08-20', 'YYYY-MM-DD'), TO_DATE('2007-12-10', 'YYYY-MM-DD'), 'Ótimo');
+
+-- Filme 14 Diabo e o Deus na água da Lua
+INSERT INTO aloca (id_filme, cnpj_fornecedor, id_equipamento, data_aporte, data_devolucao, estado_conservacao) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Diabo e o Deus na água da Lua'), '55.667.788/0001-44', 6, TO_DATE('1999-01-10', 'YYYY-MM-DD'), TO_DATE('1999-05-15', 'YYYY-MM-DD'), 'Regular');
+
+-- Filme 15 Projeto Ave Maria
+INSERT INTO aloca (id_filme, cnpj_fornecedor, id_equipamento, data_aporte, data_devolucao, estado_conservacao) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Projeto Ave Maria'), '22.334.455/0001-66', 13, TO_DATE('2025-04-05', 'YYYY-MM-DD'), TO_DATE('2025-08-12', 'YYYY-MM-DD'), 'Excelente');
+INSERT INTO aloca (id_filme, cnpj_fornecedor, id_equipamento, data_aporte, data_devolucao, estado_conservacao) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Projeto Ave Maria'), '12.456.789/0001-33', 17, TO_DATE('2025-04-15', 'YYYY-MM-DD'), TO_DATE('2025-08-15', 'YYYY-MM-DD'), 'Ruim');
+
+-- Filme 16 Meninos Bonzinhos
+INSERT INTO aloca (id_filme, cnpj_fornecedor, id_equipamento, data_aporte, data_devolucao, estado_conservacao) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Meninos Bonzinhos'), '88.990.011/0001-77', 15, TO_DATE('2009-10-12', 'YYYY-MM-DD'), TO_DATE('2010-01-20', 'YYYY-MM-DD'), 'Bom');
+
+-- Filme 17 Ande!
+INSERT INTO aloca (id_filme, cnpj_fornecedor, id_equipamento, data_aporte, data_devolucao, estado_conservacao) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Ande!'), '33.445.566/0001-88', 4, TO_DATE('2017-02-15', 'YYYY-MM-DD'), TO_DATE('2017-06-01', 'YYYY-MM-DD'), 'Péssimo');
+
+-- Filme 18 Mulheres de Branco
+INSERT INTO aloca (id_filme, cnpj_fornecedor, id_equipamento, data_aporte, data_devolucao, estado_conservacao) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Mulheres de Branco'), '77.889.900/0001-99', 12, TO_DATE('2011-11-20', 'YYYY-MM-DD'), TO_DATE('2012-03-15', 'YYYY-MM-DD'), 'Ruim');
+
+-- Filme 19 História de Brinquedos
+INSERT INTO aloca (id_filme, cnpj_fornecedor, id_equipamento, data_aporte, data_devolucao, estado_conservacao) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'História de Brinquedos'), '66.778.899/0001-00', 20, TO_DATE('2000-06-10', 'YYYY-MM-DD'), TO_DATE('2000-09-05', 'YYYY-MM-DD'), 'Excelente');
+
+-- Filme 20 O Celular Branco
+INSERT INTO aloca (id_filme, cnpj_fornecedor, id_equipamento, data_aporte, data_devolucao, estado_conservacao) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'O Celular Branco'), '19.283.746/0001-15', 14, TO_DATE('2022-09-01', 'YYYY-MM-DD'), TO_DATE('2022-12-10', 'YYYY-MM-DD'), 'Ótimo');
+
+--RELACIONAMENTO OCUPA
+
+-- 1 Uma Luta Antes da Outra
+INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Uma Luta Antes da Outra'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Warner Primos'));
+INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Uma Luta Antes da Outra'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Diznei Studios'));
+
+-- 2 Pregadores
+INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Pregadores'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Multiversal Pictures'));
+
+-- 3 Anatomia de uma Subida
+INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Anatomia de uma Subida'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Paredemount'));
+
+-- 4 Ricas Criaturas
+INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Ricas Criaturas'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = '21st Century Wolf'));
+
+-- 5 O Agente Exposto
+INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'O Agente Exposto'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Puxar Animation'));
+INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'O Agente Exposto'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Multiversal Pictures'));
+
+-- 6 Nada em Nenhum Lugar Nunca
+INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Nada em Nenhum Lugar Nunca'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Diznei Studios'));
+
+-- 7 Guardiões do Globo
+INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Guardiões do Globo'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Sonyca Pictures'));
+
+-- 8 Entre Garfos e Revelações
+INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Entre Garfos e Revelações'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Leãozinho Gate'));
+
+-- 9 Valor Emocional
+INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Valor Emocional'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Warner Primos'));
+INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Valor Emocional'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Puxar Animation'));
+
+-- 10 Hamlet
+INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Hamlet'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Multiversal Pictures'));
+
+-- 11 O Pequeno Hotel Bucarest
+INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'O Pequeno Hotel Bucarest'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Diznei Studios'));
+
+-- 12 Arthur Sean Contra o Mundo
+INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Arthur Sean Contra o Mundo'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = '21st Century Wolf'));
+
+-- 13 O Anjo Veste Gucci
+INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'O Anjo Veste Gucci'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Leãozinho Gate'));
+
+-- 14 Diabo e o Deus na água da Lua
+INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Diabo e o Deus na água da Lua'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Paredemount'));
+
+-- 15 Projeto Ave Maria
+INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Projeto Ave Maria'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Diznei Studios'));
+INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Projeto Ave Maria'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Warner Primos'));
+
+-- 16 Meninos Bonzinhos
+INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Meninos Bonzinhos'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Warner Primos'));
+
+-- 17 Ande!
+INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Ande!'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Sonyca Pictures'));
+
+-- 18 Mulheres de Branco
+INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Mulheres de Branco'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Puxar Animation'));
+
+-- 19 História de Brinquedos
+INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'História de Brinquedos'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Diznei Studios'));
+
+-- 20 O Celular Branco
+INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'O Celular Branco'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = '21st Century Wolf'));
+INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'O Celular Branco'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Sonyca Pictures'));
