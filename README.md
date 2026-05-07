@@ -57,3 +57,12 @@ A modelagem abrange os componentes das operações centrais de uma Produtora de 
 - [x] CLÁUSULA `CONSTRAINT EM CREATE TABLE` com restrições de integridade de entidade (Chaves Primárias - `PRIMARY KEY`).
 - [x] CLÁUSULA `CONSTRAINT EM CREATE TABLE` com restrições de integridade referencial (Chaves Estrangeiras - `FOREIGN KEY`).
 - [x] CLÁUSULA `CHECK EM CREATE TABLE` para restrições de checagem e validação de dados inseridos.
+
+
+## 🛠️| *(DML)* Carregando o povoamento do *Banco de Dados - Produtora de Filmes* no Oracle
+
+Agora com o Banco de Dados montado com a estrutura correspondente, precisa-se povoar o Banco com os dados das tabelas. Para isso, execute o conteúdo do arquivo scripts/02_dml_povoamento.sql no mesmo ambiente. É fundamental executar este script após a criação da estrutura (DDL) e, preferencialmente, de uma só vez, pois a ordem dos comandos INSERT foi projetada para respeitar rigorosamente a integridade referencial e as dependências das chaves estrangeiras.
+A inserção de dados simula o ecossistema real e dinâmico de uma produtora de cinema.
+
+### 📄 Requisitos que o **Script 2: `02_dml_povoamento.sql` (Povoamento)** abrange
+- [x] `INSERT INTO` para inserção de registros em todas as tabelas (fortes e fracas).
