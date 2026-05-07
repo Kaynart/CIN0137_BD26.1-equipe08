@@ -62,7 +62,7 @@ INSERT INTO ATOR (cpf_funcionario, numero_drt) VALUES
 ('478.251.904-37', 'DRT-1853'),
 ('259.630.817-48', 'DRT-6235'),
 ('634.805.729-50', 'DRT-7392'),
-('091.376.582-09', 'DRT-5512');
+('091.376.582-09', 'DRT-5512'),
 ('112.345.678-90', 'DRT-5555'),
 ('223.456.789-01', 'DRT-6666'), 
 ('334.567.890-12', 'DRT-7777'), 
@@ -80,7 +80,7 @@ INSERT INTO DIRETOR (cpf_funcionario, estilo_cinematografico) VALUES
 ('242.404.944-69', 'Ficção Científica Épica'),
 ('036.404.546-99', 'Drama Melancólico'),
 ('434.444.544-13', 'Drama Passional Espanhol'),
-('203.404.492-23', 'Space Opera Clássica');
+('203.404.492-23', 'Space Opera Clássica'),
 ('667.890.123-45', 'Suspense Psicológico'), 
 ('778.901.234-56', 'Perfeccionismo Visual'),
 ('889.012.345-67', 'Épicos de Máfia e Guerra'),
