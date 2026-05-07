@@ -238,6 +238,88 @@ INSERT INTO FILME (classificacao_indicativa, ano_lancamento, titulo, cpf_diretor
 ('L', 2000, 'História de Brinquedos', '434.444.544-13'),
 ('18', 2022, 'O Celular Branco', '203.404.492-23');
 
+INSERT INTO genero_filme (id_filme, genero) VALUES 
+
+-- 1. Uma Luta Antes da Outra
+((SELECT id_filme FROM filme WHERE titulo = 'Uma Luta Antes da Outra'), 'Ação'),
+((SELECT id_filme FROM filme WHERE titulo = 'Uma Luta Antes da Outra'), 'Drama'),
+
+-- 2. Pregadores
+((SELECT id_filme FROM filme WHERE titulo = 'Pregadores'), 'Suspense'),
+((SELECT id_filme FROM filme WHERE titulo = 'Pregadores'), 'Ação'),
+
+-- 3. Anatomia de uma Subida
+((SELECT id_filme FROM filme WHERE titulo = 'Anatomia de uma Subida'), 'Drama de Tribunal'),
+((SELECT id_filme FROM filme WHERE titulo = 'Anatomia de uma Subida'), 'Suspense'),
+
+-- 4. Ricas Criaturas
+((SELECT id_filme FROM filme WHERE titulo = 'Ricas Criaturas'), 'Fantasia'),
+((SELECT id_filme FROM filme WHERE titulo = 'Ricas Criaturas'), 'Comédia Ácido'),
+
+-- 5. O Agente Exposto
+((SELECT id_filme FROM filme WHERE titulo = 'O Agente Exposto'), 'Ação'),
+((SELECT id_filme FROM filme WHERE titulo = 'O Agente Exposto'), 'Espionagem'),
+
+-- 6. Nada em Nenhum Lugar Nunca
+((SELECT id_filme FROM filme WHERE titulo = 'Nada em Nenhum Lugar Nunca'), 'Ficção Científica'),
+((SELECT id_filme FROM filme WHERE titulo = 'Nada em Nenhum Lugar Nunca'), 'Aventura'),
+
+-- 7. Guardiões do Globo
+((SELECT id_filme FROM filme WHERE titulo = 'Guardiões do Globo'), 'Ação'),
+((SELECT id_filme FROM filme WHERE titulo = 'Guardiões do Globo'), 'Super-herói'),
+
+-- 8. Entre Garfos e Revelações
+((SELECT id_filme FROM filme WHERE titulo = 'Entre Garfos e Revelações'), 'Mistério'),
+((SELECT id_filme FROM filme WHERE titulo = 'Entre Garfos e Revelações'), 'Comédia'),
+
+-- 9. Valor Emocional
+((SELECT id_filme FROM filme WHERE titulo = 'Valor Emocional'), 'Ação'),
+((SELECT id_filme FROM filme WHERE titulo = 'Valor Emocional'), 'Drama'),
+
+-- 10. Hamlet
+((SELECT id_filme FROM filme WHERE titulo = 'Hamlet'), 'Drama Épico'),
+((SELECT id_filme FROM filme WHERE titulo = 'Hamlet'), 'Histórico'),
+
+-- 11. O Pequeno Hotel Bucarest
+((SELECT id_filme FROM filme WHERE titulo = 'O Pequeno Hotel Bucarest'), 'Comédia'),
+((SELECT id_filme FROM filme WHERE titulo = 'O Pequeno Hotel Bucarest'), 'Aventura'),
+
+-- 12. Arthur Sean Contra o Mundo
+((SELECT id_filme FROM filme WHERE titulo = 'Arthur Sean Contra o Mundo'), 'Comédia'),
+((SELECT id_filme FROM filme WHERE titulo = 'Arthur Sean Contra o Mundo'), 'Romance'),
+
+-- 13. O Anjo Veste Gucci
+((SELECT id_filme FROM filme WHERE titulo = 'O Anjo Veste Gucci'), 'Comédia'),
+((SELECT id_filme FROM filme WHERE titulo = 'O Anjo Veste Gucci'), 'Drama'),
+
+-- 14. Diabo e o Deus na água da Lua
+((SELECT id_filme FROM filme WHERE titulo = 'Diabo e o Deus na água da Lua'), 'Fantasia Sombria'),
+((SELECT id_filme FROM filme WHERE titulo = 'Diabo e o Deus na água da Lua'), 'Suspense'),
+
+-- 15. Projeto Ave Maria
+((SELECT id_filme FROM filme WHERE titulo = 'Projeto Ave Maria'), 'Ficção Científica'),
+((SELECT id_filme FROM filme WHERE titulo = 'Projeto Ave Maria'), 'Drama de Sobrevivência'),
+
+-- 16. Meninos Bonzinhos
+((SELECT id_filme FROM filme WHERE titulo = 'Meninos Bonzinhos'), 'Policial'),
+((SELECT id_filme FROM filme WHERE titulo = 'Meninos Bonzinhos'), 'Comédia'),
+
+-- 17. Ande!
+((SELECT id_filme FROM filme WHERE titulo = 'Ande!'), 'Terror Psicológico'),
+((SELECT id_filme FROM filme WHERE titulo = 'Ande!'), 'Suspense'),
+
+-- 18. Mulheres de Branco
+((SELECT id_filme FROM filme WHERE titulo = 'Mulheres de Branco'), 'Drama'),
+((SELECT id_filme FROM filme WHERE titulo = 'Mulheres de Branco'), 'Suspense'),
+
+-- 19. História de Brinquedos
+((SELECT id_filme FROM filme WHERE titulo = 'História de Brinquedos'), 'Animação'),
+((SELECT id_filme FROM filme WHERE titulo = 'História de Brinquedos'), 'Aventura'),
+
+-- 20. O Celular Branco
+((SELECT id_filme FROM filme WHERE titulo = 'O Celular Branco'), 'Suspense'),
+((SELECT id_filme FROM filme WHERE titulo = 'O Celular Branco'), 'Policial');
+
 
 INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES 
 
