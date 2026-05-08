@@ -1,54 +1,54 @@
--- INSERINDO NA TABELA FUNCIONARIO (10 Diretores e 10 Atores e 15 Figurinistas)
-INSERT INTO FUNCIONARIO (cpf, nome_funcionario, data_nascimento_funcionario, sexo) VALUES 
-('293.404.544-63', 'Estevão Espilbergo', TO_DATE('1946-12-18', 'YYYY-MM-DD'), 'M'),
-('563.823.158-73', 'Quinto Tarantela', TO_DATE('1963-03-27', 'YYYY-MM-DD'), 'M'),
-('248.494.604-53', 'Gretchen Gerving', TO_DATE('1983-08-04', 'YYYY-MM-DD'), 'F'),
-('293.653.544-06', 'Martinho Escocês', TO_DATE('1942-11-17', 'YYYY-MM-DD'), 'M'),
-('653.404.344-63', 'Cristovão Nulo', TO_DATE('1970-07-30', 'YYYY-MM-DD'), 'M'),
-('293.534.566-73', 'Wesley Andarilho', TO_DATE('1969-05-01', 'YYYY-MM-DD'), 'M'),
-('242.404.944-69', 'Dênis Vila-Nova', TO_DATE('1967-10-03', 'YYYY-MM-DD'), 'M'),
-('036.404.546-99', 'Sofia Cúpula', TO_DATE('1971-05-14', 'YYYY-MM-DD'), 'F'),
-('434.444.544-13', 'Pedro Almodólar', TO_DATE('1949-09-25', 'YYYY-MM-DD'), 'M'),
-('203.404.492-23', 'Jorge Lucas', TO_DATE('1944-05-14', 'YYYY-MM-DD'), 'M'),
-('112.345.678-90', 'Morgano Homem-Livre', TO_DATE('1937-06-01', 'YYYY-MM-DD'), 'M'), 
-('223.456.789-01', 'Tomás Agradece', TO_DATE('1956-07-09', 'YYYY-MM-DD'), 'M'), 
-('334.567.890-12', 'Quiano Rios', TO_DATE('1964-09-02', 'YYYY-MM-DD'), 'M'),
-('445.678.901-23', 'Angelina Bonita', TO_DATE('1975-06-04', 'YYYY-MM-DD'), 'F'),
-('556.789.012-34', 'Ema Pedra', TO_DATE('1968-09-25', 'YYYY-MM-DD'), 'F'),
+-- INSERINDO NA TABELA FUNCIONARIO (Hierarquia Ajustada: Diretores no topo)
+INSERT INTO FUNCIONARIO (cpf, nome_funcionario, data_nascimento_funcionario, sexo, cpf_supervisor) VALUES 
+('293.404.544-63', 'Estevão Espilbergo', TO_DATE('1946-12-18', 'YYYY-MM-DD'), 'M', NULL),
+('563.823.158-73', 'Quinto Tarantela', TO_DATE('1963-03-27', 'YYYY-MM-DD'), 'M', NULL),
+('248.494.604-53', 'Gretchen Gerving', TO_DATE('1983-08-04', 'YYYY-MM-DD'), 'F', NULL),
+('293.653.544-06', 'Martinho Escocês', TO_DATE('1942-11-17', 'YYYY-MM-DD'), 'M', NULL),
+('653.404.344-63', 'Cristovão Nulo', TO_DATE('1970-07-30', 'YYYY-MM-DD'), 'M', NULL),
+('293.534.566-73', 'Wesley Andarilho', TO_DATE('1969-05-01', 'YYYY-MM-DD'), 'M', '653.404.344-63'), -- Dir por Dir
+('242.404.944-69', 'Dênis Vila-Nova', TO_DATE('1967-10-03', 'YYYY-MM-DD'), 'M', NULL),
+('036.404.546-99', 'Sofia Cúpula', TO_DATE('1971-05-14', 'YYYY-MM-DD'), 'F', NULL),
+('434.444.544-13', 'Pedro Almodólar', TO_DATE('1949-09-25', 'YYYY-MM-DD'), 'M', '293.404.544-63'), -- Dir por Dir
+('203.404.492-23', 'Jorge Lucas', TO_DATE('1944-05-14', 'YYYY-MM-DD'), 'M', NULL),
+('112.345.678-90', 'Morgano Homem-Livre', TO_DATE('1937-06-01', 'YYYY-MM-DD'), 'M', NULL), 
+('223.456.789-01', 'Tomás Agradece', TO_DATE('1956-07-09', 'YYYY-MM-DD'), 'M', NULL), 
+('334.567.890-12', 'Quiano Rios', TO_DATE('1964-09-02', 'YYYY-MM-DD'), 'M', '293.404.544-63'), -- Ator por Dir
+('445.678.901-23', 'Angelina Bonita', TO_DATE('1975-06-04', 'YYYY-MM-DD'), 'F', NULL),
+('556.789.012-34', 'Ema Pedra', TO_DATE('1968-09-25', 'YYYY-MM-DD'), 'F', '653.404.344-63'), -- Ator por Dir
     
-('384.592.108-71', 'Leonardo DeCapra', TO_DATE('1974-11-11', 'YYYY-MM-DD'), 'M'),
-('712.943.550-24', 'Margarida Robô', TO_DATE('1990-07-02', 'YYYY-MM-DD'), 'F'),
-('105.827.493-66', 'Breno Pinto', TO_DATE('1963-12-18', 'YYYY-MM-DD'), 'M'),     
-('840.192.375-92', 'Maria Estripe', TO_DATE('1949-06-22', 'YYYY-MM-DD'), 'F'),
-('561.408.291-15', 'Tomás Cruzeiro', TO_DATE('1962-07-03', 'YYYY-MM-DD'), 'M'),
-('923.714.650-83', 'Zendóia', TO_DATE('1996-09-01', 'YYYY-MM-DD'), 'F'),
-('478.251.904-37', 'Duane "A Pedra" João', TO_DATE('1972-05-02', 'YYYY-MM-DD'), 'M'),
-('259.630.817-48', 'Rian Ganso', TO_DATE('1980-11-12', 'YYYY-MM-DD'), 'M'),
-('634.805.729-50', 'Escarlete João-Hans', TO_DATE('1984-11-22', 'YYYY-MM-DD'), 'F'),
-('091.376.582-09', 'Samuel L. Jaquetão', TO_DATE('1948-12-21', 'YYYY-MM-DD'), 'M'),
-('667.890.123-45', 'Alfredo Bate-Copo', TO_DATE('1899-08-13', 'YYYY-MM-DD'), 'M'),
-('778.901.234-56', 'Estênio Cubrico', TO_DATE('1928-07-26', 'YYYY-MM-DD'), 'M'),
-('889.012.345-67', 'Chico Ford Cúpula', TO_DATE('1939-04-07', 'YYYY-MM-DD'), 'M'),
-('990.123.456-78', 'Pedro João-Filho', TO_DATE('1961-10-31', 'YYYY-MM-DD'), 'M'),
-('001.234.567-89', 'Tico Uai-Titi', TO_DATE('1975-08-16', 'YYYY-MM-DD'), 'M'),
+('384.592.108-71', 'Leonardo DeCapra', TO_DATE('1974-11-11', 'YYYY-MM-DD'), 'M', NULL),
+('712.943.550-24', 'Margarida Robô', TO_DATE('1990-07-02', 'YYYY-MM-DD'), 'F', NULL),
+('105.827.493-66', 'Breno Pinto', TO_DATE('1963-12-18', 'YYYY-MM-DD'), 'M', '293.653.544-06'), -- Ator por Dir (Martinho)
+('840.192.375-92', 'Maria Estripe', TO_DATE('1949-06-22', 'YYYY-MM-DD'), 'F', '563.823.158-73'), -- Ator por Dir (Quinto)
+('561.408.291-15', 'Tomás Cruzeiro', TO_DATE('1962-07-03', 'YYYY-MM-DD'), 'M', NULL),
+('923.714.650-83', 'Zendóia', TO_DATE('1996-09-01', 'YYYY-MM-DD'), 'F', '242.404.944-69'), -- Ator por Dir (Dênis)
+('478.251.904-37', 'Duane "A Pedra" João', TO_DATE('1972-05-02', 'YYYY-MM-DD'), 'M', NULL),
+('259.630.817-48', 'Rian Ganso', TO_DATE('1980-11-12', 'YYYY-MM-DD'), 'M', NULL),
+('634.805.729-50', 'Escarlete João-Hans', TO_DATE('1984-11-22', 'YYYY-MM-DD'), 'F', NULL),
+('091.376.582-09', 'Samuel L. Jaquetão', TO_DATE('1948-12-21', 'YYYY-MM-DD'), 'M', NULL),
+('667.890.123-45', 'Alfredo Bate-Copo', TO_DATE('1899-08-13', 'YYYY-MM-DD'), 'M', NULL),
+('778.901.234-56', 'Estênio Cubrico', TO_DATE('1928-07-26', 'YYYY-MM-DD'), 'M', NULL),
+('889.012.345-67', 'Chico Ford Cúpula', TO_DATE('1939-04-07', 'YYYY-MM-DD'), 'M', NULL),
+('990.123.456-78', 'Pedro João-Filho', TO_DATE('1961-10-31', 'YYYY-MM-DD'), 'M', '889.012.345-67'), -- Dir por Dir
+('001.234.567-89', 'Tico Uai-Titi', TO_DATE('1975-08-16', 'YYYY-MM-DD'), 'M', '889.012.345-67'), -- Dir por Dir
     
-('492.301.558-12', 'Edith Cabeça', TO_DATE('1997-10-28', 'YYYY-MM-DD'), 'F'),
-('823.109.445-67', 'Coleth Atmadeira', TO_DATE('1948-12-30', 'YYYY-MM-DD'), 'F'),
-('156.778.234-09', 'Areia Powell', TO_DATE('1960-04-07', 'YYYY-MM-DD'), 'F'),
-('121.667.490-57', 'Naum Alves de Sousa', TO_DATE('1999-10-05', 'YYYY-MM-DD'), 'M'),
-('934.120.556-88', 'Milena Canhoneira', TO_DATE('1946-01-01', 'YYYY-MM-DD'), 'F'),
-('642.001.993-85', 'Paco Rabane', TO_DATE('1934-02-18', 'YYYY-MM-DD'), 'M'),
-('227.843.102-45', 'Marilia Bode', TO_DATE('2004-02-12', 'YYYY-MM-DD'), 'F'),
-('159.332.887-12', 'João Mole', TO_DATE('1931-09-19', 'YYYY-MM-DD'), 'M'),
-('601.334.789-21', 'Rute Carroça', TO_DATE('1960-04-10', 'YYYY-MM-DD'), 'F'),
-('221.445.009-88', 'Walter Planted', TO_DATE('1946-11-03', 'YYYY-MM-DD'), 'M'),
-('218.445.660-33', 'Jorge Armário', TO_DATE('1934-07-11', 'YYYY-MM-DD'), 'M'),
-('388.502.113-90', 'Kalma Vivinho', TO_DATE('1950-05-19', 'YYYY-MM-DD'), 'F'),
-('741.009.662-34', 'Ana Roda', TO_DATE('1931-10-30', 'YYYY-MM-DD'), 'F'),
-('054.112.776-49', 'Domenico Doce', TO_DATE('1958-08-13', 'YYYY-MM-DD'), 'M'),
-('512.667.334-55', 'Jaqueline Durona', TO_DATE('1966-12-24', 'YYYY-MM-DD'), 'F'),
-('098.445.121-66', 'Érica Ishioca', TO_DATE('1938-07-12', 'YYYY-MM-DD'), 'F'),
-('714.283.001-44', 'Antônio Poço', TO_DATE('1935-06-02', 'YYYY-MM-DD'), 'M');
+('492.301.558-12', 'Edith Cabeça', TO_DATE('1997-10-28', 'YYYY-MM-DD'), 'F', NULL),
+('823.109.445-67', 'Coleth Atmadeira', TO_DATE('1948-12-30', 'YYYY-MM-DD'), 'F', '492.301.558-12'), -- Fig por Fig
+('156.778.234-09', 'Areia Powell', TO_DATE('1960-04-07', 'YYYY-MM-DD'), 'F', '492.301.558-12'), -- Fig por Fig
+('121.667.490-57', 'Naum Alves de Sousa', TO_DATE('1999-10-05', 'YYYY-MM-DD'), 'M', '492.301.558-12'), -- Fig por Fig
+('934.120.556-88', 'Milena Canhoneira', TO_DATE('1946-01-01', 'YYYY-MM-DD'), 'F', '492.301.558-12'), -- Fig por Fig
+('642.001.993-85', 'Paco Rabane', TO_DATE('1934-02-18', 'YYYY-MM-DD'), 'M', NULL),
+('227.843.102-45', 'Marilia Bode', TO_DATE('2004-02-12', 'YYYY-MM-DD'), 'F', NULL),
+('159.332.887-12', 'João Mole', TO_DATE('1931-09-19', 'YYYY-MM-DD'), 'M', NULL),
+('601.334.789-21', 'Rute Carroça', TO_DATE('1960-04-10', 'YYYY-MM-DD'), 'F', '159.332.887-12'), -- Fig por Fig
+('221.445.009-88', 'Walter Planted', TO_DATE('1946-11-03', 'YYYY-MM-DD'), 'M', NULL),
+('218.445.660-33', 'Jorge Armário', TO_DATE('1934-07-11', 'YYYY-MM-DD'), 'M', NULL),
+('388.502.113-90', 'Kalma Vivinho', TO_DATE('1950-05-19', 'YYYY-MM-DD'), 'F', NULL),
+('741.009.662-34', 'Ana Roda', TO_DATE('1931-10-30', 'YYYY-MM-DD'), 'F', NULL),
+('054.112.776-49', 'Domenico Doce', TO_DATE('1958-08-13', 'YYYY-MM-DD'), 'M', '388.502.113-90'), -- Fig por Fig
+('512.667.334-55', 'Jaqueline Durona', TO_DATE('1966-12-24', 'YYYY-MM-DD'), 'F', NULL),
+('098.445.121-66', 'Érica Ishioca', TO_DATE('1938-07-12', 'YYYY-MM-DD'), 'F', NULL),
+('714.283.001-44', 'Antônio Poço', TO_DATE('1935-06-02', 'YYYY-MM-DD'), 'M', '054.112.776-49'); -- Fig por Fig
 
 
 -- INSERINDO ATORES NA TABELA ATOR 
@@ -216,27 +216,27 @@ INSERT INTO TELEFONE_FUNCIONARIO (cpf_funcionario_contato, numero_telefone) VALU
 
 
 -- INSERINDO FILMES NA TABELA FILME
-INSERT INTO FILME (classificacao_indicativa, ano_lancamento, titulo, cpf_diretor) VALUES 
-('14', 2025, 'Uma Luta Antes da Outra', '293.404.544-63'),
-('16', 2025, 'Pregadores', '563.823.158-73'),
-('12', 2024, 'Anatomia de uma Subida', '248.494.604-53'),
-('16', 2024, 'Ricas Criaturas', '293.653.544-06'),
-('12', 2025, 'O Agente Exposto', '653.404.344-63'),
-('12', 2023, 'Nada em Nenhum Lugar Nunca', '293.534.566-73'),
-('10', 2021, 'Guardiões do Globo', '242.404.944-69'),
-('12', 2019, 'Entre Garfos e Revelações', '036.404.546-99'),
-('14', 2025, 'Valor Emocional', '434.444.544-13'),
-('14', 2025, 'Hamlet', '203.404.492-23'),
-('10', 2018, 'O Pequeno Hotel Bucarest', '293.404.544-63'),
-('12', 2013, 'Arthur Sean Contra o Mundo', '563.823.158-73'),
-('L', 2007, 'O Anjo Veste Gucci', '248.494.604-53'),
-('16', 1999, 'Diabo e o Deus na água da Lua', '293.653.544-06'),
-('10', 2025, 'Projeto Ave Maria', '653.404.344-63'),
-('10', 2009, 'Meninos Bonzinhos', '293.534.566-73'),
-('16', 2017, 'Ande!', '242.404.944-69'),
-('10', 2011, 'Mulheres de Branco', '036.404.546-99'),
-('L', 2000, 'História de Brinquedos', '434.444.544-13'),
-('18', 2022, 'O Celular Branco', '203.404.492-23');
+INSERT INTO FILME (classificacao_indicativa, ano_lancamento, titulo, cpf_diretor, cache_diretor) VALUES 
+('14', 2025, 'Uma Luta Antes da Outra', '293.404.544-63', 1350000.00),
+('16', 2025, 'Pregadores', '563.823.158-73', 850000.00),
+('12', 2024, 'Anatomia de uma Subida', '248.494.604-53', NULL),
+('16', 2024, 'Ricas Criaturas', '293.653.544-06', 700000.00),
+('12', 2025, 'O Agente Exposto', '653.404.344-63', 950000.00),
+('12', 2023, 'Nada em Nenhum Lugar Nunca', '293.534.566-73', 300000.00),
+('10', 2021, 'Guardiões do Globo', '242.404.944-69', 1100000.00),
+('12', 2019, 'Entre Garfos e Revelações', '036.404.546-99', NULL),
+('14', 2025, 'Valor Emocional', '434.444.544-13', 400000.00),
+('14', 2025, 'Hamlet', '203.404.492-23', 1800000.00),
+('10', 2018, 'O Pequeno Hotel Bucarest', '293.404.544-63', 500000.00),
+('12', 2013, 'Arthur Sean Contra o Mundo', '563.823.158-73', 450000.00),
+('L', 2007, 'O Anjo Veste Gucci', '248.494.604-53', 320000.00),
+('16', 1999, 'Diabo e o Deus na água da Lua', '293.653.544-06', 600000.00),
+('10', 2025, 'Projeto Ave Maria', '653.404.344-63', 1200000.00),
+('10', 2009, 'Meninos Bonzinhos', '293.534.566-73', 200000.00),
+('16', 2017, 'Ande!', '242.404.944-69', 550000.00),
+('10', 2011, 'Mulheres de Branco', '036.404.546-99', 180000.00),
+('L', 2000, 'História de Brinquedos', '434.444.544-13', 900000.00),
+('18', 2022, 'O Celular Branco', '203.404.492-23', 750000.00);
 
 INSERT INTO genero_filme (id_filme, genero) VALUES 
 
@@ -735,94 +735,94 @@ INSERT INTO aloca (id_filme, cnpj_fornecedor, id_equipamento, data_aporte, data_
 INSERT INTO aloca (id_filme, cnpj_fornecedor, id_equipamento, data_aporte, data_devolucao, estado_conservacao) VALUES 
 ((SELECT id_filme FROM filme WHERE titulo = 'O Celular Branco'), '19.283.746/0001-15', 14, TO_DATE('2022-09-01', 'YYYY-MM-DD'), TO_DATE('2022-12-10', 'YYYY-MM-DD'), 'Ótimo');
 
---RELACIONAMENTO OCUPA
+-- RELACIONAMENTO OCUPA (Atualizado com Datas)
 
 -- 1 Uma Luta Antes da Outra
-INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
-((SELECT id_filme FROM filme WHERE titulo = 'Uma Luta Antes da Outra'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Warner Primos'));
-INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
-((SELECT id_filme FROM filme WHERE titulo = 'Uma Luta Antes da Outra'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Diznei Studios'));
+INSERT INTO ocupa (id_filme, num_id_estudio, data_inicio, data_termino) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Uma Luta Antes da Outra'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Warner Primos'), TO_DATE('2025-01-01', 'YYYY-MM-DD'), TO_DATE('2025-03-25', 'YYYY-MM-DD'));
+INSERT INTO ocupa (id_filme, num_id_estudio, data_inicio, data_termino) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Uma Luta Antes da Outra'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Diznei Studios'), TO_DATE('2025-01-05', 'YYYY-MM-DD'), TO_DATE('2025-03-20', 'YYYY-MM-DD'));
 
 -- 2 Pregadores
-INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
-((SELECT id_filme FROM filme WHERE titulo = 'Pregadores'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Multiversal Pictures'));
+INSERT INTO ocupa (id_filme, num_id_estudio, data_inicio, data_termino) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Pregadores'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Multiversal Pictures'), TO_DATE('2025-01-15', 'YYYY-MM-DD'), TO_DATE('2025-04-15', 'YYYY-MM-DD'));
 
 -- 3 Anatomia de uma Subida
-INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
-((SELECT id_filme FROM filme WHERE titulo = 'Anatomia de uma Subida'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Paredemount'));
+INSERT INTO ocupa (id_filme, num_id_estudio, data_inicio, data_termino) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Anatomia de uma Subida'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Paredemount'), TO_DATE('2024-05-10', 'YYYY-MM-DD'), TO_DATE('2024-08-30', 'YYYY-MM-DD'));
 
 -- 4 Ricas Criaturas
-INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
-((SELECT id_filme FROM filme WHERE titulo = 'Ricas Criaturas'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = '21st Century Wolf'));
+INSERT INTO ocupa (id_filme, num_id_estudio, data_inicio, data_termino) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Ricas Criaturas'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = '21st Century Wolf'), TO_DATE('2024-03-01', 'YYYY-MM-DD'), TO_DATE('2024-06-15', 'YYYY-MM-DD'));
 
 -- 5 O Agente Exposto
-INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
-((SELECT id_filme FROM filme WHERE titulo = 'O Agente Exposto'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Puxar Animation'));
-INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
-((SELECT id_filme FROM filme WHERE titulo = 'O Agente Exposto'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Multiversal Pictures'));
+INSERT INTO ocupa (id_filme, num_id_estudio, data_inicio, data_termino) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'O Agente Exposto'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Puxar Animation'), TO_DATE('2025-01-10', 'YYYY-MM-DD'), TO_DATE('2025-05-30', 'YYYY-MM-DD'));
+INSERT INTO ocupa (id_filme, num_id_estudio, data_inicio, data_termino) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'O Agente Exposto'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Multiversal Pictures'), TO_DATE('2025-01-15', 'YYYY-MM-DD'), TO_DATE('2025-05-20', 'YYYY-MM-DD'));
 
 -- 6 Nada em Nenhum Lugar Nunca
-INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
-((SELECT id_filme FROM filme WHERE titulo = 'Nada em Nenhum Lugar Nunca'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Diznei Studios'));
+INSERT INTO ocupa (id_filme, num_id_estudio, data_inicio, data_termino) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Nada em Nenhum Lugar Nunca'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Diznei Studios'), TO_DATE('2023-05-20', 'YYYY-MM-DD'), TO_DATE('2023-09-20', 'YYYY-MM-DD'));
 
 -- 7 Guardiões do Globo
-INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
-((SELECT id_filme FROM filme WHERE titulo = 'Guardiões do Globo'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Sonyca Pictures'));
+INSERT INTO ocupa (id_filme, num_id_estudio, data_inicio, data_termino) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Guardiões do Globo'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Sonyca Pictures'), TO_DATE('2021-08-01', 'YYYY-MM-DD'), TO_DATE('2021-12-30', 'YYYY-MM-DD'));
 
 -- 8 Entre Garfos e Revelações
-INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
-((SELECT id_filme FROM filme WHERE titulo = 'Entre Garfos e Revelações'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Leãozinho Gate'));
+INSERT INTO ocupa (id_filme, num_id_estudio, data_inicio, data_termino) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Entre Garfos e Revelações'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Leãozinho Gate'), TO_DATE('2019-09-15', 'YYYY-MM-DD'), TO_DATE('2019-12-25', 'YYYY-MM-DD'));
 
 -- 9 Valor Emocional
-INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
-((SELECT id_filme FROM filme WHERE titulo = 'Valor Emocional'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Warner Primos'));
-INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
-((SELECT id_filme FROM filme WHERE titulo = 'Valor Emocional'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Puxar Animation'));
+INSERT INTO ocupa (id_filme, num_id_estudio, data_inicio, data_termino) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Valor Emocional'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Warner Primos'), TO_DATE('2025-02-01', 'YYYY-MM-DD'), TO_DATE('2025-05-10', 'YYYY-MM-DD'));
+INSERT INTO ocupa (id_filme, num_id_estudio, data_inicio, data_termino) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Valor Emocional'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Puxar Animation'), TO_DATE('2025-02-05', 'YYYY-MM-DD'), TO_DATE('2025-04-30', 'YYYY-MM-DD'));
 
 -- 10 Hamlet
-INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
-((SELECT id_filme FROM filme WHERE titulo = 'Hamlet'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Multiversal Pictures'));
+INSERT INTO ocupa (id_filme, num_id_estudio, data_inicio, data_termino) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Hamlet'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Multiversal Pictures'), TO_DATE('2025-02-15', 'YYYY-MM-DD'), TO_DATE('2025-06-30', 'YYYY-MM-DD'));
 
 -- 11 O Pequeno Hotel Bucarest
-INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
-((SELECT id_filme FROM filme WHERE titulo = 'O Pequeno Hotel Bucarest'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Diznei Studios'));
+INSERT INTO ocupa (id_filme, num_id_estudio, data_inicio, data_termino) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'O Pequeno Hotel Bucarest'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Diznei Studios'), TO_DATE('2018-04-01', 'YYYY-MM-DD'), TO_DATE('2018-08-01', 'YYYY-MM-DD'));
 
 -- 12 Arthur Sean Contra o Mundo
-INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
-((SELECT id_filme FROM filme WHERE titulo = 'Arthur Sean Contra o Mundo'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = '21st Century Wolf'));
+INSERT INTO ocupa (id_filme, num_id_estudio, data_inicio, data_termino) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Arthur Sean Contra o Mundo'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = '21st Century Wolf'), TO_DATE('2013-05-01', 'YYYY-MM-DD'), TO_DATE('2013-10-15', 'YYYY-MM-DD'));
 
 -- 13 O Anjo Veste Gucci
-INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
-((SELECT id_filme FROM filme WHERE titulo = 'O Anjo Veste Gucci'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Leãozinho Gate'));
+INSERT INTO ocupa (id_filme, num_id_estudio, data_inicio, data_termino) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'O Anjo Veste Gucci'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Leãozinho Gate'), TO_DATE('2007-08-01', 'YYYY-MM-DD'), TO_DATE('2007-12-20', 'YYYY-MM-DD'));
 
 -- 14 Diabo e o Deus na água da Lua
-INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
-((SELECT id_filme FROM filme WHERE titulo = 'Diabo e o Deus na água da Lua'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Paredemount'));
+INSERT INTO ocupa (id_filme, num_id_estudio, data_inicio, data_termino) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Diabo e o Deus na água da Lua'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Paredemount'), TO_DATE('1998-12-15', 'YYYY-MM-DD'), TO_DATE('1999-06-01', 'YYYY-MM-DD'));
 
 -- 15 Projeto Ave Maria
-INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
-((SELECT id_filme FROM filme WHERE titulo = 'Projeto Ave Maria'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Diznei Studios'));
-INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
-((SELECT id_filme FROM filme WHERE titulo = 'Projeto Ave Maria'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Warner Primos'));
+INSERT INTO ocupa (id_filme, num_id_estudio, data_inicio, data_termino) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Projeto Ave Maria'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Diznei Studios'), TO_DATE('2025-03-15', 'YYYY-MM-DD'), TO_DATE('2025-08-30', 'YYYY-MM-DD'));
+INSERT INTO ocupa (id_filme, num_id_estudio, data_inicio, data_termino) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Projeto Ave Maria'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Warner Primos'), TO_DATE('2025-04-01', 'YYYY-MM-DD'), TO_DATE('2025-08-20', 'YYYY-MM-DD'));
 
 -- 16 Meninos Bonzinhos
-INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
-((SELECT id_filme FROM filme WHERE titulo = 'Meninos Bonzinhos'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Warner Primos'));
+INSERT INTO ocupa (id_filme, num_id_estudio, data_inicio, data_termino) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Meninos Bonzinhos'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Warner Primos'), TO_DATE('2009-10-01', 'YYYY-MM-DD'), TO_DATE('2010-02-15', 'YYYY-MM-DD'));
 
 -- 17 Ande!
-INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
-((SELECT id_filme FROM filme WHERE titulo = 'Ande!'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Sonyca Pictures'));
+INSERT INTO ocupa (id_filme, num_id_estudio, data_inicio, data_termino) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Ande!'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Sonyca Pictures'), TO_DATE('2017-02-01', 'YYYY-MM-DD'), TO_DATE('2017-07-01', 'YYYY-MM-DD'));
 
 -- 18 Mulheres de Branco
-INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
-((SELECT id_filme FROM filme WHERE titulo = 'Mulheres de Branco'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Puxar Animation'));
+INSERT INTO ocupa (id_filme, num_id_estudio, data_inicio, data_termino) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'Mulheres de Branco'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Puxar Animation'), TO_DATE('2011-11-01', 'YYYY-MM-DD'), TO_DATE('2012-04-01', 'YYYY-MM-DD'));
 
 -- 19 História de Brinquedos
-INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
-((SELECT id_filme FROM filme WHERE titulo = 'História de Brinquedos'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Diznei Studios'));
+INSERT INTO ocupa (id_filme, num_id_estudio, data_inicio, data_termino) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'História de Brinquedos'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Diznei Studios'), TO_DATE('2000-05-15', 'YYYY-MM-DD'), TO_DATE('2000-10-01', 'YYYY-MM-DD'));
 
 -- 20 O Celular Branco
-INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
-((SELECT id_filme FROM filme WHERE titulo = 'O Celular Branco'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = '21st Century Wolf'));
-INSERT INTO ocupa (id_filme, num_id_estudio) VALUES 
-((SELECT id_filme FROM filme WHERE titulo = 'O Celular Branco'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Sonyca Pictures'));
+INSERT INTO ocupa (id_filme, num_id_estudio, data_inicio, data_termino) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'O Celular Branco'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = '21st Century Wolf'), TO_DATE('2022-08-15', 'YYYY-MM-DD'), TO_DATE('2022-12-30', 'YYYY-MM-DD'));
+INSERT INTO ocupa (id_filme, num_id_estudio, data_inicio, data_termino) VALUES 
+((SELECT id_filme FROM filme WHERE titulo = 'O Celular Branco'), (SELECT num_id_estudio FROM estudio WHERE nome_estudio = 'Sonyca Pictures'), TO_DATE('2022-09-01', 'YYYY-MM-DD'), TO_DATE('2022-12-15', 'YYYY-MM-DD'));
