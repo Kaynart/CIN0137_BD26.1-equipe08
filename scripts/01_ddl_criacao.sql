@@ -262,13 +262,16 @@ CREATE TABLE ocupa (
 	
 	    id_filme NUMBER,                                                                                    -- Estrangeira referenciando filme
 	    num_id_estudio NUMBER,											                                    -- Chave Identificador unico de estudio
+		data_inicio DATE NOT NULL,										                                    -- Data de inicio da ocupacao do estudio pelo filme
+	    data_termino DATE NOT NULL,										                               		-- Data de termino da ocupacao do estudio pelo filme
 
 	    CONSTRAINT pk_ocupa PRIMARY KEY (id_filme, num_id_estudio),						                    -- Uso de CONSTRAINT: regra que define id_filme e num_id_estudio funcionario como PK
 
 	    CONSTRAINT fk_filme_ocupa FOREIGN KEY (id_filme) REFERENCES filme(id_filme),				        -- Uso de CONSTRAINT: regra que define id_filme como FK referenciando Filme(id_filme)
 
-	    CONSTRAINT fk_estudio_ocupa FOREIGN KEY (num_id_estudio) REFERENCES estudio(num_id_estudio)		    -- Uso de CONSTRAINT: regra que define num_id_estudio como FK referenciando estudio(num_id_estudio)
+	    CONSTRAINT fk_estudio_ocupa FOREIGN KEY (num_id_estudio) REFERENCES estudio(num_id_estudio),	    -- Uso de CONSTRAINT: regra que define num_id_estudio como FK referenciando estudio(num_id_estudio)
 
+		CONSTRAINT check_datas_ocupa CHECK (data_termino >= data_inicio)									-- Uso de CONSTRAINT: regra que checa e garante que a data de termino seja sempre apos a data de inicio
 );
 
 
