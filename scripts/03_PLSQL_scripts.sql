@@ -178,3 +178,42 @@ FROM equipamento;
 -- ====================================================================================
 SELECT AVG(metragem) as media_metragem
 FROM estudio;
+
+
+
+-- ====================================================================================
+-- ITEM DA CHECKLIST: SELECT - FROM - WHERE / COUNT / IS NOT NULL
+-- Descrição: Faz uma consulta para obter a contagem de funcionarios supervisionados
+-- ====================================================================================
+SELECT COUNT(*) as quantidade_supervisionados
+FROM funcionario
+WHERE (cpf_supervisor IS NOT NULL);
+
+-- ====================================================================================
+-- ITEM DA CHECKLIST: SELECT - FROM - WHERE / COUNT
+-- Descrição: Faz uma consulta para obter a contagem de figurinos de tamanho P
+-- ====================================================================================
+SELECT COUNT(tamanho) as quantidade_p
+FROM figurino
+WHERE (tamanho = 'P');
+
+-- ====================================================================================
+-- ITEM DA CHECKLIST: SELECT - FROM - WHERE / COUNT / IN
+-- Descrição: Faz uma consulta para obter a contagem de filmes infantis (classificacao
+-- L ou 12) lancados a partir de 2010
+-- ====================================================================================
+SELECT COUNT(*) as qtd_filmes_recentes_infantis
+FROM filme
+WHERE (classificacao_indicativa IN ('L', '12')) AND (ano_lancamento >= 2010);
+
+
+
+-- ====================================================================================
+-- ITEM DA CHECKLIST: INNER JOIN / LEFT JOIN
+-- Descrição: Consulta unindo tres tabelas com INNER e LEFT JOIN, retornando nome em
+-- funcionario, estilo em diretor e obra dirigida em filme
+-- ====================================================================================
+SELECT fun.nome_funcionario, dir.estilo_cinematografico, fil.titulo
+FROM funcionario fun
+JOIN diretor dir ON dir.cpf_funcionario = fun.cpf                       -- INNER pois quero apenas os funcionarios que sao diretores
+LEFT JOIN filme fil ON fil.cpf_diretor = dir.cpf_funcionario;           -- LEFT pois diretores sem filmes (sem intersecao) tambem devem aparecer
