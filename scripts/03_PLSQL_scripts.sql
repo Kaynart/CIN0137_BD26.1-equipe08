@@ -1,1 +1,143 @@
+-- ====================================================================================
+-- ITEM DA CHECKLIST: ALTER TABLE / LIKE
+-- Descrição: Cria uma  Constraint a partir do uso de ALTER TABLE e LIKE,
+-- restringindo a formatacao do atributo CEP
+-- ====================================================================================
+ALTER TABLE endereco_funcionario
+ADD CONSTRAINT check_cep CHECK (cep LIKE '_____-___');
 
+-- ====================================================================================
+-- ITEM DA CHECKLIST: ALTER TABLE
+-- Descrição: Determina coluna data_nascimento_funcionario como NOT NULL
+-- ====================================================================================
+ALTER TABLE funcionario
+MODIFY data_nascimento_funcionario NOT NULL;
+
+
+
+-- ====================================================================================
+-- ITEM DA CHECKLIST: CREATE INDEX
+-- Descrição: Cria indices pra buscas com base no titulo da tabela filme
+-- facilitando acessos pelo banco a essa coluna
+-- ====================================================================================
+CREATE INDEX index_filme_titulo
+ON filme (titulo);
+
+-- ====================================================================================
+-- ITEM DA CHECKLIST: CREATE INDEX
+-- Descrição: Cria indices pra buscas com base no nome do tabela funcionario
+-- ====================================================================================
+CREATE INDEX index_nome_funcionario
+ON funcionario (nome_funcionario);
+
+
+
+-- ====================================================================================
+-- ITEM DA CHECKLIST: INSERT INTO
+-- Descrição: Insere uma tupla de dados para a tabela Funcionario
+-- funcionario Tomas Roland chegando ao banco
+-- ====================================================================================
+INSERT INTO funcionario (cpf, nome_funcionario, sexo, data_nascimento_funcionario, cpf_supervisor)
+VALUES (
+  '721.124.164-90',
+  'Tomas Rolando',
+  'M',
+  TO_DATE('1996-06-01', 'YYYY-MM-DD'),
+  NULL
+);
+
+-- ====================================================================================
+-- ITEM DA CHECKLIST: INSERT INTO
+-- Descrição: Insercao em Estudio omitindo propositalmente a coluna 'tem_chroma_key'.
+-- O banco preenche automaticamente com o valor DEFAULT ('N') garantindo NOT NULL
+-- ====================================================================================
+INSERT INTO estudio (nome_estudio, metragem)
+VALUES ('Colômbia Pinturas', 5800.00);
+
+
+
+-- ====================================================================================
+-- ITEM DA CHECKLIST: UPDATE / WHERE
+-- Descrição: Atualiza a tupla recem-adicionada da tabela Funcionario referente ao
+-- CPF '721.124.164-90' e coloca um supervisor associado a ele
+-- ====================================================================================
+UPDATE funcionario
+SET cpf_supervisor = '434.444.544-13'
+WHERE cpf = '721.124.164-90';
+
+-- ====================================================================================
+-- ITEM DA CHECKLIST: UPDATE / WHERE
+-- Descrição: Atualiza como agora possuindo Chroma Key o Estudio recem-adicionado
+-- ====================================================================================
+UPDATE estudio
+SET tem_chroma_key = 'S'
+WHERE nome_estudio = 'Colômbia Pinturas';
+
+
+-- ====================================================================================
+-- ITEM DA CHECKLIST: DELETE / WHERE
+-- Descrição: Deleta a tupla recem-adicionada da tabela Funcionario referente ao
+-- CPF '721.124.164-90'
+-- ====================================================================================
+DELETE FROM funcionario
+WHERE cpf = '721.124.164-90';
+
+-- ====================================================================================
+-- ITEM DA CHECKLIST: DELETE / WHERE
+-- Descrição: Deleta a tupla de Estudio que foi adicionada agora
+-- ====================================================================================
+DELETE FROM estudio
+WHERE nome_estudio = 'Colômbia Pinturas';
+
+
+
+-- ====================================================================================
+-- ITEM DA CHECKLIST: SELECT - FROM - WHERE
+-- Descrição: Faz uma consulta com a sequencia SELECT FROM e WHERE para analisar
+-- estudios grandes (metragem acima de 2350) e que possuem chroma key
+-- ====================================================================================
+SELECT nome_estudio, metragem
+FROM estudio
+WHERE (tem_chroma_key = 'S' AND metragem >= 2350.00);
+
+
+
+-- ====================================================================================
+-- ITEM DA CHECKLIST: SELECT - FROM - WHERE / BETWEEN
+-- Descrição: Faz uma consulta com a sequencia SELECT FROM e WHERE para analisar
+-- funcionarios que nasceram entre 1990 e 2000, usando o BETWEEN
+-- ====================================================================================
+SELECT nome_funcionario, sexo, data_nascimento_funcionario
+FROM funcionario
+WHERE (data_nascimento_funcionario BETWEEN TO_DATE('1990-01-01', 'YYYY-MM-DD') AND TO_DATE('2000-12-31', 'YYYY-MM-DD'));
+
+
+
+-- ====================================================================================
+-- ITEM DA CHECKLIST: SELECT - FROM - WHERE / IN
+-- Descrição: Faz uma consulta com a sequencia SELECT FROM e WHERE para analisar
+-- filmes indicados pra alguem que possui 14 anos, usando o IN
+-- ====================================================================================
+SELECT titulo, classificacao_indicativa
+FROM filme
+WHERE (classificacao_indicativa IN ('L', '12', '14'));
+
+
+  
+-- ====================================================================================
+-- ITEM DA CHECKLIST: SELECT - FROM - WHERE / IS NULL
+-- Descrição: Faz uma consulta com a sequencia SELECT FROM e WHERE para analisar
+-- filmes em que o cache_diretor foi omisso
+-- ====================================================================================
+SELECT titulo, ano_lancamento, cpf_diretor
+FROM filme
+WHERE (cache_diretor IS NULL);
+
+-- ====================================================================================
+-- ITEM DA CHECKLIST: SELECT - FROM - WHERE / IS NOT NULL
+-- Descrição: Faz uma consulta com a sequencia SELECT FROM e WHERE para analisar
+-- funcionarios que possuem supervisor
+-- ====================================================================================
+SELECT cpf, nome_funcionario, cpf_supervisor
+FROM funcionario
+WHERE (cpf_supervisor IS NOT NULL);
