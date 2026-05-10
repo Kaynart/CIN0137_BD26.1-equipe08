@@ -141,3 +141,40 @@ WHERE (cache_diretor IS NULL);
 SELECT cpf, nome_funcionario, cpf_supervisor
 FROM funcionario
 WHERE (cpf_supervisor IS NOT NULL);
+
+
+
+-- ====================================================================================
+-- ITEM DA CHECKLIST: INNER JOIN
+-- Descrição: Faz uma consulta com a sequencia SELECT e FROM com JOIN de duas
+-- tabelas pra associar a descricao de um figurino e o nome do ator destinado
+-- ====================================================================================
+SELECT fig.descricao, fun.nome_funcionario
+FROM figurino fig
+INNER JOIN funcionario fun ON fun.cpf = fig.CPF_ATOR_VESTIDO; 
+
+-- ====================================================================================
+-- ITEM DA CHECKLIST: MAX / MIN
+-- Descrição: Faz uma consulta para devolver o funcionario mais jovem (MIN) e o mais
+-- velho (MAX) da tabela funcionario
+-- ====================================================================================
+SELECT
+    MAX(data_nascimento_funcionario) as data_mais_jovem,
+    MIN(data_nascimento_funcionario) as data_mais_velho
+FROM funcionario;
+
+
+
+-- ====================================================================================
+-- ITEM DA CHECKLIST: AVG
+-- Descrição: Faz uma consulta para obter a media dos precos da tabela Equipamento
+-- ====================================================================================
+SELECT AVG(valor) as media_precos
+FROM equipamento;
+
+-- ====================================================================================
+-- ITEM DA CHECKLIST: AVG
+-- Descrição: Faz uma consulta para obter a media das metragens da tabela Estudio
+-- ====================================================================================
+SELECT AVG(metragem) as media_metragem
+FROM estudio;
