@@ -66,3 +66,14 @@ A inserção de dados simula o ecossistema real e dinâmico de uma produtora de 
 
 ### 📄 Requisitos que o **Script 2: `02_dml_povoamento.sql` (Povoamento)** abrange
 - [x] `INSERT INTO` para inserção de registros em todas as tabelas (fortes e fracas).
+
+## 📊 Consultas SQL e Relatórios
+
+Além da modelagem e criação do banco de dados, este projeto inclui um script de consultas focado em extrair métricas e relatórios úteis do estúdio cinematográfico. 
+
+Durante a construção das consultas (queries), foram aplicados os seguintes conceitos técnicos:
+
+* **Funções de Agregação:** Utilização de `MAX`, `MIN`, `AVG` e `COUNT` para levantamento de métricas (ex: média de tamanho dos estúdios, contagem de figurinos).
+* **Junções (Joins):** Uso de `INNER JOIN` e `LEFT JOIN` para cruzar dados relacionais, chegando a unir três tabelas simultaneamente para relatórios complexos.
+* **Subconsultas (Subqueries):** Criação de consultas aninhadas para cruzamento de dados avançado.
+* **Filtros e Operadores Lógicos:** Tratamento de dados nulos (`IS NOT NULL`), operadores de conjunto (`IN`), e restrições temporais/lógicas (`AND`, `>`).
