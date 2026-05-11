@@ -334,13 +334,13 @@ INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES
 ((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Tomás Cruzeiro'), (SELECT id_filme FROM filme WHERE titulo = 'Pregadores'), 'Fiel Escudeiro', 400000.00),
 
 -- 3. Anatomia de uma Subida
-((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Margarida Robô'), (SELECT id_filme FROM filme WHERE titulo = 'Anatomia de uma Subida'), 'Juíza', 350000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Margarida Roberta'), (SELECT id_filme FROM filme WHERE titulo = 'Anatomia de uma Subida'), 'Juíza', 350000.00),
 ((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Rian Ganso'), (SELECT id_filme FROM filme WHERE titulo = 'Anatomia de uma Subida'), 'Felipe', 280000.00),
 ((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Escarlete João-Hans'), (SELECT id_filme FROM filme WHERE titulo = 'Anatomia de uma Subida'), 'Advogada de Defesa', 420000.00),
 
 -- 4. Ricas Criaturas
 ((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Maria Estripe'), (SELECT id_filme FROM filme WHERE titulo = 'Ricas Criaturas'), 'Helena', 850000.00),
-((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Margarida Robô'), (SELECT id_filme FROM filme WHERE titulo = 'Ricas Criaturas'), 'Herdeira Misteriosa', 500000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Margarida Roberta'), (SELECT id_filme FROM filme WHERE titulo = 'Ricas Criaturas'), 'Herdeira Misteriosa', 500000.00),
 
 -- 5. O Agente Exposto
 ((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Tomás Cruzeiro'), (SELECT id_filme FROM filme WHERE titulo = 'O Agente Exposto'), 'Ricardo', 900000.00),
@@ -364,13 +364,13 @@ INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES
 
 -- 9. Valor Emocional
 ((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Rian Ganso'), (SELECT id_filme FROM filme WHERE titulo = 'Valor Emocional'), 'Thiago', 500000.00),
-((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Margarida Robô'), (SELECT id_filme FROM filme WHERE titulo = 'Valor Emocional'), 'Psicóloga', 450000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Margarida Roberta'), (SELECT id_filme FROM filme WHERE titulo = 'Valor Emocional'), 'Psicóloga', 450000.00),
 
 -- 10. Hamlet
 ((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Leonardo DeCapra'), (SELECT id_filme FROM filme WHERE titulo = 'Hamlet'), 'Príncipe Dinamarquês', 750000.00),
 ((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Escarlete João-Hans'), (SELECT id_filme FROM filme WHERE titulo = 'Hamlet'), 'Sofia', 600000.00),
 ((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Tomás Cruzeiro'), (SELECT id_filme FROM filme WHERE titulo = 'Hamlet'), 'Rei Usurpador', 650000.00),
-((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Morgano Homem-Livre'), (SELECT id_filme FROM filme WHERE titulo = 'Hamlet'), 'Narrador', 750000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Morgano Firmino'), (SELECT id_filme FROM filme WHERE titulo = 'Hamlet'), 'Narrador', 750000.00),
 
 -- 11. O Pequeno Hotel Bucarest
 ((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Leonardo DeCapra'), (SELECT id_filme FROM filme WHERE titulo = 'O Pequeno Hotel Bucarest'), 'Concierge', 500000.00),
@@ -383,7 +383,7 @@ INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES
 -- 13. O Anjo Veste Gucci
 ((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Maria Estripe'), (SELECT id_filme FROM filme WHERE titulo = 'O Anjo Veste Gucci'), 'Editora-Chefe', 950000.00),
 ((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Escarlete João-Hans'), (SELECT id_filme FROM filme WHERE titulo = 'O Anjo Veste Gucci'), 'Luiza', 550000.00),
-((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Margarida Robô'), (SELECT id_filme FROM filme WHERE titulo = 'O Anjo Veste Gucci'), 'Estagiária', 480000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Margarida Roberta'), (SELECT id_filme FROM filme WHERE titulo = 'O Anjo Veste Gucci'), 'Estagiária', 480000.00),
 
 -- 14. Diabo e o Deus na água da Lua
 ((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Samuel L. Jaquetão'), (SELECT id_filme FROM filme WHERE titulo = 'Diabo e o Deus na água da Lua'), 'Capitão do Barco', 400000.00),
@@ -408,12 +408,12 @@ INSERT INTO ator_filme (cpf_ator, id_filme, personagem, cache_ator) VALUES
 -- 18. Mulheres de Branco
 ((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Escarlete João-Hans'), (SELECT id_filme FROM filme WHERE titulo = 'Mulheres de Branco'), 'Médica Cirurgiã', 600000.00),
 ((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Maria Estripe'), (SELECT id_filme FROM filme WHERE titulo = 'Mulheres de Branco'), 'Lúcia', 800000.00),
-((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Margarida Robô'), (SELECT id_filme FROM filme WHERE titulo = 'Mulheres de Branco'), 'Enfermeira-Chefe', 450000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Margarida Roberta'), (SELECT id_filme FROM filme WHERE titulo = 'Mulheres de Branco'), 'Enfermeira-Chefe', 450000.00),
 
 -- 19. História de Brinquedos
 ((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Tomás Cruzeiro'), (SELECT id_filme FROM filme WHERE titulo = 'História de Brinquedos'), 'Tiago', 700000.00),
 ((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Samuel L. Jaquetão'), (SELECT id_filme FROM filme WHERE titulo = 'História de Brinquedos'), 'Patrulheiro Espacial', 500000.00),
-((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Morgano Homem-Livre'), (SELECT id_filme FROM filme WHERE titulo = 'História de Brinquedos'), 'Delegado', 500000.00),
+((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Morgano Firmino'), (SELECT id_filme FROM filme WHERE titulo = 'História de Brinquedos'), 'Delegado', 500000.00),
 
 -- 20. O Celular Branco
 ((SELECT cpf FROM funcionario WHERE nome_funcionario = 'Samuel L. Jaquetão'), (SELECT id_filme FROM filme WHERE titulo = 'O Celular Branco'), 'Assassino', 400000.00),
@@ -503,13 +503,13 @@ INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VA
 ('M', 'Jaqueta de couro de "Fiel Escudeiro"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Tomás Cruzeiro'), (SELECT id_filme FROM filme WHERE titulo = 'Pregadores')),
 
 -- 3. Anatomia de uma Subida
-('P', 'Toga clássica de "Juíza" em veludo', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Margarida Robô'), (SELECT id_filme FROM filme WHERE titulo = 'Anatomia de uma Subida')),
+('P', 'Toga clássica de "Juíza" em veludo', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Margarida Roberta'), (SELECT id_filme FROM filme WHERE titulo = 'Anatomia de uma Subida')),
 ('M', 'Terno casual de "Felipe"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Rian Ganso'), (SELECT id_filme FROM filme WHERE titulo = 'Anatomia de uma Subida')),
 ('P', 'Terno de alfaiataria de "Advogada de Defesa"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Escarlete João-Hans'), (SELECT id_filme FROM filme WHERE titulo = 'Anatomia de uma Subida')),
 
 -- 4. Ricas Criaturas
 ('M', 'Vestido de gala vermelho de "Helena"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Maria Estripe'), (SELECT id_filme FROM filme WHERE titulo = 'Ricas Criaturas')),
-('P', 'Casaco de pele sintética de "Herdeira Misteriosa"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Margarida Robô'), (SELECT id_filme FROM filme WHERE titulo = 'Ricas Criaturas')),
+('P', 'Casaco de pele sintética de "Herdeira Misteriosa"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Margarida Roberta'), (SELECT id_filme FROM filme WHERE titulo = 'Ricas Criaturas')),
 
 -- 5. O Agente Exposto
 ('M', 'Terno slim de "Ricardo" resistente a balas', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Tomás Cruzeiro'), (SELECT id_filme FROM filme WHERE titulo = 'O Agente Exposto')),
@@ -533,13 +533,13 @@ INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VA
 
 -- 9. Valor Emocional
 ('M', 'Jaqueta jeans com emblema nas costas de "Thiago"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Rian Ganso'), (SELECT id_filme FROM filme WHERE titulo = 'Valor Emocional')),
-('P', 'Conjunto social de linho claro de "Psicóloga"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Margarida Robô'), (SELECT id_filme FROM filme WHERE titulo = 'Valor Emocional')),
+('P', 'Conjunto social de linho claro de "Psicóloga"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Margarida Roberta'), (SELECT id_filme FROM filme WHERE titulo = 'Valor Emocional')),
 
 -- 10. Hamlet
 ('M', 'Traje real de "Príncipe Dinamarquês" com coroa', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Leonardo DeCapra'), (SELECT id_filme FROM filme WHERE titulo = 'Hamlet')),
 ('P', 'Vestido medieval de seda de "Sofia"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Escarlete João-Hans'), (SELECT id_filme FROM filme WHERE titulo = 'Hamlet')),
 ('M', 'Capa de veludo de "Rei Usurpador" com espada', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Tomás Cruzeiro'), (SELECT id_filme FROM filme WHERE titulo = 'Hamlet')),
-('G', 'Smoking clássico de "Narrador" e gravata borboleta', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Morgano Homem-Livre'), (SELECT id_filme FROM filme WHERE titulo = 'Hamlet')),
+('G', 'Smoking clássico de "Narrador" e gravata borboleta', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Morgano Firmino'), (SELECT id_filme FROM filme WHERE titulo = 'Hamlet')),
 
 -- 11. O Pequeno Hotel Bucarest
 ('M', 'Uniforme de "Concierge" roxo com botões dourados', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Leonardo DeCapra'), (SELECT id_filme FROM filme WHERE titulo = 'O Pequeno Hotel Bucarest')),
@@ -552,7 +552,7 @@ INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VA
 -- 13. O Anjo Veste Gucci
 ('M', 'Casaco de grife e óculos escuros de "Editora-Chefe"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Maria Estripe'), (SELECT id_filme FROM filme WHERE titulo = 'O Anjo Veste Gucci')),
 ('P', 'Conjunto de alta costura vanguardista de "Luiza"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Escarlete João-Hans'), (SELECT id_filme FROM filme WHERE titulo = 'O Anjo Veste Gucci')),
-('P', 'Roupas fora de moda de "Estagiária"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Margarida Robô'), (SELECT id_filme FROM filme WHERE titulo = 'O Anjo Veste Gucci')),
+('P', 'Roupas fora de moda de "Estagiária"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Margarida Roberta'), (SELECT id_filme FROM filme WHERE titulo = 'O Anjo Veste Gucci')),
 
 -- 14. Diabo e o Deus na água da Lua
 ('GG', 'Capa de chuva amarela de "Capitão do Barco"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Samuel L. Jaquetão'), (SELECT id_filme FROM filme WHERE titulo = 'Diabo e o Deus na água da Lua')),
@@ -577,12 +577,12 @@ INSERT INTO figurino (tamanho, descricao, cpf_ator_vestido, id_filme_vestido) VA
 -- 18. Mulheres de Branco
 ('P', 'Jaleco branco e estetoscópio de "Médica Cirurgiã"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Escarlete João-Hans'), (SELECT id_filme FROM filme WHERE titulo = 'Mulheres de Branco')),
 ('M', 'Uniforme de plantão branco de "Lúcia"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Maria Estripe'), (SELECT id_filme FROM filme WHERE titulo = 'Mulheres de Branco')),
-('P', 'Traje clínico de "Enfermeira-Chefe"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Margarida Robô'), (SELECT id_filme FROM filme WHERE titulo = 'Mulheres de Branco')),
+('P', 'Traje clínico de "Enfermeira-Chefe"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Margarida Roberta'), (SELECT id_filme FROM filme WHERE titulo = 'Mulheres de Branco')),
 
 -- 19. História de Brinquedos
 ('M', 'Colete de vaqueiro de "Tiago" e chapéu de xerife', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Tomás Cruzeiro'), (SELECT id_filme FROM filme WHERE titulo = 'História de Brinquedos')),
 ('GG', 'Armadura espacial de plástico de "Patrulheiro"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Samuel L. Jaquetão'), (SELECT id_filme FROM filme WHERE titulo = 'História de Brinquedos')),
-('G', 'Uniforme policial azul com distintivo de "Delegado"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Morgano Homem-Livre'), (SELECT id_filme FROM filme WHERE titulo = 'História de Brinquedos')),
+('G', 'Uniforme policial azul com distintivo de "Delegado"', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Morgano Firmino'), (SELECT id_filme FROM filme WHERE titulo = 'História de Brinquedos')),
 
 -- 20. O Celular Branco
 ('GG', 'Capa de chuva de vinil de "Assassino" e luvas', (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Samuel L. Jaquetão'), (SELECT id_filme FROM filme WHERE titulo = 'O Celular Branco')),
