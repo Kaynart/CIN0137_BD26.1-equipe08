@@ -1,3 +1,10 @@
+-- ========================================================================================================
+--                                   PARTE 1: Structured Query Language (SQL)
+-- ========================================================================================================
+-- Consultas e utilização de cláusulas abrangentes para buscas e pesquisas dentro do contexto do Banco
+-- de Dados Produtora de Filmes
+-- ========================================================================================================
+
 -- ====================================================================================
 -- ITEM DA CHECKLIST: ALTER TABLE / LIKE
 -- Descrição: Cria uma  Constraint a partir do uso de ALTER TABLE e LIKE,
@@ -300,6 +307,40 @@ WHERE con.cache_figurinista < ANY (
         )
     )
 );
+
+
+
+-- ====================================================================================
+-- ITEM DA CHECKLIST: SELECT - FROM - WHERE / SUBCONSULTA COM ALL / ORDER BY
+-- Descrição: Seleciona os diretores e suas producoes cujo cache é maior que o de TODAS
+-- as producoes de Quinto Tarantela
+-- ====================================================================================
+SELECT
+    fun.nome_funcionario as diretor,
+    fil.cache_diretor as cache_recebido,
+    fil.titulo as filme_produzido
+FROM funcionario fun
+JOIN filme fil ON fil.cpf_diretor = fun.cpf
+WHERE fil.cache_diretor > ALL (
+    SELECT cache_diretor 
+    FROM filme 
+    WHERE cpf_diretor = (
+        SELECT cpf
+        FROM funcionario
+        WHERE nome_funcionario = 'Quinto Tarantela'
+    )
+)
+ORDER BY cache_recebido DESC;
+
+
+
+
+-- ========================================================================================================
+--                                   PARTE 2: Procedural Language (PL/SQL)
+-- ========================================================================================================
+-- Nesta seção encontram-se os Pacotes, Procedures, Functions e Triggers que automatizam a regra de negócio
+-- do estúdio, além dos blocos anônimos para geração de relatórios e testes de exceção.
+-- ========================================================================================================
 
 -- ===========================================================================
 -- PACOTE PKG_GESTAO_AGENDA (Prevenção de Conflitos)
