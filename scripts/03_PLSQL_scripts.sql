@@ -309,7 +309,6 @@ WHERE con.cache_figurinista < ANY (
 );
 
 
-
 -- ====================================================================================
 -- ITEM DA CHECKLIST: SELECT - FROM - WHERE / SUBCONSULTA COM ALL / ORDER BY
 -- Descrição: Seleciona os diretores e suas producoes cujo cache é maior que o de TODAS
@@ -332,7 +331,120 @@ WHERE fil.cache_diretor > ALL (
 )
 ORDER BY cache_recebido DESC;
 
+-- ========================================================================================================
+-- ITEM DA CHECKLIST: SELECT - FROM - WHERE / GROUP BY / AVG
+-- Descrição: Calcula a média de cachê que cada ator recebeu considerando todos os seus filmes
+-- ========================================================================================================
+SELECT cpf_ator, AVG(cache_ator) AS media_salarial
+FROM ator_filme
+GROUP BY cpf_ator;
 
+
+-- ========================================================================================================
+-- ITEM DA CHECKLIST: SELECT - FROM - WHERE / GROUP BY / HAVING / COUNT
+-- Descrição: Mostra apenas os IDs de filmes que possuem mais de 1 gêneros cadastrados
+-- ========================================================================================================
+SELECT id_filme, COUNT(genero) AS qtd_generos
+FROM genero_filme
+GROUP BY id_filme
+HAVING COUNT(genero) > 1;
+
+
+-- ========================================================================================================
+-- ITEM DA CHECKLIST: INNER JOIN / WHERE / GROUP BY / HAVING / SUM / ORDER BY
+-- Descrição: Consulta que une tabelas para listar o título e gasto total de elenco de
+-- filmes 18 que gastaram mais de 500 mil ordenando pelo maior custo
+-- ========================================================================================================
+SELECT f.titulo, SUM(af.cache_ator) AS custo_elenco
+FROM filme f
+INNER JOIN ator_filme af ON f.id_filme = af.id_filme
+WHERE f.classificacao_indicativa = '18'
+GROUP BY f.titulo
+HAVING SUM(af.cache_ator) > 500000
+ORDER BY custo_elenco DESC;
+
+
+-- ========================================================================================================
+-- ITEM DA CHECKLIST: UNION
+-- Descrição: Combina o CPF de todos os Diretores e todos os Atores em uma única lista sem duplicatas.
+-- Útil para gerar uma lista geral de talentos do estúdio.
+-- ========================================================================================================
+SELECT cpf_funcionario 
+FROM diretor
+UNION
+SELECT cpf_funcionario 
+FROM ator;
+
+-- ========================================================================================================
+-- ITEM DA CHECKLIST: INTERSECT
+-- Descrição: Retorna os nomes de funcionários que também estão registrados como dependentes.
+-- ========================================================================================================
+SELECT nome_funcionario
+FROM funcionario
+INTERSECT
+SELECT nome_dependente
+FROM dependente;
+
+-- =========================================================================================================
+-- ITEM DA CHECKLIST: MINUS
+-- Descrição: Lista o CPF de todos os funcionários exceto aqueles que são diretores.
+-- =========================================================================================================
+SELECT cpf 
+FROM funcionario
+MINUS
+SELECT cpf_funcionario 
+FROM diretor;
+
+-- =========================================================================================================
+-- ITEM DA CHECKLIST: MINUS
+-- Descrição: Lista os nomes de todos os funcionários que não são atores.
+-- =========================================================================================================
+SELECT nome_funcionario 
+FROM funcionario
+MINUS
+SELECT f.nome_funcionario
+FROM funcionario f
+INNER JOIN ator a ON f.cpf = a.cpf_funcionario;
+
+-- =========================================================================================================
+-- ITEM DA CHECKLIST: CREATE VIEW
+-- Descrição: Cria uma visão simplificada que mostra o elenco de cada filme.
+-- =========================================================================================================
+CREATE OR REPLACE VIEW elenco_completo AS
+SELECT f.titulo, func.nome_funcionario AS nome_ator, af.personagem
+FROM filme f
+INNER JOIN ator_filme af ON f.id_filme = af.id_filme
+INNER JOIN funcionario func ON af.cpf_ator = func.cpf;
+
+-- ====================================================================================
+-- ITEM DA CHECKLIST: SELECT (Teste de View)
+-- Descrição: Testa a view elenco_completo buscando todos os atores e seus
+-- respectivos personagens do filme: O Celular Branco.
+-- ====================================================================================
+SELECT * FROM elenco_completo
+WHERE titulo = 'O Celular Branco';
+
+-- =========================================================================================================
+-- ITEM DA CHECKLIST: CREATE VIEW
+-- Descrição: Tabela de visão que mostra quais equipamentos estão alocados em quais
+-- estúdios no momento unindo as tabelas de aloca e ocupa.
+-- =========================================================================================================
+CREATE OR REPLACE VIEW logistica_set_filmagem AS
+SELECT f.titulo, e.tipo AS equipamento, est.nome_estudio
+FROM filme f
+INNER JOIN aloca a ON f.id_filme = a.id_filme
+INNER JOIN equipamento e ON a.id_equipamento = e.id_equipamento
+INNER JOIN ocupa o ON f.id_filme = o.id_filme
+INNER JOIN estudio est ON o.num_id_estudio = est.num_id_estudio;
+
+-- ====================================================================================
+-- ITEM DA CHECKLIST: SELECT (Teste de View)
+-- Descrição: Testa a view logistica_set_filmagem para identificar qual equipamento
+-- está sendo usado no estúdio para o filme: Uma Luta Antes da Outra.
+-- ====================================================================================
+SELECT equipamento, nome_estudio
+FROM logistica_set_filmagem
+WHERE titulo = 'Uma Luta Antes da Outra';
 
 
 -- ========================================================================================================
