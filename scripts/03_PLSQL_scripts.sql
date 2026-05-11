@@ -217,3 +217,37 @@ SELECT fun.nome_funcionario, dir.estilo_cinematografico, fil.titulo
 FROM funcionario fun
 JOIN diretor dir ON dir.cpf_funcionario = fun.cpf                       -- INNER pois quero apenas os funcionarios que sao diretores
 LEFT JOIN filme fil ON fil.cpf_diretor = dir.cpf_funcionario;           -- LEFT pois diretores sem filmes (sem intersecao) tambem devem aparecer
+
+
+
+-- ====================================================================================
+-- ITEM DA CHECKLIST: SUBCONSULTA COM OPERADOR RELACIONAL
+-- Descrição: Seleciona as atuacoes ator_filme em que o cache pago foi maior que o 
+-- cache de Zendóia no filme Ande
+-- ====================================================================================
+SELECT fun.nome, af.personagem fil.titulo, af.cache
+FROM funcionario fun
+JOIN ator_filme af ON af.cpf_ator = fun.cpf
+JOIN filme fil ON fil.id_filme = af.id_filme;
+
+
+-- ========================================================================================================
+-- ITEM DA CHECKLIST: SELECT - FROM - WHERE / SUBCONSULTA COM OPERADOR RELACIONAL / INNER JOIN / ORDER BY
+-- Descrição: Seleciona as atuacoes ator_filme em que o cache pago foi maior que o 
+-- cache de Zendóia no filme Ande!
+-- ========================================================================================================
+SELECT 
+    fun.nome_funcionario as ator,
+    af.personagem,
+    fil.titulo as titulo_filme,
+    af.cache_ator as cache_recebido
+FROM funcionario fun
+JOIN ator_filme af ON af.cpf_ator = fun.cpf
+JOIN filme fil ON fil.id_filme = af.id_filme
+WHERE cache_ator >= (
+    SELECT cache_ator
+    FROM ator_filme
+    WHERE id_filme = (SELECT id_filme FROM filme WHERE titulo = 'Ande!')
+        AND cpf_ator = (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Zendóia')
+)
+ORDER BY cache_ator ASC;
