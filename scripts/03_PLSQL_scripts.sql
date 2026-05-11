@@ -251,3 +251,52 @@ WHERE cache_ator >= (
         AND cpf_ator = (SELECT cpf FROM funcionario WHERE nome_funcionario = 'Zendóia')
 )
 ORDER BY cache_ator ASC;
+
+
+
+-- ========================================================================================================
+-- ITEM DA CHECKLIST: SELECT - FROM - WHERE / SUBCONSULTA COM IN
+-- Descrição: Seleciona os figurinos e o ator que o vestiu dos filmes que sao do genero Suspense
+-- ========================================================================================================
+SELECT
+    fig.descricao as figurino,
+    fun.nome_funcionario as ator,
+    fil.titulo as filme
+FROM figurino fig -- comeca com a tabel afigurino
+JOIN funcionario fun ON fun.cpf = fig.cpf_ator_vestido -- intersecao com os atores vestidos por cada figurino
+JOIN filme fil ON fil.id_filme = fig.id_filme_vestido -- intersecao com os filmes que receberam os figurinos
+WHERE id_filme_vestido IN (
+    SELECT id_filme
+    FROM genero_filme
+    WHERE genero = 'Suspense'
+);
+
+
+
+-- ========================================================================================================
+-- ITEM DA CHECKLIST: SELECT - FROM - WHERE / SUBCONSULTA COM ANY / SUBCONSULTA COM IN 
+-- Descrição: Seleciona os filmes, seus figurinos e os figurinistas com cache recebido pela confeccao menor
+-- que qualquer cache pelos figurinos do filme O Celular Branco
+-- ========================================================================================================
+SELECT
+    fil.titulo as filme,
+    fig.descricao as figurino,
+    fun.nome_funcionario as figurinista,
+    con.cache_figurinista as cache_pago
+FROM filme fil
+JOIN figurino fig ON fig.id_filme_vestido = fil.id_filme -- intersecao da tabela figurino com os filmes destinados
+JOIN confecciona con ON con.id_figurino = fig.id_figurino -- intersecao da tabela confecciona com id do figurino
+JOIN funcionario fun ON fun.cpf = con.cpf_figurinista -- intersecao dos funcionarios figurinistas com confecciona
+WHERE con.cache_figurinista < ANY (
+    SELECT cache_figurinista
+    FROM confecciona
+    WHERE id_figurino IN (
+        SELECT id_figurino
+        FROM figurino
+        WHERE id_filme_vestido = (
+            SELECT id_filme
+            FROM filme
+            WHERE titulo = 'O Celular Branco'
+        )
+    )
+);
