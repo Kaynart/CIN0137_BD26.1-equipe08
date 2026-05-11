@@ -7,17 +7,17 @@ INSERT INTO FUNCIONARIO (cpf, nome_funcionario, data_nascimento_funcionario, sex
 ('653.404.344-63', 'Cristovão Nulo', TO_DATE('1970-07-30', 'YYYY-MM-DD'), 'M', NULL),
 ('293.534.566-73', 'Wesley Andarilho', TO_DATE('1969-05-01', 'YYYY-MM-DD'), 'M', '653.404.344-63'), -- Dir por Dir
 ('242.404.944-69', 'Dênis Vila-Nova', TO_DATE('1967-10-03', 'YYYY-MM-DD'), 'M', NULL),
-('036.404.546-99', 'Sofia Cúpula', TO_DATE('1971-05-14', 'YYYY-MM-DD'), 'F', NULL),
+('036.404.546-99', 'Sofia Cúpula', TO_DATE('1971-05-14', 'YYYY-MM-DD'), 'F', '889.012.345-67'), -- Dir por Dir (Francisco Ford Cúpula)
 ('434.444.544-13', 'Pedro Almodólar', TO_DATE('1949-09-25', 'YYYY-MM-DD'), 'M', '293.404.544-63'), -- Dir por Dir
 ('203.404.492-23', 'Jorge Lucas', TO_DATE('1944-05-14', 'YYYY-MM-DD'), 'M', NULL),
-('112.345.678-90', 'Morgano Homem-Livre', TO_DATE('1937-06-01', 'YYYY-MM-DD'), 'M', NULL), 
-('223.456.789-01', 'Tomás Agradece', TO_DATE('1956-07-09', 'YYYY-MM-DD'), 'M', NULL), 
-('334.567.890-12', 'Quiano Rios', TO_DATE('1964-09-02', 'YYYY-MM-DD'), 'M', '293.404.544-63'), -- Ator por Dir
-('445.678.901-23', 'Angelina Bonita', TO_DATE('1975-06-04', 'YYYY-MM-DD'), 'F', NULL),
-('556.789.012-34', 'Ema Pedra', TO_DATE('1968-09-25', 'YYYY-MM-DD'), 'F', '653.404.344-63'), -- Ator por Dir
+('667.890.123-45', 'Alfredo Bate-Copo', TO_DATE('1899-08-13', 'YYYY-MM-DD'), 'M', NULL),
+('778.901.234-56', 'Estênio Cubrico', TO_DATE('1928-07-26', 'YYYY-MM-DD'), 'M', NULL),
+('889.012.345-67', 'Francisco Ford Cúpula', TO_DATE('1939-04-07', 'YYYY-MM-DD'), 'M', NULL),
+('990.123.456-78', 'Pedro João-Filho', TO_DATE('1961-10-31', 'YYYY-MM-DD'), 'M', '889.012.345-67'), -- Dir por Dir
+('001.234.567-89', 'Tico Uai-Titi', TO_DATE('1975-08-16', 'YYYY-MM-DD'), 'M', '889.012.345-67'), -- Dir por Dir
     
 ('384.592.108-71', 'Leonardo DeCapra', TO_DATE('1974-11-11', 'YYYY-MM-DD'), 'M', NULL),
-('712.943.550-24', 'Margarida Robô', TO_DATE('1990-07-02', 'YYYY-MM-DD'), 'F', NULL),
+('712.943.550-24', 'Margarida Roberta', TO_DATE('1990-07-02', 'YYYY-MM-DD'), 'F', NULL),
 ('105.827.493-66', 'Breno Pinto', TO_DATE('1963-12-18', 'YYYY-MM-DD'), 'M', '293.653.544-06'), -- Ator por Dir (Martinho)
 ('840.192.375-92', 'Maria Estripe', TO_DATE('1949-06-22', 'YYYY-MM-DD'), 'F', '563.823.158-73'), -- Ator por Dir (Quinto)
 ('561.408.291-15', 'Tomás Cruzeiro', TO_DATE('1962-07-03', 'YYYY-MM-DD'), 'M', NULL),
@@ -26,12 +26,12 @@ INSERT INTO FUNCIONARIO (cpf, nome_funcionario, data_nascimento_funcionario, sex
 ('259.630.817-48', 'Rian Ganso', TO_DATE('1980-11-12', 'YYYY-MM-DD'), 'M', NULL),
 ('634.805.729-50', 'Escarlete João-Hans', TO_DATE('1984-11-22', 'YYYY-MM-DD'), 'F', NULL),
 ('091.376.582-09', 'Samuel L. Jaquetão', TO_DATE('1948-12-21', 'YYYY-MM-DD'), 'M', NULL),
-('667.890.123-45', 'Alfredo Bate-Copo', TO_DATE('1899-08-13', 'YYYY-MM-DD'), 'M', NULL),
-('778.901.234-56', 'Estênio Cubrico', TO_DATE('1928-07-26', 'YYYY-MM-DD'), 'M', NULL),
-('889.012.345-67', 'Chico Ford Cúpula', TO_DATE('1939-04-07', 'YYYY-MM-DD'), 'M', NULL),
-('990.123.456-78', 'Pedro João-Filho', TO_DATE('1961-10-31', 'YYYY-MM-DD'), 'M', '889.012.345-67'), -- Dir por Dir
-('001.234.567-89', 'Tico Uai-Titi', TO_DATE('1975-08-16', 'YYYY-MM-DD'), 'M', '889.012.345-67'), -- Dir por Dir
-    
+('112.345.678-90', 'Morgano Firmino', TO_DATE('1937-06-01', 'YYYY-MM-DD'), 'M', NULL), 
+('223.456.789-01', 'Tomás Agradece', TO_DATE('1956-07-09', 'YYYY-MM-DD'), 'M', NULL), 
+('334.567.890-12', 'Quiano Rios', TO_DATE('1964-09-02', 'YYYY-MM-DD'), 'M', '293.404.544-63'), -- Ator por Dir
+('445.678.901-23', 'Angelina Bonita', TO_DATE('1975-06-04', 'YYYY-MM-DD'), 'F', NULL),
+('556.789.012-34', 'Ema Pedra', TO_DATE('1968-09-25', 'YYYY-MM-DD'), 'F', '653.404.344-63'), -- Ator por Dir
+
 ('492.301.558-12', 'Edith Cabeça', TO_DATE('1997-10-28', 'YYYY-MM-DD'), 'F', NULL),
 ('823.109.445-67', 'Coleth Atmadeira', TO_DATE('1948-12-30', 'YYYY-MM-DD'), 'F', '492.301.558-12'), -- Fig por Fig
 ('156.778.234-09', 'Areia Powell', TO_DATE('1960-04-07', 'YYYY-MM-DD'), 'F', '492.301.558-12'), -- Fig por Fig
