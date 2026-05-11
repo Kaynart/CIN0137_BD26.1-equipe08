@@ -300,3 +300,235 @@ WHERE con.cache_figurinista < ANY (
         )
     )
 );
+
+-- ===========================================================================
+-- PACOTE PKG_GESTAO_AGENDA (Prevenção de Conflitos)
+-- ===========================================================================
+CREATE OR REPLACE PACKAGE pkg_gestao_agenda IS
+    -- função que verifica se um estúdio está livre em determinadas datas
+    FUNCTION fn_estudio_livre(p_id_estudio IN NUMBER, p_data_inicio IN DATE, p_data_fim IN DATE) RETURN VARCHAR2;
+END pkg_gestao_agenda;
+/
+
+CREATE OR REPLACE PACKAGE BODY pkg_gestao_agenda IS
+    FUNCTION fn_estudio_livre(p_id_estudio IN NUMBER, p_data_inicio IN DATE, p_data_fim IN DATE) RETURN VARCHAR2 IS
+        v_conflitos NUMBER := 0;
+    BEGIN
+        -- checa se existe sobreposição de datas na tabela 'ocupa'
+        SELECT COUNT(*) INTO v_conflitos
+        FROM ocupa
+        WHERE num_id_estudio = p_id_estudio
+          AND (p_data_inicio <= data_termino AND p_data_fim >= data_inicio);
+          
+        IF v_conflitos > 0 THEN
+            RETURN 'N'; -- Ocupado
+        ELSE
+            RETURN 'S'; -- Livre
+        END IF;
+    END fn_estudio_livre;
+END pkg_gestao_agenda;
+/
+
+-- ===========================================================================
+-- PACOTE PKG_ALMOXARIFADO_SET (Logística)
+-- ===========================================================================
+CREATE OR REPLACE PACKAGE pkg_almoxarifado_set IS
+    -- procedure pra registrar devolução e mudar status
+    PROCEDURE pr_devolucao_equipamento(p_id_equipamento IN NUMBER, p_estado_devolucao IN VARCHAR2);
+END pkg_almoxarifado_set;
+/
+
+CREATE OR REPLACE PACKAGE BODY pkg_almoxarifado_set IS
+    PROCEDURE pr_devolucao_equipamento(p_id_equipamento IN NUMBER, p_estado_devolucao IN VARCHAR2) IS
+    BEGIN
+        -- atualiza a tabela 'aloca' com o estado que o equipamento voltou
+        UPDATE aloca
+        SET estado_conservacao = p_estado_devolucao
+        WHERE id_equipamento = p_id_equipamento;
+    END pr_devolucao_equipamento;
+END pkg_almoxarifado_set;
+/
+
+-- ===========================================================================
+-- PACOTE PKG_ORCAMENTO_PRODUCAO (Controle Financeiro)
+-- ===========================================================================
+CREATE OR REPLACE PACKAGE pkg_orcamento_producao IS
+    --função que soma os salários dos atores de um filme
+    FUNCTION fn_custo_total_atores(p_id_filme IN NUMBER) RETURN NUMBER;
+END pkg_orcamento_producao;
+/
+
+CREATE OR REPLACE PACKAGE BODY pkg_orcamento_producao IS
+    FUNCTION fn_custo_total_atores(p_id_filme IN NUMBER) RETURN NUMBER IS
+        v_total_cache NUMBER(12,2) := 0;
+    BEGIN
+        SELECT NVL(SUM(cache_ator), 0) INTO v_total_cache
+        FROM ator_filme
+        WHERE id_filme = p_id_filme;
+        
+        RETURN v_total_cache;
+    END fn_custo_total_atores;
+END pkg_orcamento_producao;
+/
+
+-- ===========================================================================
+-- PACOTE PKG_CONTINUIDADE_ARTE (Guarda-Roupa)
+-- ===========================================================================
+CREATE OR REPLACE PACKAGE pkg_continuidade_arte IS
+    --procedure que clona um figurino para um dublê de ação
+    PROCEDURE pr_duplicar_figurino_duble(p_id_figurino_original IN NUMBER, p_novo_id OUT NUMBER);
+END pkg_continuidade_arte;
+/
+
+CREATE OR REPLACE PACKAGE BODY pkg_continuidade_arte IS
+    PROCEDURE pr_duplicar_figurino_duble(p_id_figurino_original IN NUMBER, p_novo_id OUT NUMBER) IS
+        v_tamanho VARCHAR2(3);
+        v_descricao VARCHAR2(100);
+        v_cpf_ator VARCHAR2(14);
+        v_id_filme NUMBER;
+    BEGIN
+        -- puxa os dados originais
+        SELECT tamanho, descricao, cpf_ator_vestido, id_filme_vestido 
+        INTO v_tamanho, v_descricao, v_cpf_ator, v_id_filme
+        FROM figurino WHERE id_figurino = p_id_figurino_original;
+        
+        -- insere a cópia com um aviso na descrição
+        INSERT INTO figurino (id_figurino, tamanho, descricao, cpf_ator_vestido, id_filme_vestido)
+        VALUES (seq_figurino.NEXTVAL, v_tamanho, v_descricao || ' [CÓPIA DUBLÊ]', v_cpf_ator, v_id_filme)
+        RETURNING id_figurino INTO p_novo_id; -- Retorna o ID gerado pelo OUT
+    END pr_duplicar_figurino_duble;
+END pkg_continuidade_arte;
+/
+
+-- ===========================================================================
+-- TRIGGER DE COMANDO (STATEMENT LEVEL): SEGURANÇA ELENCO
+-- Impede demissão em massa ou exclusão de elenco fora de expediente.
+-- ===========================================================================
+CREATE OR REPLACE TRIGGER trg_seguranca_elenco
+BEFORE DELETE ON ator_filme
+BEGIN
+    IF TO_CHAR(SYSDATE, 'HH24') NOT BETWEEN '08' AND '18' THEN
+        RAISE_APPLICATION_ERROR(-20001, 'Acesso Negado: Deleções no casting só permitidas em horário comercial.');
+    END IF;
+END;
+/
+
+-- ===========================================================================
+-- TRIGGER DE LINHA (ROW LEVEL): AUDITA CACHÊ
+-- Regra sindical: O cachê nunca pode ser atualizado para um valor menor.
+-- ===========================================================================
+CREATE OR REPLACE TRIGGER trg_audita_cache
+BEFORE UPDATE OF cache_ator ON ator_filme
+FOR EACH ROW
+BEGIN
+    IF :NEW.cache_ator < :OLD.cache_ator THEN
+        RAISE_APPLICATION_ERROR(-20002, 'Violação Sindical: Proibido reduzir o cachê de um ator contratado.');
+    END IF;
+END;
+/
+
+-- BLOCO ANÔNIMO
+DECLARE
+    -- USO DE RECORD (Customizado para o Relatório)
+    TYPE rec_relatorio_filme IS RECORD (
+        id_filme    filme.id_filme%TYPE,
+        titulo      filme.titulo%TYPE,
+        ano         filme.ano_lancamento%TYPE
+    );
+
+    -- USO DE ESTRUTURA DE DADOS DO TIPO TABLE (Criação do Array/Coleção)
+    TYPE tab_filmes_prod IS TABLE OF rec_relatorio_filme INDEX BY PLS_INTEGER;
+    
+    -- Declarando a variável que vai guardar a lista de filmes na memória
+    v_lista_filmes tab_filmes_prod;
+    
+    v_estudio_info estudio%ROWTYPE;
+    v_contador  NUMBER := 1;
+    v_classificacao VARCHAR2(50);
+    
+    -- CURSOR (OPEN, FETCH e CLOSE)
+    CURSOR c_fornecedores IS SELECT razao_social, cnpj_fornecedor FROM fornecedor;
+    v_nome_forn fornecedor.razao_social%TYPE;
+    v_cnpj_forn fornecedor.cnpj_fornecedor%TYPE;
+
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('==============================================');
+    DBMS_OUTPUT.PUT_LINE('   RELATÓRIO EXECUTIVO - PRODUTORA DE FILMES  ');
+    DBMS_OUTPUT.PUT_LINE('==============================================');
+
+    -- SELECT … INTO
+    SELECT * INTO v_estudio_info 
+    FROM estudio 
+    WHERE num_id_estudio = 1;
+    
+    DBMS_OUTPUT.PUT_LINE('>>> ANÁLISE DO ESTÚDIO PRINCIPAL: ' || v_estudio_info.nome_estudio);
+
+    -- IF ELSIF
+    IF v_estudio_info.tem_chroma_key = 'S' THEN
+        DBMS_OUTPUT.PUT_LINE('    Status: Habilitado para Efeitos Especiais (CGI).');
+    ELSIF v_estudio_info.metragem > 800 THEN
+        DBMS_OUTPUT.PUT_LINE('    Status: Estúdio Amplo - Ideal para Construção de Sets.');
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('    Status: Estúdio Físico Padrão.');
+    END IF;
+
+    DBMS_OUTPUT.PUT_LINE('----------------------------------------------');
+    DBMS_OUTPUT.PUT_LINE('>>> CLASSIFICAÇÃO DOS PRÓXIMOS PROJETOS');
+
+    -- FOR IN LOOP 
+    FOR r_filme IN (SELECT titulo, ano_lancamento, classificacao_indicativa FROM filme WHERE ROWNUM <= 5) LOOP
+        
+        -- CASE WHEN
+        CASE r_filme.classificacao_indicativa
+            WHEN 'L'  THEN v_classificacao := 'Público: Família';
+            WHEN '18' THEN v_classificacao := 'Público: Adulto';
+            ELSE           v_classificacao := 'Público: Restrito ' || r_filme.classificacao_indicativa || ' anos';
+        END CASE;
+        
+        DBMS_OUTPUT.PUT_LINE('    Filme: ' || r_filme.titulo || ' | ' || v_classificacao);
+    END LOOP;
+
+    DBMS_OUTPUT.PUT_LINE('----------------------------------------------');
+    DBMS_OUTPUT.PUT_LINE('>>> AUDITORIA DE PARCEIROS (LOGÍSTICA)');
+
+    -- manipulação do Cursor
+    OPEN c_fornecedores;
+    LOOP
+        FETCH c_fornecedores INTO v_nome_forn, v_cnpj_forn;
+        EXIT WHEN c_fornecedores%NOTFOUND;
+        
+        DBMS_OUTPUT.PUT_LINE('    Fornecedor Ativo: ' || v_nome_forn || ' (CNPJ: ' || v_cnpj_forn || ')');
+    END LOOP;
+    CLOSE c_fornecedores;
+
+    DBMS_OUTPUT.PUT_LINE('----------------------------------------------');
+    DBMS_OUTPUT.PUT_LINE('>>> LEITURA DE DADOS NA MEMÓRIA (LANÇAMENTOS)');
+
+    -- Pega os filmes de 2025 no banco e joga TODOS de uma vez na estrutura TABLE (v_lista_filmes)
+    SELECT id_filme, titulo, ano_lancamento 
+    BULK COLLECT INTO v_lista_filmes 
+    FROM filme 
+    WHERE ano_lancamento >= 2025;
+
+    -- WHILE LOOP
+    -- Usado de forma legítima para percorrer os índices da Coleção que está na memória!
+    v_contador := 1;
+    WHILE v_contador <= v_lista_filmes.COUNT LOOP
+        DBMS_OUTPUT.PUT_LINE('    Foco de Lançamento: ' || v_lista_filmes(v_contador).titulo || ' (' || v_lista_filmes(v_contador).ano || ')');
+        v_contador := v_contador + 1;
+    END LOOP;
+
+    -- Forçando um erro proposital de divisão por zero
+    v_contador := 500 / 0;
+
+EXCEPTION
+    -- EXCEPTION WHEN
+    WHEN ZERO_DIVIDE THEN
+        DBMS_OUTPUT.PUT_LINE('----------------------------------------------');
+        DBMS_OUTPUT.PUT_LINE('[!] SISTEMA: Simulação de cálculo de orçamento interrompida (Divisão por Zero).');
+    WHEN NO_DATA_FOUND THEN
+        DBMS_OUTPUT.PUT_LINE('[!] SISTEMA: Dados solicitados não encontrados no banco.');
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('[!] ERRO CRÍTICO: ' || SQLERRM);
+END;
+/
